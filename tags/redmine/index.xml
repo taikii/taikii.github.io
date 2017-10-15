@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redmine on The Wonderful Similar Posts</title>
+    <link>https://taikii.github.io/tags/redmine/</link>
+    <description>Recent content in Redmine on The Wonderful Similar Posts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 22:56:54 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.github.io/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redmine Mermaid Macro Plugin</title>
+      <link>https://taikii.github.io/posts/2017/10/redmine-mermaid-macro-plugin/</link>
+      <pubDate>Sun, 15 Oct 2017 22:56:54 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/10/redmine-mermaid-macro-plugin/</guid>
+      <description>&lt;p&gt;Redmine上で&lt;code&gt;mermaid.js&lt;/code&gt;を実行するプラグインを作りました。
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

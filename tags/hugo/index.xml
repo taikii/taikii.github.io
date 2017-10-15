@@ -14,10 +14,10 @@
     
     <item>
       <title>Jekyllに対するHugoの優位点</title>
-      <link>https://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</link>
+      <link>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</guid>
+      <guid>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</guid>
       <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。
 &lt;/p&gt;</description>
     </item>

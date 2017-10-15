@@ -14,10 +14,10 @@
     
     <item>
       <title>マージコミットを削除する</title>
-      <link>https://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</link>
+      <link>https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/</link>
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</guid>
+      <guid>https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/</guid>
       <description>&lt;p&gt;マージコミットを&lt;code&gt;git reset&lt;/code&gt;したらどうなるの？
 &lt;/p&gt;</description>
     </item>
