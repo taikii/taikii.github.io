@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/posts/2017/1002-doctype/</loc>
+    <lastmod>2017-10-02T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/posts/2017/1001-semantics/</loc>
+    <lastmod>2017-10-01T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</loc>
+    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/git/</loc>
+    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/github/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/html5/</loc>
+    <lastmod>2017-10-02T00:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/hugo/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/jekyll/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/posts/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/</loc>
+    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://taikii.github.io/tags/til/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

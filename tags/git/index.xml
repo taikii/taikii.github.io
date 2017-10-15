@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on The Wonderful Similar Posts</title>
+    <link>http://taikii.github.io/tags/git/</link>
+    <description>Recent content in Git on The Wonderful Similar Posts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
+    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://taikii.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>マージコミットを削除する</title>
+      <link>http://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
+      
+      <guid>http://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</guid>
+      <description>&lt;p&gt;マージコミットを&lt;code&gt;git reset&lt;/code&gt;したらどうなるの？
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
