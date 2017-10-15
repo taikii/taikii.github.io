@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The Wonderful Similar Posts</title>
-    <link>http://taikii.github.io/tags/</link>
+    <link>https://taikii.github.io/tags/</link>
     <description>Recent content in Tags on The Wonderful Similar Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
     <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="http://taikii.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git</title>
-      <link>http://taikii.github.io/tags/git/</link>
+      <link>https://taikii.github.io/tags/git/</link>
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/git/</guid>
+      <guid>https://taikii.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>http://taikii.github.io/tags/github/</link>
+      <link>https://taikii.github.io/tags/github/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/github/</guid>
+      <guid>https://taikii.github.io/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Html5</title>
-      <link>http://taikii.github.io/tags/html5/</link>
+      <link>https://taikii.github.io/tags/html5/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/html5/</guid>
+      <guid>https://taikii.github.io/tags/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>http://taikii.github.io/tags/hugo/</link>
+      <link>https://taikii.github.io/tags/hugo/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/hugo/</guid>
+      <guid>https://taikii.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jekyll</title>
-      <link>http://taikii.github.io/tags/jekyll/</link>
+      <link>https://taikii.github.io/tags/jekyll/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/jekyll/</guid>
+      <guid>https://taikii.github.io/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Til</title>
-      <link>http://taikii.github.io/tags/til/</link>
+      <link>https://taikii.github.io/tags/til/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>http://taikii.github.io/tags/til/</guid>
+      <guid>https://taikii.github.io/tags/til/</guid>
       <description></description>
     </item>
     

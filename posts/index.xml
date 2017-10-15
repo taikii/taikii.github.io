@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on The Wonderful Similar Posts</title>
-    <link>http://taikii.github.io/posts/</link>
+    <link>https://taikii.github.io/posts/</link>
     <description>Recent content in Posts on The Wonderful Similar Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
     <lastBuildDate>Fri, 13 Oct 2017 00:30:12 +0900</lastBuildDate>
     
-	<atom:link href="http://taikii.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Jekyllに対するHugoの優位点</title>
-      <link>http://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</link>
+      <link>https://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>http://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</guid>
+      <guid>https://taikii.github.io/posts/2017/1013-jekyll_vs_hugo/</guid>
       <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>HTML5のDOCTYPE宣言は&lt;!DOCTYPE html&gt;か&lt;!doctype html&gt;か</title>
-      <link>http://taikii.github.io/posts/2017/1002-doctype/</link>
+      <link>https://taikii.github.io/posts/2017/1002-doctype/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>http://taikii.github.io/posts/2017/1002-doctype/</guid>
+      <guid>https://taikii.github.io/posts/2017/1002-doctype/</guid>
       <description>&lt;p&gt;正しいHTML5を書こうとしていろんなサイトのソースを見ていたところ、Googleの多くは小文字の&lt;code&gt;&amp;lt;!doctype html&amp;gt;&lt;/code&gt;だったので違いを調べてみました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>セマンティックなマークアップ</title>
-      <link>http://taikii.github.io/posts/2017/1001-semantics/</link>
+      <link>https://taikii.github.io/posts/2017/1001-semantics/</link>
       <pubDate>Sun, 01 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>http://taikii.github.io/posts/2017/1001-semantics/</guid>
+      <guid>https://taikii.github.io/posts/2017/1001-semantics/</guid>
       <description>&lt;p&gt;HTML5で追加された代表的な要素をメモ。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>マージコミットを削除する</title>
-      <link>http://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</link>
+      <link>https://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</link>
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
       
-      <guid>http://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</guid>
+      <guid>https://taikii.github.io/posts/2017/0929-posts-delete-merge-commit/</guid>
       <description>&lt;p&gt;マージコミットを&lt;code&gt;git reset&lt;/code&gt;したらどうなるの？
 &lt;/p&gt;</description>
     </item>
