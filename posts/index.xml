@@ -33,6 +33,16 @@
     </item>
     
     <item>
+      <title>Build Site by Hugo</title>
+      <link>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</link>
+      <pubDate>Fri, 13 Oct 2017 00:25:05 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</guid>
+      <description>&lt;p&gt;静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>HTML5のDOCTYPE宣言は&lt;!DOCTYPE html&gt;か&lt;!doctype html&gt;か</title>
       <link>https://taikii.github.io/posts/2017/10/doctype/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0900</pubDate>
