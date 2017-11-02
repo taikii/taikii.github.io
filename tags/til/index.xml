@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Fri, 13 Oct 2017 00:30:12 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Nov 2017 22:23:47 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/tags/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Auto Deploy Hugo by Circle CI 2.0</title>
+      <link>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</link>
+      <pubDate>Wed, 01 Nov 2017 22:23:47 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
+      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.github.io/posts/2017/10/build-site-by-hugo&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Jekyllに対するHugoの優位点</title>

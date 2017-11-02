@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</loc>
     <lastmod>2017-10-17T00:25:05+09:00</lastmod>
   </url>
@@ -38,6 +43,12 @@
   </url>
   
   <url>
+    <loc>https://taikii.github.io/tags/circle-ci/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.github.io/tags/git/</loc>
     <lastmod>2017-09-29T00:00:00+09:00</lastmod>
     <priority>0</priority>
@@ -57,7 +68,7 @@
   
   <url>
     <loc>https://taikii.github.io/tags/hugo/</loc>
-    <lastmod>2017-10-17T00:25:05+09:00</lastmod>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -69,7 +80,7 @@
   
   <url>
     <loc>https://taikii.github.io/posts/</loc>
-    <lastmod>2017-10-17T00:25:05+09:00</lastmod>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -81,19 +92,19 @@
   
   <url>
     <loc>https://taikii.github.io/</loc>
-    <lastmod>2017-10-17T00:25:05+09:00</lastmod>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.github.io/tags/</loc>
-    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.github.io/tags/til/</loc>
-    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
