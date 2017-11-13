@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/</loc>
+    <lastmod>2017-11-12T23:14:22+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</loc>
     <lastmod>2017-11-01T22:23:47+09:00</lastmod>
   </url>
@@ -80,7 +85,7 @@
   
   <url>
     <loc>https://taikii.github.io/posts/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <lastmod>2017-11-12T23:14:22+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -98,13 +103,13 @@
   
   <url>
     <loc>https://taikii.github.io/tags/til/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <lastmod>2017-11-12T23:14:22+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.github.io/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <lastmod>2017-11-12T23:14:22+09:00</lastmod>
     <priority>0</priority>
   </url>
   

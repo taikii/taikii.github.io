@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Wed, 01 Nov 2017 22:23:47 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 Nov 2017 23:14:22 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>バージョン1709時代のWSLリフレッシュ</title>
+      <link>https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/</link>
+      <pubDate>Sun, 12 Nov 2017 23:14:22 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/</guid>
+      <description>&lt;p&gt;Windows 10 Fall Creators Update（バージョン&lt;code&gt;1709&lt;/code&gt;） において、Windows Subsystem for Linux（以下WSL）のアンインストールで少しハマりました。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Auto Deploy Hugo by Circle CI 2.0</title>
