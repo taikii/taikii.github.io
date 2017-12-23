@@ -43,8 +43,11 @@
   </url>
   
   <url>
-    <loc>https://taikii.github.io/categories/</loc>
-    <priority>0</priority>
+    <loc>https://taikii.github.io/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://taikii.github.io/about/</loc>
   </url>
   
   <url>
@@ -78,6 +81,12 @@
   </url>
   
   <url>
+    <loc>https://taikii.github.io/series/hugo-%E6%A7%8B%E7%AF%89/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.github.io/tags/jekyll/</loc>
     <lastmod>2017-10-13T00:30:12+09:00</lastmod>
     <priority>0</priority>
@@ -92,6 +101,12 @@
   <url>
     <loc>https://taikii.github.io/tags/redmine/</loc>
     <lastmod>2017-10-15T22:56:54+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.github.io/series/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
