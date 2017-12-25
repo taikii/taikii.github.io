@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Sun, 12 Nov 2017 23:14:22 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2017 23:39:49 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo Theme Whiteplain</title>
+      <link>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</link>
+      <pubDate>Mon, 25 Dec 2017 23:39:49 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</guid>
+      <description>&lt;p&gt;他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、&lt;a href=&#34;https://themes.gohugo.io/whiteplain/&#34;&gt;Whiteplain&lt;/a&gt;というHugoテーマを作りました。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>バージョン1709時代のWSLリフレッシュ</title>

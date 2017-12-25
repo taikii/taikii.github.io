@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>マージコミットを削除する - taikii blog</title>
-  <meta property="og:title" content="マージコミットを削除する - taikii blog" />
-  <meta name="twitter:title" content="マージコミットを削除する - taikii blog" />
-  <meta name="description" content="マージコミットをgit resetしたらどうなるの？
+  <title>Hugo Theme Whiteplain - taikii blog</title>
+  <meta property="og:title" content="Hugo Theme Whiteplain - taikii blog" />
+  <meta name="twitter:title" content="Hugo Theme Whiteplain - taikii blog" />
+  <meta name="description" content="他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、WhiteplainというHugoテーマを作りました。
 ">
-  <meta property="og:description" content="マージコミットをgit resetしたらどうなるの？
+  <meta property="og:description" content="他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、WhiteplainというHugoテーマを作りました。
 ">
-  <meta name="twitter:description" content="マージコミットをgit resetしたらどうなるの？
+  <meta name="twitter:description" content="他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、WhiteplainというHugoテーマを作りました。
 ">
   <meta name="author" content="Taiki IKEGAME"/>
   <meta property="og:site_name" content="taikii blog" />
-  <meta property="og:url" content="https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/" />
+  <meta property="og:url" content="https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/" />
   <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.31.1" />
   <link rel="stylesheet" href="https://taikii.github.io/css/style.css" media="all" />
@@ -39,54 +41,41 @@
 
   <div class="main" role="main">
     <article class="article">
+      <img src="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" class="article-image" />
       
-      
-      <h1 class="article-title">マージコミットを削除する</h1>
+      <h1 class="article-title">Hugo Theme Whiteplain</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
-        <li class="article-meta-date"><time>September 29, 2017</time></li>
+        <li class="article-meta-date"><time>December 25, 2017</time></li>
         <li class="article-meta-tags">
-          <a href="/tags/til/">
+          <a href="/tags/hugo/">
             <svg class="icon"><use xlink:href="https://taikii.github.io/images/fa-solid.svg#tag"></use></svg>
-            TIL
-          </a>&nbsp;
-        </li>
-        <li class="article-meta-tags">
-          <a href="/tags/git/">
-            <svg class="icon"><use xlink:href="https://taikii.github.io/images/fa-solid.svg#tag"></use></svg>
-            Git
+            Hugo
           </a>&nbsp;
         </li>
       </ul>
       
-      <p>マージコミットを<code>git reset</code>したらどうなるの？
+      <p>他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、<a href="https://themes.gohugo.io/whiteplain/">Whiteplain</a>というHugoテーマを作りました。
 </p>
 
-<p>例えば以下のようにマージ済みのコミットがあり、マージ前のブランチを消している状態として、</p>
+<p>目的としては自分用に作ったのでこのサイトで使っています。</p>
 
-<pre><code>* 3333333 master
-|\
-| * 22222222
-|/
-* 1111111
-</code></pre>
+<p>Whiteplainの特徴としては以下のような感じです。</p>
 
-<p>マージ先間違えた！みたいな感じで、そのまま<code>git reset --soft HEAD^</code>しちゃうと、</p>
+<ol>
+<li>白い（エンジニアがデザインすると白か黒になる不思議）</li>
+<li>アーカイブページ</li>
+<li>記事をシリーズ化できる（Taxonomy）</li>
+</ol>
 
-<pre><code>* 3333333 master
-|
-* 1111111
-</code></pre>
+<p>いろんなテーマを拝見して<del>パク</del>参考にさせていただきました。</p>
 
-<p>こうなってしまう。</p>
+<p>まともにHTML5を触ったことがなかったので、HTML5の勉強という側面もあります。</p>
 
-<p>このため、マージコミットを削除する時は、マージ前のコミットにブランチを付け直しましょう。</p>
+<p>もし気に入ってくれる方がいらっしゃればご利用いただけると幸いです。</p>
 
-<pre><code>git checkout -b topic.revive 2222222
-</code></pre>
-
-<p>ただし、gitの世界では、<code>git reset</code>や<code>git rebase</code>しても、該当のコミットは残っているそうなので、マージコミット削除後でも、コミットIDさえ覚えていれば、そこからブランチを復旧できる・・・ハズ。</p>
+<p>PullReq大歓迎。</p>
     </article>
 
     
@@ -95,7 +84,7 @@
     <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </li>
   <li>
-    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -141,10 +130,10 @@
     </div>
 
     <ul class="pager article-pager">
-      <li class="pager-newer">
-          <a href="https://taikii.github.io/posts/2017/10/semantics/" data-toggle="tooltip" data-placement="top" title="セマンティックなマークアップ">&lt; Newer</a>
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/" data-toggle="tooltip" data-placement="top" title="バージョン1709時代のWSLリフレッシュ">Older &gt;</a>
       </li>
-      <li class="pager-older pager-noitem">Older &gt;</li>
     </ul>
   </div>
 
