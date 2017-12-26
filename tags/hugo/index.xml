@@ -18,7 +18,7 @@
       <pubDate>Mon, 25 Dec 2017 23:39:49 +0900</pubDate>
       
       <guid>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</guid>
-      <description>&lt;p&gt;他の方が作ったテーマを使うのは、やはりエンジニアとしてだめなんじゃないかと思いたち、&lt;a href=&#34;https://themes.gohugo.io/whiteplain/&#34;&gt;Whiteplain&lt;/a&gt;というHugoテーマを作りました。
+      <description>&lt;p&gt;他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、&lt;a href=&#34;https://themes.gohugo.io/whiteplain/&#34;&gt;Whiteplain&lt;/a&gt;というHugoテーマを作りました。
 &lt;/p&gt;</description>
     </item>
     
@@ -28,7 +28,7 @@
       <pubDate>Wed, 01 Nov 2017 22:23:47 +0900</pubDate>
       
       <guid>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
-      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.github.io/posts/2017/10/build-site-by-hugo&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
+      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.github.io/posts/2017/10/build-site-by-hugo/&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
 &lt;/p&gt;</description>
     </item>
     
