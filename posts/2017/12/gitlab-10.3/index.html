@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Hugo Theme Whiteplain - taikii blog</title>
-  <meta property="og:title" content="Hugo Theme Whiteplain - taikii blog" />
-  <meta name="twitter:title" content="Hugo Theme Whiteplain - taikii blog" />
-  <meta name="description" content="他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、WhiteplainというHugoテーマを作りました。
+  <title>GitlabがMermaidをサポートした話 - taikii blog</title>
+  <meta property="og:title" content="GitlabがMermaidをサポートした話 - taikii blog" />
+  <meta name="twitter:title" content="GitlabがMermaidをサポートした話 - taikii blog" />
+  <meta name="description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
 ">
-  <meta property="og:description" content="他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、WhiteplainというHugoテーマを作りました。
+  <meta property="og:description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
 ">
-  <meta name="twitter:description" content="他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、WhiteplainというHugoテーマを作りました。
+  <meta name="twitter:description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
 ">
   <meta name="author" content="Taiki IKEGAME"/>
   <meta property="og:site_name" content="taikii blog" />
-  <meta property="og:url" content="/posts/2017/12/hugo-theme-whiteplain/" />
+  <meta property="og:url" content="/posts/2017/12/gitlab-10.3/" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.31.1" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -41,39 +39,31 @@
 
   <div class="main" role="main">
     <article class="article">
-      <img src="https://raw.githubusercontent.com/taikii/whiteplain/master/images/screenshot.png" class="article-image" />
       
-      <h1 class="article-title">Hugo Theme Whiteplain</h1>
+      
+      <h1 class="article-title">GitlabがMermaidをサポートした話</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
-        <li class="article-meta-date"><time>December 25, 2017</time></li>
+        <li class="article-meta-date"><time>December 28, 2017</time></li>
         <li class="article-meta-tags">
-          <a href="/tags/hugo/">
+          <a href="/tags/gitlab/">
             <svg class="icon"><use xlink:href="/images/fa-solid.svg#tag"></use></svg>
-            Hugo
+            GitLab
           </a>&nbsp;
         </li>
       </ul>
       
-      <p>他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、<a href="https://themes.gohugo.io/whiteplain/">Whiteplain</a>というHugoテーマを作りました。
+      <p>先日<a href="https://about.gitlab.com/2017/12/22/gitlab-10-3-released/">GitLab 10.3</a>がリリースされましたが、その中でMermaidをサポートされるようになりました。
 </p>
 
-<p>Whiteplainの特徴としては以下のような感じです。</p>
+<p><a href="https://mermaidjs.github.io/">Mermaid</a>はJavaScriptのチャートを作成できるライブラリで、私はこれを気に入ってよく使っています。以前<a href="/posts/2017/10/redmine-mermaid-macro-plugin/">RedmineのMermaidプラグイン</a>を作ったりしました。</p>
 
-<ol>
-<li>白い（エンジニアがデザインすると白か黒になる不思議）</li>
-<li>アーカイブページ</li>
-<li>記事をシリーズ化できる（Taxonomy）</li>
-</ol>
+<p>GitLabは以前よりPlantUMLをサポートしていましたが、私はUMLに準拠したドキュメントを書ことがほとんどないので、UMLとはいえないゆるい図を書けるMermaidはすごく重宝しています。見た目もきれいですしね。</p>
 
-<p>いろんなテーマを拝見して<del>パク</del>参考にさせていただきました。</p>
+<p>また、AtomにはMermaidグラフを書くことができるパッケージ（<a href="https://atom.io/packages/markdown-preview-enhanced">Markdown Preview Enhanced</a>とか）もあるので、AtomでMermaid入りのMarkdownを書いて、それがGitLab上でも同じように見えるのは嬉しいですね。</p>
 
-<p>まともにHTML5を触ったことがなかったので、HTML5の勉強も兼ねてます。</p>
-
-<p>自分用に作ったものなので至らない点があるかと思いますが、もし気に入っていただけるのであれば、ぜひ使ってやってください。</p>
-
-<p>PullReq大歓迎。</p>
+<p>しかし、GitLabの開発ペースは本当に速いなぁ。</p>
     </article>
 
     
@@ -82,7 +72,7 @@
     <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </li>
   <li>
-    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2017/12/gitlab-10.3/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -128,11 +118,9 @@
     </div>
 
     <ul class="pager article-pager">
-      <li class="pager-newer">
-          <a href="/posts/2017/12/gitlab-10.3/" data-toggle="tooltip" data-placement="top" title="GitlabがMermaidをサポートした話">&lt; Newer</a>
-      </li>
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
       <li class="pager-older">
-        <a href="/posts/2017/11/refresh-wsl-on-1709/" data-toggle="tooltip" data-placement="top" title="バージョン1709時代のWSLリフレッシュ">Older &gt;</a>
+        <a href="/posts/2017/12/hugo-theme-whiteplain/" data-toggle="tooltip" data-placement="top" title="Hugo Theme Whiteplain">Older &gt;</a>
       </li>
     </ul>
   </div>

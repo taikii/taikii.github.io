@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Mon, 25 Dec 2017 23:39:49 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 28 Dec 2017 23:44:02 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitlabがMermaidをサポートした話</title>
+      <link>https://taikii.github.io/posts/2017/12/gitlab-10.3/</link>
+      <pubDate>Thu, 28 Dec 2017 23:44:02 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2017/12/gitlab-10.3/</guid>
+      <description>&lt;p&gt;先日&lt;a href=&#34;https://about.gitlab.com/2017/12/22/gitlab-10-3-released/&#34;&gt;GitLab 10.3&lt;/a&gt;がリリースされましたが、その中でMermaidをサポートされるようになりました。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugo Theme Whiteplain</title>
