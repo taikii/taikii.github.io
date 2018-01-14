@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Thu, 28 Dec 2017 23:44:02 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2018 00:04:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redmine is Dead</title>
+      <link>https://taikii.github.io/posts/2018/01/redmine-is-dead/</link>
+      <pubDate>Mon, 15 Jan 2018 00:04:00 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2018/01/redmine-is-dead/</guid>
+      <description>&lt;p&gt;ぶっちゃけ、私も &amp;ldquo;XX is Dead&amp;rdquo; という記事を書いてみたかっただけです。はい。&lt;/p&gt;
+
+&lt;p&gt;私は&lt;strong&gt;まだ&lt;/strong&gt;Redmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。&lt;/p&gt;
+
+&lt;p&gt;ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。&lt;/p&gt;
+
+&lt;p&gt;なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GitlabがMermaidをサポートした話</title>
