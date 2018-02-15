@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>セマンティックなマークアップ - taikii blog</title>
-  <meta property="og:title" content="セマンティックなマークアップ - taikii blog" />
-  <meta name="twitter:title" content="セマンティックなマークアップ - taikii blog" />
-  <meta name="description" content="HTML5で追加された代表的な要素をメモ。
+  <title>Markdownでリンクを定義して使いまわす - taikii blog</title>
+  <meta property="og:title" content="Markdownでリンクを定義して使いまわす - taikii blog" />
+  <meta name="twitter:title" content="Markdownでリンクを定義して使いまわす - taikii blog" />
+  <meta name="description" content="先日、たまたまJeninsのREADME.mdのRAWデータを見ていたら、ロゴの部分が[![][ButlerImage]][website]と書かれていました。
+
 ">
-  <meta property="og:description" content="HTML5で追加された代表的な要素をメモ。
+  <meta property="og:description" content="先日、たまたまJeninsのREADME.mdのRAWデータを見ていたら、ロゴの部分が[![][ButlerImage]][website]と書かれていました。
+
 ">
-  <meta name="twitter:description" content="HTML5で追加された代表的な要素をメモ。
+  <meta name="twitter:description" content="先日、たまたまJeninsのREADME.mdのRAWデータを見ていたら、ロゴの部分が[![][ButlerImage]][website]と書かれていました。
+
 ">
   <meta name="author" content="Taiki IKEGAME"/>
   <meta property="og:site_name" content="taikii blog" />
-  <meta property="og:url" content="/posts/2017/10/semantics/" />
+  <meta property="og:url" content="/posts/2018/02/markdown-link-reference-definition/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.36" />
@@ -41,45 +44,43 @@
     <article class="article">
       
       
-      <h1 class="article-title">セマンティックなマークアップ</h1>
+      <h1 class="article-title">Markdownでリンクを定義して使いまわす</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
-        <li class="article-meta-date"><time>October 1, 2017</time></li>
+        <li class="article-meta-date"><time>February 15, 2018</time></li>
         <li class="article-meta-tags">
-          <a href="/tags/til/">
+          <a href="/tags/markdown/">
             <svg class="icon"><use xlink:href="/images/fa-solid.svg#tag"></use></svg>
-            TIL
-          </a>&nbsp;
-        </li>
-        <li class="article-meta-tags">
-          <a href="/tags/html5/">
-            <svg class="icon"><use xlink:href="/images/fa-solid.svg#tag"></use></svg>
-            HTML5
+            Markdown
           </a>&nbsp;
         </li>
       </ul>
       
-      <p>HTML5で追加された代表的な要素をメモ。
-</p>
+      <p>先日、たまたま<a href="https://github.com/jenkinsci/jenkins/blob/master/README.md">JeninsのREADME.md</a>のRAWデータを見ていたら、ロゴの部分が<code>[![][ButlerImage]][website]</code>と書かれていました。</p>
 
-<h2 id="section">section</h2>
+<p></p>
 
-<p><code>section</code>タグは文書のセクションを明確にするためのもの。
-たくさん使う。</p>
+<p>初めてこの書き方を見たのでちょっとびっくりしたのですが、これはURLにラベルをつけて使い回しする方法のようでした。CommonMarkにも<a href="http://spec.commonmark.org/0.27/#link-reference-definition">Link reference definitions</a>として記述があります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-markdown" data-lang="markdown">[taikii-blog]: https://taikii.github.io<span class="err">
+</span><span class="err">
+</span><span class="err"></span>[taikii-blog] や taikii-blog と書くとリンクになる。</code></pre></td></tr></table>
+</div>
+</div>
+<p>[taikii-blog] や taikii-blog と書くとリンクになる。</p>
 
-<h2 id="article">article</h2>
+<p>少し調べたところ、このラベル定義は実装によって癖があるようです。</p>
 
-<p><code>article</code>タグは<code>section</code>と似ているが、<code>section</code>が汎用的なセクションを示すのに対し、その名の通り記事として完結しているものに使用される。ブログで言えば、記事の一覧ページでは各記事が<code>article</code>タグで囲まれており、一覧ページには複数の<code>article</code>要素が存在している。記事の詳細ページでは、ひとつの<code>article</code>要素が存在していることになる。</p>
+<ul>
+<li>GitHub、Qiita: ラベル定義はドキュメント上のどこでもOK</li>
+<li>GitLab、Redmine: ラベル定義は参照箇所より上に書く必要がある</li>
+</ul>
 
-<h2 id="header">header</h2>
-
-<p><code>head</code>タグではなく、<code>header</code>。一つのページにおけるヘッダー部分を表すことが多いみたい。<code>footer</code>タグと対で用いられることが多いと推測される。
-ちなみに、<code>main</code>タグがあったが、廃止された。</p>
-
-<h2 id="footer">footer</h2>
-
-<p><code>header</code>に対するページのフッタを表す。</p>
+<p>覚えておくと便利・・・いや、別に覚えなくていい気がします。使い所が謎。</p>
     </article>
 
     
@@ -88,7 +89,7 @@
     <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </li>
   <li>
-    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2017/10/semantics/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-share-button" data-href="https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -134,11 +135,9 @@
     </div>
 
     <ul class="pager article-pager">
-      <li class="pager-newer">
-          <a href="/posts/2017/10/doctype/" data-toggle="tooltip" data-placement="top" title="HTML5のDOCTYPE宣言は&lt;!DOCTYPE html&gt;か&lt;!doctype html&gt;か">&lt; Newer</a>
-      </li>
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
       <li class="pager-older">
-        <a href="/posts/2017/09/posts-delete-merge-commit/" data-toggle="tooltip" data-placement="top" title="マージコミットを削除する">Older &gt;</a>
+        <a href="/posts/2018/01/redmine-is-dead/" data-toggle="tooltip" data-placement="top" title="Redmine is Dead">Older &gt;</a>
       </li>
     </ul>
   </div>

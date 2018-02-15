@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 Taiki IKEGAME</copyright>
-    <lastBuildDate>Mon, 15 Jan 2018 00:04:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 15 Feb 2018 11:16:56 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Markdownでリンクを定義して使いまわす</title>
+      <link>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</link>
+      <pubDate>Thu, 15 Feb 2018 11:16:56 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</guid>
+      <description>&lt;p&gt;先日、たまたま&lt;a href=&#34;https://github.com/jenkinsci/jenkins/blob/master/README.md&#34;&gt;JeninsのREADME.md&lt;/a&gt;のRAWデータを見ていたら、ロゴの部分が&lt;code&gt;[![][ButlerImage]][website]&lt;/code&gt;と書かれていました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Redmine is Dead</title>
