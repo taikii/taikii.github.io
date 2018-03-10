@@ -17,7 +17,7 @@
   <meta property="og:url" content="/posts/2017/11/refresh-wsl-on-1709/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.36.1" />
+  <meta name="generator" content="Hugo 0.37.1" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
   <link rel="stylesheet" href="/css/custom.css" media="all" />
@@ -121,13 +121,27 @@ Windows Subsystem for Linux でインストール、アンインストール操�
 
 <h2 id="tl-dr">TL;DR</h2>
 
-<p><strong>普通に「アプリと機能」上のUbuntuをアンインストールすればよかった</strong> のでした。</p>
+<p><del><strong>普通に「アプリと機能」上のUbuntuをアンインストールすればよかった</strong> のでした。</del> アンインストールする必要はなく、リセットという項目がありました。（<a href="#2018年3月8日追記">追記参照</a>）</p>
 
 <p>2017年4月リリースのCreators Update（バージョン<code>1703</code>）では<code>lxrun.exe</code>での操作だったようですが、<code>1709</code>ではWSLが正式版となり、Ubuntu他LinuxのインストールがMicrosoft Storeからのインストールとなったため、この操作となるようです。再度WSLをインストールする際はダウンロードから行う必要があります。</p>
 
 <p>わかってしまえばなんでそんなことでハマってたんだろうという結論でした。。。自分で考えずにGoogle先生に頼るのは良くないという教訓を学びました。（何回目だろうか・・・）</p>
 
 <p>もっとスマートなやり方をご存知でしたら教えていただけると嬉しいです。</p>
+
+<h2 id="2018年3月8日追記">2018年3月8日追記</h2>
+
+<p>「アプリと機能」をよく見ると、「詳細オプション」というリンクがあり、これをクリックすると「記憶域の使用状況とアプリのリセット」という画面が開き、そこに「リセット」というボタンがあります。</p>
+
+<p><img src="https://i.imgur.com/LkCoVR0.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/ykMkzR5.png" alt="Imgur" /></p>
+
+<p>このリセットをすると、初期状態に戻ります。</p>
+
+<p><img src="https://i.imgur.com/JUznZbb.png" alt="Imgur" /></p>
+
+<p>「詳細オプション」もボタンにしてアンインストールの横に並べてほしい。。。</p>
     </article>
 
     
