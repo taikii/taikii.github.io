@@ -20,7 +20,7 @@
   <meta property="og:url" content="/posts/2018/02/markdown-link-reference-definition/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.37.1" />
+  <meta name="generator" content="Hugo 0.40.2" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
   <link rel="stylesheet" href="/css/custom.css" media="all" />
@@ -64,14 +64,15 @@
 <p>初めてこの書き方を見たのでちょっとびっくりしたのですが、これはURLにラベルをつけて使い回しする方法のようでした。CommonMarkにも<a href="http://spec.commonmark.org/0.27/#link-reference-definition">Link reference definitions</a>として記述があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-markdown" data-lang="markdown">[taikii-blog]: https://taikii.github.io<span class="err">
-</span><span class="err">
-</span><span class="err"></span>[taikii-blog] や taikii-blog と書くとリンクになる。</code></pre></td></tr></table>
+</span><span class="err"></span>[taikii-blog] と書くとリンクになる。</code></pre></td></tr></table>
 </div>
 </div>
-<p>[taikii-blog] や taikii-blog と書くとリンクになる。</p>
+<p><a href="https://taikii.github.io">taikii-blog</a> と書くとリンクになる。</p>
 
 <p>少し調べたところ、このラベル定義は実装によって癖があるようです。</p>
 
@@ -81,6 +82,10 @@
 </ul>
 
 <p>覚えておくと便利・・・いや、別に覚えなくていい気がします。使い所が謎。</p>
+
+<h2 id="2018-05-01追記">2018/05/01追記</h2>
+
+<p>リンクになっていなかったので修正しました。</p>
     </article>
 
     
