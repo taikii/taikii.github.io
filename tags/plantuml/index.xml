@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plantuml on taikii blog</title>
+    <link>https://taikii.github.io/tags/plantuml/</link>
+    <description>Recent content in Plantuml on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Thu, 05 Jul 2018 21:43:58 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.github.io/tags/plantuml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redmineには2つのPlantUMLプラグインがある</title>
+      <link>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</link>
+      <pubDate>Thu, 05 Jul 2018 21:43:58 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</guid>
+      <description>&lt;p&gt;RedmineでPlantUMLを書くことのできるプラグインを2つ紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sat, 19 May 2018 10:40:48 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jul 2018 21:43:58 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redmineには2つのPlantUMLプラグインがある</title>
+      <link>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</link>
+      <pubDate>Thu, 05 Jul 2018 21:43:58 +0900</pubDate>
+      
+      <guid>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</guid>
+      <description>&lt;p&gt;RedmineでPlantUMLを書くことのできるプラグインを2つ紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Active Directoryのグループから1,500件を超えるメンバーを取得する方法（はもう考えなくていい）</title>
