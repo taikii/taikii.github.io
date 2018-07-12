@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gitlab on taikii blog</title>
-    <link>https://taikii.github.io/tags/gitlab/</link>
+    <link>https://taikii.net/tags/gitlab/</link>
     <description>Recent content in Gitlab on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
     <lastBuildDate>Mon, 15 Jan 2018 00:04:00 +0900</lastBuildDate>
     
-	<atom:link href="https://taikii.github.io/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.net/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redmine is Dead</title>
-      <link>https://taikii.github.io/posts/2018/01/redmine-is-dead/</link>
+      <link>https://taikii.net/posts/2018/01/redmine-is-dead/</link>
       <pubDate>Mon, 15 Jan 2018 00:04:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/01/redmine-is-dead/</guid>
+      <guid>https://taikii.net/posts/2018/01/redmine-is-dead/</guid>
       <description>&lt;p&gt;ぶっちゃけ、私も &amp;ldquo;XX is Dead&amp;rdquo; という記事を書いてみたかっただけです。はい。&lt;/p&gt;
 
 &lt;p&gt;私は&lt;strong&gt;まだ&lt;/strong&gt;Redmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>GitlabがMermaidをサポートした話</title>
-      <link>https://taikii.github.io/posts/2017/12/gitlab-10.3/</link>
+      <link>https://taikii.net/posts/2017/12/gitlab-10.3/</link>
       <pubDate>Thu, 28 Dec 2017 23:44:02 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/12/gitlab-10.3/</guid>
+      <guid>https://taikii.net/posts/2017/12/gitlab-10.3/</guid>
       <description>&lt;p&gt;先日&lt;a href=&#34;https://about.gitlab.com/2017/12/22/gitlab-10-3-released/&#34;&gt;GitLab 10.3&lt;/a&gt;がリリースされましたが、その中でMermaidをサポートされるようになりました。
 &lt;/p&gt;</description>
     </item>

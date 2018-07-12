@@ -2,130 +2,130 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on taikii blog</title>
-    <link>https://taikii.github.io/tags/</link>
+    <link>https://taikii.net/tags/</link>
     <description>Recent content in Tags on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
     <lastBuildDate>Sat, 19 May 2018 10:40:48 +0900</lastBuildDate>
     
-	<atom:link href="https://taikii.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Active Directory</title>
-      <link>https://taikii.github.io/tags/active-directory/</link>
+      <link>https://taikii.net/tags/active-directory/</link>
       <pubDate>Sat, 19 May 2018 10:40:48 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/active-directory/</guid>
+      <guid>https://taikii.net/tags/active-directory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Circle Ci</title>
-      <link>https://taikii.github.io/tags/circle-ci/</link>
+      <link>https://taikii.net/tags/circle-ci/</link>
       <pubDate>Wed, 01 Nov 2017 22:23:47 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/circle-ci/</guid>
+      <guid>https://taikii.net/tags/circle-ci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>https://taikii.github.io/tags/git/</link>
+      <link>https://taikii.net/tags/git/</link>
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/git/</guid>
+      <guid>https://taikii.net/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>https://taikii.github.io/tags/github/</link>
+      <link>https://taikii.net/tags/github/</link>
       <pubDate>Tue, 17 Oct 2017 00:25:05 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/github/</guid>
+      <guid>https://taikii.net/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gitlab</title>
-      <link>https://taikii.github.io/tags/gitlab/</link>
+      <link>https://taikii.net/tags/gitlab/</link>
       <pubDate>Mon, 15 Jan 2018 00:04:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/gitlab/</guid>
+      <guid>https://taikii.net/tags/gitlab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Html5</title>
-      <link>https://taikii.github.io/tags/html5/</link>
+      <link>https://taikii.net/tags/html5/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/html5/</guid>
+      <guid>https://taikii.net/tags/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://taikii.github.io/tags/hugo/</link>
+      <link>https://taikii.net/tags/hugo/</link>
       <pubDate>Mon, 25 Dec 2017 23:39:49 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/hugo/</guid>
+      <guid>https://taikii.net/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jekyll</title>
-      <link>https://taikii.github.io/tags/jekyll/</link>
+      <link>https://taikii.net/tags/jekyll/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/jekyll/</guid>
+      <guid>https://taikii.net/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ldap</title>
-      <link>https://taikii.github.io/tags/ldap/</link>
+      <link>https://taikii.net/tags/ldap/</link>
       <pubDate>Sat, 19 May 2018 10:40:48 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/ldap/</guid>
+      <guid>https://taikii.net/tags/ldap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown</title>
-      <link>https://taikii.github.io/tags/markdown/</link>
+      <link>https://taikii.net/tags/markdown/</link>
       <pubDate>Thu, 15 Feb 2018 11:16:56 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/markdown/</guid>
+      <guid>https://taikii.net/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Plantuml</title>
-      <link>https://taikii.github.io/tags/plantuml/</link>
+      <link>https://taikii.net/tags/plantuml/</link>
       <pubDate>Thu, 05 Jul 2018 21:43:58 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/plantuml/</guid>
+      <guid>https://taikii.net/tags/plantuml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redmine</title>
-      <link>https://taikii.github.io/tags/redmine/</link>
+      <link>https://taikii.net/tags/redmine/</link>
       <pubDate>Thu, 05 Jul 2018 21:43:58 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/redmine/</guid>
+      <guid>https://taikii.net/tags/redmine/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Til</title>
-      <link>https://taikii.github.io/tags/til/</link>
+      <link>https://taikii.net/tags/til/</link>
       <pubDate>Sun, 12 Nov 2017 23:14:22 +0900</pubDate>
       
-      <guid>https://taikii.github.io/tags/til/</guid>
+      <guid>https://taikii.net/tags/til/</guid>
       <description></description>
     </item>
     

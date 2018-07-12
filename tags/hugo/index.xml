@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on taikii blog</title>
-    <link>https://taikii.github.io/tags/hugo/</link>
+    <link>https://taikii.net/tags/hugo/</link>
     <description>Recent content in Hugo on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
     <lastBuildDate>Mon, 25 Dec 2017 23:39:49 +0900</lastBuildDate>
     
-	<atom:link href="https://taikii.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.net/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo Theme Whiteplain</title>
-      <link>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</link>
+      <link>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</link>
       <pubDate>Mon, 25 Dec 2017 23:39:49 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</guid>
+      <guid>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</guid>
       <description>&lt;p&gt;他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、&lt;a href=&#34;https://themes.gohugo.io/whiteplain/&#34;&gt;Whiteplain&lt;/a&gt;というHugoテーマを作りました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Auto Deploy Hugo by Circle CI 2.0</title>
-      <link>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</link>
+      <link>https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/</link>
       <pubDate>Wed, 01 Nov 2017 22:23:47 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
-      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.github.io/posts/2017/10/build-site-by-hugo/&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
+      <guid>https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
+      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.net/posts/2017/10/build-site-by-hugo/&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Build Site by Hugo</title>
-      <link>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</link>
+      <link>https://taikii.net/posts/2017/10/build-site-by-hugo/</link>
       <pubDate>Tue, 17 Oct 2017 00:25:05 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</guid>
+      <guid>https://taikii.net/posts/2017/10/build-site-by-hugo/</guid>
       <description>&lt;p&gt;静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -45,10 +45,10 @@
     
     <item>
       <title>Jekyllに対するHugoの優位点</title>
-      <link>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</link>
+      <link>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</guid>
+      <guid>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</guid>
       <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。
 &lt;/p&gt;</description>
     </item>

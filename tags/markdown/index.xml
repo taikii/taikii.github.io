@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Markdown on taikii blog</title>
-    <link>https://taikii.github.io/tags/markdown/</link>
+    <link>https://taikii.net/tags/markdown/</link>
     <description>Recent content in Markdown on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
     <lastBuildDate>Thu, 15 Feb 2018 11:16:56 +0900</lastBuildDate>
     
-	<atom:link href="https://taikii.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.net/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Markdownでリンクを定義して使いまわす</title>
-      <link>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</link>
+      <link>https://taikii.net/posts/2018/02/markdown-link-reference-definition/</link>
       <pubDate>Thu, 15 Feb 2018 11:16:56 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</guid>
+      <guid>https://taikii.net/posts/2018/02/markdown-link-reference-definition/</guid>
       <description>&lt;p&gt;先日、たまたま&lt;a href=&#34;https://github.com/jenkinsci/jenkins/blob/master/README.md&#34;&gt;JeninsのREADME.md&lt;/a&gt;のRAWデータを見ていたら、ロゴの部分が&lt;code&gt;[![][ButlerImage]][website]&lt;/code&gt;と書かれていました。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>taikii blog</title>
-    <link>https://taikii.github.io/</link>
+    <link>https://taikii.net/</link>
     <description>Recent content on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
     <lastBuildDate>Thu, 05 Jul 2018 21:43:58 +0900</lastBuildDate>
     
-	<atom:link href="https://taikii.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redmineには2つのPlantUMLプラグインがある</title>
-      <link>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</link>
+      <link>https://taikii.net/posts/2018/07/redmine-has-two-plantuml-plugins/</link>
       <pubDate>Thu, 05 Jul 2018 21:43:58 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/07/redmine-has-two-plantuml-plugins/</guid>
+      <guid>https://taikii.net/posts/2018/07/redmine-has-two-plantuml-plugins/</guid>
       <description>&lt;p&gt;RedmineでPlantUMLを書くことのできるプラグインを2つ紹介したいと思います。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>Active Directoryのグループから1,500件を超えるメンバーを取得する方法（はもう考えなくていい）</title>
-      <link>https://taikii.github.io/posts/2018/05/ad-1500-over-members/</link>
+      <link>https://taikii.net/posts/2018/05/ad-1500-over-members/</link>
       <pubDate>Sat, 19 May 2018 10:40:48 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/05/ad-1500-over-members/</guid>
+      <guid>https://taikii.net/posts/2018/05/ad-1500-over-members/</guid>
       <description>&lt;p&gt;Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。&lt;/p&gt;
 
 &lt;p&gt;この記事では&lt;code&gt;ldapsearch&lt;/code&gt;コマンドで検証しています。また、そこまで値が増える属性は&lt;code&gt;member&lt;/code&gt;くらいしか無いと思いますので、&lt;code&gt;member&lt;/code&gt;属性に絞って書いています。&lt;/p&gt;
@@ -38,10 +38,10 @@
     
     <item>
       <title>Markdownでリンクを定義して使いまわす</title>
-      <link>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</link>
+      <link>https://taikii.net/posts/2018/02/markdown-link-reference-definition/</link>
       <pubDate>Thu, 15 Feb 2018 11:16:56 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/02/markdown-link-reference-definition/</guid>
+      <guid>https://taikii.net/posts/2018/02/markdown-link-reference-definition/</guid>
       <description>&lt;p&gt;先日、たまたま&lt;a href=&#34;https://github.com/jenkinsci/jenkins/blob/master/README.md&#34;&gt;JeninsのREADME.md&lt;/a&gt;のRAWデータを見ていたら、ロゴの部分が&lt;code&gt;[![][ButlerImage]][website]&lt;/code&gt;と書かれていました。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -49,10 +49,10 @@
     
     <item>
       <title>Redmine is Dead</title>
-      <link>https://taikii.github.io/posts/2018/01/redmine-is-dead/</link>
+      <link>https://taikii.net/posts/2018/01/redmine-is-dead/</link>
       <pubDate>Mon, 15 Jan 2018 00:04:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2018/01/redmine-is-dead/</guid>
+      <guid>https://taikii.net/posts/2018/01/redmine-is-dead/</guid>
       <description>&lt;p&gt;ぶっちゃけ、私も &amp;ldquo;XX is Dead&amp;rdquo; という記事を書いてみたかっただけです。はい。&lt;/p&gt;
 
 &lt;p&gt;私は&lt;strong&gt;まだ&lt;/strong&gt;Redmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。&lt;/p&gt;
@@ -65,50 +65,50 @@
     
     <item>
       <title>GitlabがMermaidをサポートした話</title>
-      <link>https://taikii.github.io/posts/2017/12/gitlab-10.3/</link>
+      <link>https://taikii.net/posts/2017/12/gitlab-10.3/</link>
       <pubDate>Thu, 28 Dec 2017 23:44:02 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/12/gitlab-10.3/</guid>
+      <guid>https://taikii.net/posts/2017/12/gitlab-10.3/</guid>
       <description>&lt;p&gt;先日&lt;a href=&#34;https://about.gitlab.com/2017/12/22/gitlab-10-3-released/&#34;&gt;GitLab 10.3&lt;/a&gt;がリリースされましたが、その中でMermaidをサポートされるようになりました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hugo Theme Whiteplain</title>
-      <link>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</link>
+      <link>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</link>
       <pubDate>Mon, 25 Dec 2017 23:39:49 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/12/hugo-theme-whiteplain/</guid>
+      <guid>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</guid>
       <description>&lt;p&gt;他の方が作ったテーマを使うのは、エンジニアとして負けなんじゃないかと思い、&lt;a href=&#34;https://themes.gohugo.io/whiteplain/&#34;&gt;Whiteplain&lt;/a&gt;というHugoテーマを作りました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>バージョン1709時代のWSLリフレッシュ</title>
-      <link>https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/</link>
+      <link>https://taikii.net/posts/2017/11/refresh-wsl-on-1709/</link>
       <pubDate>Sun, 12 Nov 2017 23:14:22 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/11/refresh-wsl-on-1709/</guid>
+      <guid>https://taikii.net/posts/2017/11/refresh-wsl-on-1709/</guid>
       <description>&lt;p&gt;Windows 10 Fall Creators Update（バージョン&lt;code&gt;1709&lt;/code&gt;） において、Windows Subsystem for Linux（以下WSL）のアンインストールで少しハマりました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Auto Deploy Hugo by Circle CI 2.0</title>
-      <link>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</link>
+      <link>https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/</link>
       <pubDate>Wed, 01 Nov 2017 22:23:47 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
-      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.github.io/posts/2017/10/build-site-by-hugo/&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
+      <guid>https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/</guid>
+      <description>&lt;p&gt;以前、&lt;a href=&#34;https://taikii.net/posts/2017/10/build-site-by-hugo/&#34;&gt;Hugoでブログサイトを作る&lt;/a&gt;記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Build Site by Hugo</title>
-      <link>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</link>
+      <link>https://taikii.net/posts/2017/10/build-site-by-hugo/</link>
       <pubDate>Tue, 17 Oct 2017 00:25:05 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/build-site-by-hugo/</guid>
+      <guid>https://taikii.net/posts/2017/10/build-site-by-hugo/</guid>
       <description>&lt;p&gt;静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -116,50 +116,50 @@
     
     <item>
       <title>Redmine Mermaid Macro Plugin</title>
-      <link>https://taikii.github.io/posts/2017/10/redmine-mermaid-macro-plugin/</link>
+      <link>https://taikii.net/posts/2017/10/redmine-mermaid-macro-plugin/</link>
       <pubDate>Sun, 15 Oct 2017 22:56:54 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/redmine-mermaid-macro-plugin/</guid>
+      <guid>https://taikii.net/posts/2017/10/redmine-mermaid-macro-plugin/</guid>
       <description>&lt;p&gt;Redmine上で&lt;code&gt;mermaid.js&lt;/code&gt;を実行するプラグインを作りました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Jekyllに対するHugoの優位点</title>
-      <link>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</link>
+      <link>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</link>
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/jekyll-vs-hugo/</guid>
+      <guid>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</guid>
       <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>HTML5のDOCTYPE宣言は&lt;!DOCTYPE html&gt;か&lt;!doctype html&gt;か</title>
-      <link>https://taikii.github.io/posts/2017/10/doctype/</link>
+      <link>https://taikii.net/posts/2017/10/doctype/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/doctype/</guid>
+      <guid>https://taikii.net/posts/2017/10/doctype/</guid>
       <description>&lt;p&gt;正しいHTML5を書こうとしていろんなサイトのソースを見ていたところ、Googleの多くは小文字の&lt;code&gt;&amp;lt;!doctype html&amp;gt;&lt;/code&gt;だったので違いを調べてみました。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>セマンティックなマークアップ</title>
-      <link>https://taikii.github.io/posts/2017/10/semantics/</link>
+      <link>https://taikii.net/posts/2017/10/semantics/</link>
       <pubDate>Sun, 01 Oct 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/10/semantics/</guid>
+      <guid>https://taikii.net/posts/2017/10/semantics/</guid>
       <description>&lt;p&gt;HTML5で追加された代表的な要素をメモ。
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>マージコミットを削除する</title>
-      <link>https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/</link>
+      <link>https://taikii.net/posts/2017/09/posts-delete-merge-commit/</link>
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0900</pubDate>
       
-      <guid>https://taikii.github.io/posts/2017/09/posts-delete-merge-commit/</guid>
+      <guid>https://taikii.net/posts/2017/09/posts-delete-merge-commit/</guid>
       <description>&lt;p&gt;マージコミットを&lt;code&gt;git reset&lt;/code&gt;したらどうなるの？
 &lt;/p&gt;</description>
     </item>
