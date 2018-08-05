@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Mon, 15 Jan 2018 00:04:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 06 Aug 2018 06:30:45 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitLab 11.0でMattermost関連の設定項目が削除されている</title>
+      <link>https://taikii.net/posts/2018/08/gitlab11-mattermost-configuration-changes/</link>
+      <pubDate>Mon, 06 Aug 2018 06:30:45 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/08/gitlab11-mattermost-configuration-changes/</guid>
+      <description>&lt;p&gt;先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、&lt;code&gt;gitlab-ctl reconfigure&lt;/code&gt; でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Redmine is Dead</title>
