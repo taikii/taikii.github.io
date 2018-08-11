@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>コラム on taikii blog</title>
+    <link>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</link>
+    <description>Recent content in コラム on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Sat, 11 Aug 2018 13:46:12 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>古いWikiページを掘り起こせ</title>
+      <link>https://taikii.net/posts/2018/08/dig-out-old-wiki-pages/</link>
+      <pubDate>Sat, 11 Aug 2018 13:46:12 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/08/dig-out-old-wiki-pages/</guid>
+      <description>&lt;p&gt;先日、RedmineのWikiページが更新されてない事案が発生して、Wikiが継続的にメンテされている状態にするにはどうすればいいか・・・みたいな話になったのですが、メンバの一人から「GitHubのように貢献度ランキングみたいなものがあればやる気が出るんじゃないか」という提案がありました。要はフィードバックが欲しいってことですよね。わかるー。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

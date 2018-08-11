@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Thu, 05 Jul 2018 21:43:58 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Aug 2018 13:46:12 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>古いWikiページを掘り起こせ</title>
+      <link>https://taikii.net/posts/2018/08/dig-out-old-wiki-pages/</link>
+      <pubDate>Sat, 11 Aug 2018 13:46:12 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/08/dig-out-old-wiki-pages/</guid>
+      <description>&lt;p&gt;先日、RedmineのWikiページが更新されてない事案が発生して、Wikiが継続的にメンテされている状態にするにはどうすればいいか・・・みたいな話になったのですが、メンバの一人から「GitHubのように貢献度ランキングみたいなものがあればやる気が出るんじゃないか」という提案がありました。要はフィードバックが欲しいってことですよね。わかるー。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Redmineには2つのPlantUMLプラグインがある</title>
