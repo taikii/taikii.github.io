@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postgres on taikii blog</title>
+    <link>https://taikii.net/tags/postgres/</link>
+    <description>Recent content in Postgres on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Fri, 21 Sep 2018 23:48:03 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.net/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker LibraryのPostgreSQLで日本語がうまくソートされない</title>
+      <link>https://taikii.net/posts/2018/09/postgres-lc-collate/</link>
+      <pubDate>Fri, 21 Sep 2018 23:48:03 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/09/postgres-lc-collate/</guid>
+      <description>&lt;p&gt;私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

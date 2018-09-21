@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog</title>
+  <meta property="og:title" content="Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog" />
+  <meta name="twitter:title" content="Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog" />
+  <meta name="description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
+
+">
+  <meta property="og:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
+
+">
+  <meta name="twitter:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
+
+">
+  <meta name="author" content="taikii"/>
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.47.1" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Docker LibraryのPostgreSQLで日本語がうまくソートされない</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>September 21, 2018</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/redmine/">
+            <i class="fas fa-tag"></i>
+            Redmine
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/docker/">
+            <i class="fas fa-tag"></i>
+            Docker
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/postgres/">
+            <i class="fas fa-tag"></i>
+            Postgres
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。</p>
+
+<p></p>
+
+<p>調べたところ、照合順序（<code>lc_collate</code>）が適切でないとこの問題が発生するとのこと。以下のページを参考にさせていただきました。</p>
+
+<p><a href="http://se.ykysd.com/2015/09/28/orderby/">PostgreSQLで並び順がおかしい時の修正方法</a></p>
+
+<p><code>lc_collate</code>が<code>C</code>だと文字コードのバイナリ順、<code>ja_JP.UTF-8</code>だと辞書順でのソートになるようですね。ポスグレコンテナに入って確認してみます。</p>
+
+<p>ポスグレコンテナへの入り方はこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_db_1 /bin/bash</code></pre></td></tr></table>
+</div>
+</div>
+<p>ポスグレコンテナに入ったら、<code>postgres</code>ユーザにスイッチしてから<code>psql</code>を叩きます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ su - postgres
+$ psql
+postgres=# select name, setting, context from pg_settings where name like &#39;lc%&#39;;
+    name     |  setting   |  context
+-------------+------------+-----------
+ lc_collate  | en_US.utf8 | internal
+ lc_ctype    | en_US.utf8 | internal
+ lc_messages | en_US.utf8 | superuser
+ lc_monetary | en_US.utf8 | user
+ lc_numeric  | en_US.utf8 | user
+ lc_time     | en_US.utf8 | user
+(6 rows)</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>lc_collate=en_US.utf8</code>ですね。<a href="https://hub.docker.com/_/postgres/">Docker LibraryのPostgreSQL</a>のデフォルトロケールは<code>en_US.utf8</code>みたいです。</p>
+
+<p>これを<code>C</code>か<code>ja_JP.UTF-8</code>に変更する必要があるのですが、このポスグレのイメージには<code>ja_JP.UTF-8</code>が入っていません。<code>ja_JP.UTF-8</code>をインストールするのも面倒な話なので、特別な理由が無い限り<code>C</code>でいいんじゃないでしょうか。Linuxの<code>sort</code>コマンドとかも同じ文字コード順だったはずなので馴染みが無い訳ではないと思います。<code>ja_JP.UTF-8</code>がよければ<code>Dockerfile</code>を作ってどうのこうのする必要があります。</p>
+
+<p>ではこの<code>lc_collate</code>をどうやって変更するかというと、これは<code>initdb</code>の<code>--locale</code>オプションで指定するものとのこと。</p>
+
+<p>しかし、<code>initdb</code>はデータベースクラスタを作成する際の初期化コマンドですので、何も考えずに実行すると綺麗さっぱりデータがなくなっちゃいます。普通にインストールしたポスグレであれば、上記のページにあるようにダンプを取ってリストアとなるんでしょうが、こちとらDockerコンテナですので、そうは問屋がおろさない。クラスタを落とした時点でコンテナが落ちちゃう気がするし。試してないですけど。</p>
+
+<p>とりあえず<code>initdb</code>で指定するのはわかったとして、このDockerコンテナに対してどうやってこのオプションを渡すのかという話なんですが、<a href="https://hub.docker.com/_/postgres/">Docker Hubのページ</a>を確認すると、<code>POSTGRES_INITDB_ARGS</code>という環境変数でinitdbのオプションを渡すことができるようです。まぁ、initdb自体、まっさらな状態からコンテナを初めて作るときしか実行されないんでしょうけど。</p>
+
+<p>つまり、<code>docker-compose.yml</code>ではこんな感じで指定することになります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>services<span class="p">:</span><span class="w">
+</span><span class="w">  </span>db<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>postgres<span class="p">:</span><span class="m">9.6</span><span class="w">
+</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
+</span><span class="w">      </span>POSTGRES_INITDB_ARGS<span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>新しくRedmineを立てるのならこれで終わりです。しかし、私は既に運用を開始してしまっていますので、ここからは既存のポスグレのロケールを変更するのに四苦八苦していきます。</p>
+
+<p>で、やっぱりダンプとってリストアしようかとも考えたのですが、Dockerとして運用しているポスグレにはなーんかそぐわない気がして。通常だとまっさらなポスグレにはRedmineがマイグレーションしてテーブルを作るわけですし。</p>
+
+<p>そこで「これってMySQLからポスグレに移行するのと一緒やん？」と思いつきました。ポスグレ移行の際は以下のRedmine.JPの記事を参考にしたのですが、今回も同じようにyaml_dbを使って移行できるんじゃないかと。これなら文字コード関係ないし、実績あるし。</p>
+
+<p><a href="http://blog.redmine.jp/articles/change-database/">Redmineで使うデータベースを変更する | Redmine.JP Blog</a></p>
+
+<p>そんなわけでこのような手順でやっていきます。もっとうまい方法はあると思いますけど許してください。</p>
+
+<ol>
+<li>兎にも角にもデータボリュームをバックアップ</li>
+<li>Redmineにyaml_dbを入れる</li>
+<li>yaml_dbでダンプを取得</li>
+<li>ポスグレコンテナを初期化</li>
+<li>lc_collate=Cクラスタの作成とRedmineのマイグレーション</li>
+<li>yaml_dbでリストア</li>
+</ol>
+
+<h2 id="ポスグレロケール変更大作戦">ポスグレロケール変更大作戦</h2>
+
+<p>ではやっていきましょう。ちなみに、Redmineのバージョンは<code>3.4</code>、PostgreSQLは<code>9.6</code>を使っています。いずれもDocker LibraryのDockerイメージです。</p>
+
+<h3 id="兎にも角にもデータボリュームをバックアップ">兎にも角にもデータボリュームをバックアップ</h3>
+
+<p>です。後にyaml_dbでダンプを取得しますが、これはバックアップではありません。やっとかないと絶対後悔します。</p>
+
+<p>また、ハマりどころを後述しますが、ここで<a href="#ゴミテーブルがある場合は予め削除しておく">ゴミテーブルがある場合は予め削除しておく</a>ことをおすすめします。</p>
+
+<h3 id="redmineにyaml-dbを入れる">Redmineにyaml_dbを入れる</h3>
+
+<p>Redmine上のGemfileの適当なところに書きます。</p>
+
+<p>Redmineコンテナへの入り方はこうですね。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_web_1 /bin/bash</code></pre></td></tr></table>
+</div>
+</div>
+<p>Gemfileにはこんな行を追加したい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Gemfile" data-lang="Gemfile"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Gemfile" data-lang="Gemfile"><span class="n">gem</span> <span class="s2">&#34;yaml_db&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ここでRedmineコンテナにvimが入ってない問題が発生。わざわざvimを入れるのもアホくさいので<code>docker cp</code>コマンドでホストOSにGemfileをコピーして編集しました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker cp redmine:/usr/src/redmine/ ./Gemfile
+$ vim Gemfile
+$ docker cp ./Gemfile redmine:/usr/src/redmine/</code></pre></td></tr></table>
+</div>
+</div>
+<p>Gemfileの編集ができたので、改めて<code>bundle install</code>を実行してyaml_dbをインストールします。（Redmineコンテナで実行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ bundle install --without development test</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="yaml-dbでダンプを取得">yaml_dbでダンプを取得</h3>
+
+<p>yaml_dbがインストールできたのでダンプを取ります。（Redmineコンテナで実行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ RAILS_ENV=production bundle exec rake db:data:dump</code></pre></td></tr></table>
+</div>
+</div>
+<p>ダンプファイルは<code>db/data.yml</code>に出力されます。この後Redmineコンテナも再作成を行うので、永続化しているディレクトリにコピーしときます。（Redmineコンテナで実行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ cp -pi db/data.yml files/</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ポスグレコンテナを初期化">ポスグレコンテナを初期化</h3>
+
+<p>ホストOSに戻って、コンテナを停止・削除します。これもハマりどころとして後述しますが、<a href="#postgresqlコンテナだけを削除しない">無理にポスグレコンテナだけ作り直そうとせずRedmineコンテナも含めて削除</a>します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose stop
+$ docker-compose rm -f</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>docker-compose.yml</code>を編集します。前述の通り、<code>--locale=C</code>です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff">   db:
+     image: postgres:9.6
+     environment:
+<span class="gi">+      POSTGRES_INITDB_ARGS: &#34;--encoding=UTF-8 --locale=C&#34;
+</span><span class="gi"></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
+
+<h3 id="lc-collate-cクラスタの作成とredmineのマイグレーション">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
+
+<p>改めてコンテナを作成します。ポスグレはデータボリュームが無くなっているので<code>initdb</code>が実行され、空のクラスタが<code>lc_collate=C</code>で作られる…はず。そしてRedmineはDBが空になっているのでマイグレーションしてくれる…はず。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose up -d</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="yaml-dbでリストア">yaml_dbでリストア</h3>
+
+<p>Redmineコンテナが再作成されているので、もう一回Gemfileを配置～<code>bundle install</code>してyaml_dbをインストールします。（割愛）</p>
+
+<p>先程永続化されたディレクトリに退避した<code>data.yml</code>を<code>db/</code>ディレクトリに戻して、ロードします。（Redmineコンテナで実行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">$ mv -i files/data.yml db/
+$ RAILS_ENV=production bundle exec rake db:data:load</code></pre></td></tr></table>
+</div>
+</div>
+<p>これで<code>lc_collate=C</code>に変更できました！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">postgres=# select name, setting, context from pg_settings where name like &#39;lc%&#39;;
+    name     | setting |  context
+-------------+---------+-----------
+ lc_collate  | C       | internal
+ lc_ctype    | C       | internal
+ lc_messages | C       | superuser
+ lc_monetary | C       | user
+ lc_numeric  | C       | user
+ lc_time     | C       | user
+(6 rows)</code></pre></td></tr></table>
+</div>
+</div>
+<p>ブラウザでRedmineを見てもそれっぽくソートできるようになっているはずです。やったね！</p>
+
+<h2 id="ハマりどころ">ハマりどころ</h2>
+
+<p>いくつかハマりどころがあったので解説。</p>
+
+<h3 id="ゴミテーブルがある場合は予め削除しておく">ゴミテーブルがある場合は予め削除しておく</h3>
+
+<p>私は以前ナレッジベースプラグインを使っていたのですが、これを削除した際に<code>VERSION=0</code>でマイグレーションしていなかったようです。このため、プラグインは存在しないのにテーブルが残留している状態となっていました。</p>
+
+<p>この状態でyaml_dbでダンプを取ると、当然ナレッジベースプラグインのテーブルデータもエクスポートされますが、その後のマイグレーションではプラグインがないためテーブルは作成されません。そうすると、yaml_dbでデータをロードする際にテーブルが存在しないエラーが発生してしまいます。こうなると、もう一度プラグインをインストールしてテーブルを作るか、<code>data.yml</code>をシコシコ編集して該当データを削除する必要があります。</p>
+
+<p>ですので、マイグレーションで作成されないテーブルが存在しないか、一度チェックしておくことをおすすめします。</p>
+
+<p>チェック方法ですか？同じプラグイン配置された状態で空のRedmineインスタンスを立ててみて、DB上に作成されたテーブルを比較してみるとかですかね…。面倒ですがやったほうがいいと思います…。</p>
+
+<h3 id="postgresqlコンテナだけを削除しない">PostgreSQLコンテナだけを削除しない</h3>
+
+<p>ポスグレのデータを削除してコンテナを再作成する際、Redmineコンテナも作り直す必要なくね？と思ったのですが、以下のようにコンテナ間のリンクがおかしくなってしまう様です。Docker Networkを修正することで対処できるかもしれませんが、面倒ですしRedmineコンテナも作り直すが無難かなと思います。</p>
+
+<pre><code>$ docker exec -it redmine_web_1 /bin/bash
+Error response from daemon: Cannot link to a non running container: /redmine_db_1 AS /redmine_web_1/db
+</code></pre>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="https://taikii.net/posts/2018/09/postgres-lc-collate/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+    <div class="disqus-comments">
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "taikii-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2018/08/bash-exclusive-control/" data-toggle="tooltip" data-placement="top" title="Bashで多重起動防止する">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114764514-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
