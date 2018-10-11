@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Fri, 21 Sep 2018 23:48:03 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Oct 2018 23:09:50 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VSCode Live Shareでプロキシを超える</title>
+      <link>https://taikii.net/posts/2018/10/vscode-live-share-over-proxy/</link>
+      <pubDate>Thu, 11 Oct 2018 23:09:50 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/10/vscode-live-share-over-proxy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/yoshinorin24&#34;&gt;YoshinoriN&lt;/a&gt;さんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Docker LibraryのPostgreSQLで日本語がうまくソートされない</title>

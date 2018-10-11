@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>GitlabがMermaidをサポートした話 - taikii blog</title>
-  <meta property="og:title" content="GitlabがMermaidをサポートした話 - taikii blog" />
-  <meta name="twitter:title" content="GitlabがMermaidをサポートした話 - taikii blog" />
-  <meta name="description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
+  <title>VSCode Live Shareでプロキシを超える - taikii blog</title>
+  <meta property="og:title" content="VSCode Live Shareでプロキシを超える - taikii blog" />
+  <meta name="twitter:title" content="VSCode Live Shareでプロキシを超える - taikii blog" />
+  <meta name="description" content="YoshinoriNさんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。
+
 ">
-  <meta property="og:description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
+  <meta property="og:description" content="YoshinoriNさんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。
+
 ">
-  <meta name="twitter:description" content="先日GitLab 10.3がリリースされましたが、その中でMermaidをサポートされるようになりました。
+  <meta name="twitter:description" content="YoshinoriNさんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。
+
 ">
   <meta name="author" content="taikii"/>
   <meta property="og:site_name" content="taikii blog" />
-  <meta property="og:url" content="https://taikii.net/posts/2017/12/gitlab-10.3/" />
+  <meta property="og:url" content="https://taikii.net/posts/2018/10/vscode-live-share-over-proxy/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.47.1" />
@@ -46,29 +49,56 @@
     <article class="article">
       
       
-      <h1 class="article-title">GitlabがMermaidをサポートした話</h1>
+      <h1 class="article-title">VSCode Live Shareでプロキシを超える</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
-        <li class="article-meta-date"><time>December 28, 2017</time></li>
+        <li class="article-meta-date"><time>October 11, 2018</time></li>
         <li class="article-meta-tags">
-          <a href="/tags/gitlab/">
+          <a href="/tags/vscode/">
             <i class="fas fa-tag"></i>
-            GitLab
+            VSCode
           </a>&nbsp;
         </li>
       </ul>
       
-      <p>先日<a href="https://about.gitlab.com/2017/12/22/gitlab-10-3-released/">GitLab 10.3</a>がリリースされましたが、その中でMermaidをサポートされるようになりました。
-</p>
+      <p><a href="https://twitter.com/yoshinorin24">YoshinoriN</a>さんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。</p>
 
-<p><a href="https://mermaidjs.github.io/">Mermaid</a>はJavaScriptのチャートを作成できるライブラリで、私はこれを気に入ってよく使っています。以前<a href="/posts/2017/10/redmine-mermaid-macro-plugin/">RedmineのMermaidプラグイン</a>を作ったりしました。</p>
+<p></p>
 
-<p>GitLabは以前よりPlantUMLをサポートしていましたが、私はUMLに準拠したドキュメントを書ことがほとんどないので、UMLとはいえないゆるい図を書けるMermaidはすごく重宝しています。見た目もきれいですしね。</p>
+<p>ログインはできているのですが、Shareボタンを押すと以下のエラーが発生します。</p>
 
-<p>また、AtomにはMermaidグラフを書くことができるパッケージ（<a href="https://atom.io/packages/markdown-preview-enhanced">Markdown Preview Enhanced</a>とか）もあるので、AtomでMermaid入りのMarkdownを書いて、それがGitLab上でも同じように見えるのは嬉しいですね。</p>
 
-<p>しかし、GitLabの開発ペースは本当に速いなぁ。</p>
+<figure>
+    
+        <img src="https://gyazo.com/e59877074376e2582b490e88b536b1c9.png" />
+    
+    
+</figure>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"> Unable to connect to the remote server. TrackingId:********, Address:sb://vsls-prod-ins-euw-private-relay.servicebus.windows.net/********, Timestamp:2018/10/11 **:**:**</code></pre></td></tr></table>
+</div>
+</div>
+<p>VSCodeの <code>Application &gt; Proxy</code> にはプロキシを設定しているんですが。。。</p>
+
+<p>調べたところ、あまり新しくはないですが、VSCodeのプロキシ設定見てない的なIssueを発見。</p>
+
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/live-share/issues/86">Users may be unable to connect to Live Share services via a proxy · Issue #86 · MicrosoftDocs/live-share</a></p>
+</blockquote>
+
+<p>環境変数 <code>HTTP_PROXY</code> と <code>HTTPS_PROXY</code> を見てるっぽいので、（私はWindows機なので）ユーザー環境変数にこれらを設定しました。ちゃんとログオフ→ログオンし直して確認すると、見事繋がるじゃないですか！ヤッター！！</p>
+
+<p>ちなみに、VSCodeの <code>Application &gt; Proxy</code> 設定は、空欄だと環境変数 <code>HTTP_PROXY</code> と <code>HTTPS_PROXY</code> を見に行くので、この設定をする必要は無くなります。わざわざ消すこともないですが。</p>
+
+<h3 id="live-shareの感想">Live Shareの感想</h3>
+
+<p>全員で議事録を書ける！（宝の持ち腐れ）</p>
     </article>
 
     
@@ -77,7 +107,7 @@
     <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </li>
   <li>
-    <div class="fb-share-button" data-href="https://taikii.net/posts/2017/12/gitlab-10.3/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-share-button" data-href="https://taikii.net/posts/2018/10/vscode-live-share-over-proxy/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -124,11 +154,9 @@
     </div>
 
     <ul class="pager article-pager">
-      <li class="pager-newer">
-          <a href="/posts/2018/01/redmine-is-dead/" data-toggle="tooltip" data-placement="top" title="Redmine is Dead">&lt; Newer</a>
-      </li>
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
       <li class="pager-older">
-        <a href="/posts/2017/12/hugo-theme-whiteplain/" data-toggle="tooltip" data-placement="top" title="Hugo Theme Whiteplain">Older &gt;</a>
+        <a href="/posts/2018/09/postgres-lc-collate/" data-toggle="tooltip" data-placement="top" title="Docker LibraryのPostgreSQLで日本語がうまくソートされない">Older &gt;</a>
       </li>
     </ul>
   </div>
