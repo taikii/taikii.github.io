@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracle on taikii blog</title>
+    <link>https://taikii.net/tags/oracle/</link>
+    <description>Recent content in Oracle on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Fri, 09 Nov 2018 00:02:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oracle: データベース・リンクはtnsnames.ora変更後に再作成が必要</title>
+      <link>https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/</link>
+      <pubDate>Fri, 09 Nov 2018 00:02:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ejje.weblio.jp/content/SSIA&#34;&gt;SSIA&lt;/a&gt;って感じですが…&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
