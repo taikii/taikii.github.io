@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Mon, 06 Aug 2018 06:30:45 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Nov 2018 00:09:26 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitLab: ローカルを指した外向きWebhookはデフォルト禁止（10.6以降）</title>
+      <link>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</link>
+      <pubDate>Sat, 10 Nov 2018 00:09:26 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</guid>
+      <description>&lt;p&gt;Redmine上のGitリポジトリ更新されてなくない…？という事象が発生。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/koppen/redmine_github_hook&#34;&gt;Redmine GitHub Hook Plugin&lt;/a&gt;を使って、GitLabにPush/Mergeが発生したらRedmineコンテナ上のBareリポジトリをfetchさせてるハズなんですが…。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GitLab 11.0でMattermost関連の設定項目が削除されている</title>
