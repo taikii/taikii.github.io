@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/posts/2018/11/redmine-tokyo-15/</loc>
+    <lastmod>2018-11-11T09:07:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</loc>
     <lastmod>2018-11-10T00:09:26+09:00</lastmod>
   </url>
@@ -218,13 +223,13 @@
   
   <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2018-11-10T00:09:26+09:00</lastmod>
+    <lastmod>2018-11-11T09:07:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.net/tags/redmine/</loc>
-    <lastmod>2018-09-21T23:48:03+09:00</lastmod>
+    <lastmod>2018-11-11T09:07:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -254,7 +259,7 @@
   
   <url>
     <loc>https://taikii.net/</loc>
-    <lastmod>2018-11-10T00:09:26+09:00</lastmod>
+    <lastmod>2018-11-11T09:07:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
