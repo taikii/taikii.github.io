@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 11 Nov 2018 09:07:32 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 13 Nov 2018 23:20:26 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>読書感想文: カイゼン・ジャーニー</title>
+      <link>https://taikii.net/posts/2018/11/kaizen-journey/</link>
+      <pubDate>Tue, 13 Nov 2018 23:20:26 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/11/kaizen-journey/</guid>
+      <description>&lt;p&gt;半年以上かけて読み、数カ月後に感想文を書くという、どうしようもない感じです。昼休みくらいしか読む時間ないし許して…。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>redmine.tokyo 第15回勉強会にちょろっと参加メモ</title>
