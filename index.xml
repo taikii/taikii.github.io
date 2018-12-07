@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Tue, 13 Nov 2018 23:20:26 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 08 Dec 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>宇都宮に越して10年経った件</title>
+      <link>https://taikii.net/posts/2018/12/utsunomiya-engineer/</link>
+      <pubDate>Sat, 08 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2018/12/utsunomiya-engineer/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/3086&#34;&gt;IT地方エンジニア Advent Calendar 2018&lt;/a&gt; 8日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>読書感想文: カイゼン・ジャーニー</title>
