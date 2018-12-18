@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>私の作ったRedmineプラグイン - taikii blog</title>
+  <meta property="og:title" content="私の作ったRedmineプラグイン - taikii blog" />
+  <meta name="twitter:title" content="私の作ったRedmineプラグイン - taikii blog" />
+  <meta name="description" content="Redmine Advent Calendar 2018 19日目の記事です。
+
+これまでいくつかRedmineのプラグインを（自分用に）作ってきました。どれもわずか数ステップの、大したものではないのですが、個人的には便利に使ってるので布教を兼ねてまとめて紹介したいと思います。
+
+">
+  <meta property="og:description" content="Redmine Advent Calendar 2018 19日目の記事です。
+
+これまでいくつかRedmineのプラグインを（自分用に）作ってきました。どれもわずか数ステップの、大したものではないのですが、個人的には便利に使ってるので布教を兼ねてまとめて紹介したいと思います。
+
+">
+  <meta name="twitter:description" content="Redmine Advent Calendar 2018 19日目の記事です。
+
+これまでいくつかRedmineのプラグインを（自分用に）作ってきました。どれもわずか数ステップの、大したものではないのですが、個人的には便利に使ってるので布教を兼ねてまとめて紹介したいと思います。
+
+">
+  <meta name="author" content="taikii"/>
+  <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2018/12/my-redmine-plugins/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.47.1" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">私の作ったRedmineプラグイン</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>December 19, 2018</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/redmine/">
+            <i class="fas fa-tag"></i>
+            Redmine
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p><a href="https://adventar.org/calendars/3352">Redmine Advent Calendar 2018</a> 19日目の記事です。</p>
+
+<p>これまでいくつかRedmineのプラグインを（自分用に）作ってきました。どれもわずか数ステップの、大したものではないのですが、個人的には便利に使ってるので布教を兼ねてまとめて紹介したいと思います。</p>
+
+<p></p>
+
+<h3 id="redmine-custom-auto-complete-https-github-com-taikii-redmine-custom-auto-complete"><a href="https://github.com/taikii/redmine_custom_auto_complete">Redmine Custom Auto-Complete</a></h3>
+
+<p>最初に作ったプラグインです。テキストのカスタムフィールドにオートコンプリートを追加します。最近使われた順に10件並び、チケット件数も表示されます。</p>
+
+<p><img src="https://github.com/taikii/redmine_custom_auto_complete/raw/master/doc/images/example.png" alt="" /></p>
+
+<p>Redmine にはバージョンやカテゴリというリスト項目がありますが、あれらはプロジェクト毎に作成できるし、Issue画面で直接作れるし、管理者以外に作成する権限を渡すこともできますよね。簡単に追加できる上、入力値のゆらぎを抑えることができるので、そんな選択項目がもういくつか欲しかったんです。しかし、Redmineで項目を追加するとなるとカスタムフィールドになるわけですが、テキスト形式だと自由すぎるし、リスト形式だと管理者しか編集できない…。</p>
+
+<p>そこで、目をつけたのが関連チケットを登録する際のオートコンプリートでした。オートコンプリートであれば、ゆらぎを抑えられて負担も少ない。しかも、この関連チケットのオートコンプリートライブラリは、エンドポイントさえ作ってやれば使い回せるものだったので、これを拝借してテキスト形式のカスタムフィールドで動くようにしました。</p>
+
+<p>ちなみに、このプラグインはRedmine導入の際に「Excelのほうがマシ」と言わせないためのカナメでした。みんな普通に使ってるけど、俺、頑張ったんだっぜ…？</p>
+
+<h3 id="redmine-include-macro-extension-https-github-com-taikii-redmine-include-macro-extension"><a href="https://github.com/taikii/redmine_include_macro_extension">Redmine Include Macro Extension</a></h3>
+
+<p>Redmine組み込みのincludeマクロはWikiページ全体を挿入しますが、それをセクション単位で挿入できるように拡張したプラグインです。<code>{{include(Page, Section)}}</code>のように第2引数にセクションのタイトルを書くことで、そのセクションだけを挿入できます。また、オプションを指定することで「タイトルを含めない」「子のセクションを含めない」ようにすることもできます。</p>
+
+<p><img src="https://i.gyazo.com/860ea5b19c73d667a761c9f6eb20857d.png" alt="" /></p>
+
+<p>本家の <a href="https://www.redmine.org/issues/3547">#3547</a> で要望されている機能をプラグインとして実装したものです。このチケットでは<code>{{include(Page#Section)}}</code>という記述方法を提案されています。これだとプラグインをアンインストールしたときにエラーになってしまうので（<code>Page#Section</code>というWikiページを探しに行って存在しないのでエラーになる）、それが嫌で第2引数をとるようにしました。また、私はRedmine本体へのパッチを書くつもりはないので、誰かパッチ化してくれてもよろしくてよ？</p>
+
+<p>Redmineには元々セクション単位に編集する機能があるため、セクション単位にWikiデータを抜くメソッドなりがあることはわかっていました。あとは該当のタイトルか何番目のセクションかを判別すればいいだけだったので、結構すぐに実装できた記憶があります。</p>
+
+<p>いや〜、Rubyのscanって本当にいいものですね〜。</p>
+
+<h3 id="github-style-fenced-code-block-plugin-https-github-com-taikii-redmine-github-style-fenced-code-block"><a href="https://github.com/taikii/redmine_github_style_fenced_code_block">GitHub Style Fenced Code Block Plugin</a></h3>
+
+<p>WikiFormattingがMarkdownの際に、ツールバーでコードブロックを作ると <code>~~~</code> になるのですが、それを <code>```</code> に変更するプラグインです。</p>
+
+<p><img src="https://github.com/taikii/redmine_github_style_fenced_code_block/raw/master/docs/images/screenshot.gif" alt="" /></p>
+
+<p><a href="https://www.redmine.org/issues/22843">#22843</a> で <a href="https://twitter.com/g_maeda">@g_maeda</a> さんがパッチを当ててくれたので、Redmine 4.0からは <code>```</code> がデフォになり、晴れて御役御免となりました。それにしても無事リリースされてよかったですね、4.0。</p>
+
+<p>そもそも <code>```</code> のほうがメジャーやろっていうのもあるんですが、Markdownでは  <code>~~</code> が打ち消し線に割り当てられていて、全く意味が違う割に似通っているので、見分け付きづらッ！というのが理由です。</p>
+
+<p>JSのツールバーボタンPrototypeを上書きする形で実装しました。</p>
+
+<h3 id="mermaid-macro-https-github-com-taikii-redmine-mermaid-macro"><a href="https://github.com/taikii/redmine_mermaid_macro">Mermaid Macro</a></h3>
+
+<p>Mermaid.jsを書けるようにするマクロプラグインです。私はMermaid大好きっ子です。</p>
+
+<p><img src="https://github.com/taikii/redmine_mermaid_macro/raw/master/doc/images/example.png" alt="" /></p>
+
+<p>経緯は<a href="https://taikii.net/posts/2017/10/redmine-mermaid-macro-plugin/">こちらを見てください</a>。</p>
+
+<p>前はWikiの添付した<code>mermaid.js</code>でもイケてた気がするけど、なんかできないな…</p>
+
+<h3 id="br-macro-https-github-com-taikii-redmine-br-macro"><a href="https://github.com/taikii/redmine_br_macro">BR Macro</a></h3>
+
+<p>改行するためだけのマクロプラグインです。</p>
+
+<p><img src="https://gyazo.com/f61ba57772278a3cc10e5a44f2c63019.png" alt="" /></p>
+
+<p>Markdownの場合、通常は行末にスペース2つ置くことで段落ではない改行をすることができますが、テーブル内ではなぜかこれができなかったのでマクロを作りました。引数に改行数を渡すことで無限に改行することができる…！！</p>
+
+<h3 id="さいごに">さいごに</h3>
+
+<p>本当ならAdvent Calendar用に新しいプラグインを作りたかったのですが、ゴタゴタしててできませんでした。無念。</p>
+
+<p>コードブロックのやつ以外は Redmine 4.0 で動確済です。</p>
+
+<p>StarとかIssueとかStarとかPRとかStarとか大歓迎です。Starとか、Starとか。</p>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="https://taikii.net/posts/2018/12/my-redmine-plugins/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2018/12/ci-secret-variables/" data-toggle="tooltip" data-placement="top" title="みんな～！どうやってCIに変数を渡してるの？">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114764514-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
