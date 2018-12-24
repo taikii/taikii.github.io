@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/posts/2018/12/live-share2/</loc>
+    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/12/my-redmine-plugins/</loc>
     <lastmod>2018-12-19T00:00:00+09:00</lastmod>
   </url>
@@ -249,7 +254,7 @@
   
   <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2018-12-19T00:00:00+09:00</lastmod>
+    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -279,13 +284,13 @@
   
   <url>
     <loc>https://taikii.net/tags/vscode/</loc>
-    <lastmod>2018-10-11T23:09:50+09:00</lastmod>
+    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.net/</loc>
-    <lastmod>2018-12-19T00:00:00+09:00</lastmod>
+    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
