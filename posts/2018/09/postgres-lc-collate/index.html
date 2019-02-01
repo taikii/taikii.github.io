@@ -6,22 +6,16 @@
   <title>Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog</title>
   <meta property="og:title" content="Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog" />
   <meta name="twitter:title" content="Docker LibraryのPostgreSQLで日本語がうまくソートされない - taikii blog" />
-  <meta name="description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
-
-">
-  <meta property="og:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
-
-">
-  <meta name="twitter:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。
-
-">
+  <meta name="description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。">
+  <meta property="og:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。">
+  <meta name="twitter:description" content="私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.47.1" />
+  <meta name="generator" content="Hugo 0.53" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -76,8 +70,6 @@
       </ul>
       
       <p>私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。</p>
-
-<p></p>
 
 <p>調べたところ、照合順序（<code>lc_collate</code>）が適切でないとこの問題が発生するとのこと。以下のページを参考にさせていただきました。</p>
 

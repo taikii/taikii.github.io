@@ -18,9 +18,7 @@
       <pubDate>Mon, 30 Jul 2018 18:00:19 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/07/github-pages-with-custom-domain/</guid>
-      <description>&lt;p&gt;このブログはGitHub Pagesにホスティングされています。先日ブログのURLを &lt;a href=&#34;https://taikii.net/&#34;&gt;https://taikii.net&lt;/a&gt; という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;このブログはGitHub Pagesにホスティングされています。先日ブログのURLを &lt;a href=&#34;https://taikii.net/&#34;&gt;https://taikii.net&lt;/a&gt; という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +27,7 @@
       <pubDate>Tue, 17 Oct 2017 00:25:05 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2017/10/build-site-by-hugo/</guid>
-      <description>&lt;p&gt;静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,8 +36,7 @@
       <pubDate>Fri, 13 Oct 2017 00:30:12 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</guid>
-      <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;+GitHub Pagesで少しだけブログを運用してみましたが、思うところがあってHugoに変えました。なぜ乗り換えたのか、Hugoがどのような点でJekyllに対して優れていると感じたのかをまとめます。&lt;/p&gt;</description>
     </item>
     
   </channel>

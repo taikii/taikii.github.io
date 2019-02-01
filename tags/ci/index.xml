@@ -18,9 +18,7 @@
       <pubDate>Thu, 13 Dec 2018 21:57:31 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/12/ci-secret-variables/</guid>
-      <description>&lt;p&gt;CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？&lt;/p&gt;</description>
     </item>
     
   </channel>

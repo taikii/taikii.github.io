@@ -18,9 +18,7 @@
       <pubDate>Tue, 28 Aug 2018 22:32:09 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/08/bash-exclusive-control/</guid>
-      <description>&lt;p&gt;若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。&lt;/p&gt;</description>
     </item>
     
   </channel>

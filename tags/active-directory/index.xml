@@ -20,9 +20,7 @@
       <guid>https://taikii.net/posts/2018/05/ad-1500-over-members/</guid>
       <description>&lt;p&gt;Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。&lt;/p&gt;
 
-&lt;p&gt;この記事では&lt;code&gt;ldapsearch&lt;/code&gt;コマンドで検証しています。また、そこまで値が増える属性は&lt;code&gt;member&lt;/code&gt;くらいしか無いと思いますので、&lt;code&gt;member&lt;/code&gt;属性に絞って書いています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;この記事では&lt;code&gt;ldapsearch&lt;/code&gt;コマンドで検証しています。また、そこまで値が増える属性は&lt;code&gt;member&lt;/code&gt;くらいしか無いと思いますので、&lt;code&gt;member&lt;/code&gt;属性に絞って書いています。&lt;/p&gt;</description>
     </item>
     
   </channel>

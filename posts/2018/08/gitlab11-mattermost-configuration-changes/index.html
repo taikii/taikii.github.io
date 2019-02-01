@@ -6,15 +6,9 @@
   <title>GitLab 11.0でMattermost関連の設定項目が削除されている - taikii blog</title>
   <meta property="og:title" content="GitLab 11.0でMattermost関連の設定項目が削除されている - taikii blog" />
   <meta name="twitter:title" content="GitLab 11.0でMattermost関連の設定項目が削除されている - taikii blog" />
-  <meta name="description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分
-
-">
-  <meta property="og:description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分
-
-">
-  <meta name="twitter:description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分
-
-">
+  <meta name="description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分">
+  <meta property="og:description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分">
+  <meta name="twitter:description" content="先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、gitlab-ctl reconfigure でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
@@ -23,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.47.1" />
+  <meta name="generator" content="Hugo 0.53" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -67,18 +61,12 @@
       
       <p>先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、<code>gitlab-ctl reconfigure</code> でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分</p>
 
-<p></p>
-
 <h3 id="原因">原因</h3>
 
 <p><code>gitlab-ctl reconfigure</code> がコケた原因は、11.0 で廃止されたMattermost系の設定が残っていた為でした。そうです、私はOmnibusにバンドルされているMattermostを使っているのです。これらの設定は <code>docker-compose.yml</code> 内でGitLabに環境変数として渡していたのですが、これらを削除することで無事バージョンアップできましたとさ。</p>
 
-
 <figure>
-    
-        <img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png" />
-    
-    
+    <img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png"/> 
 </figure>
 
 

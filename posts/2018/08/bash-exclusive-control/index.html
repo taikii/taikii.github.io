@@ -6,22 +6,16 @@
   <title>Bashで多重起動防止する - taikii blog</title>
   <meta property="og:title" content="Bashで多重起動防止する - taikii blog" />
   <meta name="twitter:title" content="Bashで多重起動防止する - taikii blog" />
-  <meta name="description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。
-
-">
-  <meta property="og:description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。
-
-">
-  <meta name="twitter:description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。
-
-">
+  <meta name="description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。">
+  <meta property="og:description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。">
+  <meta name="twitter:description" content="若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
   <meta property="og:url" content="https://taikii.net/posts/2018/08/bash-exclusive-control/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.47.1" />
+  <meta name="generator" content="Hugo 0.53" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,8 +58,6 @@
       </ul>
       
       <p>若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。</p>
-
-<p></p>
 
 <p>バッチ処理を作成する際、多重起動を防止することがあると思いますが、特にそれがシェルスクリプトで書かれている場合には、ロックディレクトリを作って排他制御を行います。</p>
 
@@ -165,11 +157,11 @@ $ 多重起動はいけないと思います
 </span><span class="cp"></span>
 <span class="k">if</span> <span class="o">[</span> ! -e .lock <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 
-	<span class="c1">#########################################
-</span><span class="c1"></span>	<span class="c1"># あーここで3秒かかってしまったー
-</span><span class="c1"></span>	sleep <span class="m">3</span>
-	<span class="c1">#########################################
-</span><span class="c1"></span>
+	<span class="c1">#########################################</span>
+	<span class="c1"># あーここで3秒かかってしまったー</span>
+	sleep <span class="m">3</span>
+	<span class="c1">#########################################</span>
+
 	touch .lock
 <span class="k">else</span>
 	<span class="nb">echo</span> <span class="s2">&#34;多重起動はいけないと思います&#34;</span>

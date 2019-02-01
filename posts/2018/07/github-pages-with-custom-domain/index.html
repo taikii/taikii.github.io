@@ -6,22 +6,16 @@
   <title>GitHub Pagesを独自ドメインで運用する - taikii blog</title>
   <meta property="og:title" content="GitHub Pagesを独自ドメインで運用する - taikii blog" />
   <meta name="twitter:title" content="GitHub Pagesを独自ドメインで運用する - taikii blog" />
-  <meta name="description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。
-
-">
-  <meta property="og:description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。
-
-">
-  <meta name="twitter:description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。
-
-">
+  <meta name="description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。">
+  <meta property="og:description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。">
+  <meta name="twitter:description" content="このブログはGitHub Pagesにホスティングされています。先日ブログのURLを https://taikii.net という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
   <meta property="og:url" content="https://taikii.net/posts/2018/07/github-pages-with-custom-domain/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.47.1" />
+  <meta name="generator" content="Hugo 0.53" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -65,8 +59,6 @@
       
       <p>このブログはGitHub Pagesにホスティングされています。先日ブログのURLを <a href="https://taikii.net/">https://taikii.net</a> という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。</p>
 
-<p></p>
-
 <p>※設定中にスクショを撮り忘れたので、初めて設定する際の画面と異なります。</p>
 
 <h2 id="ドメインを取得する">ドメインを取得する</h2>
@@ -83,23 +75,15 @@
 
 <p>基本的には流れのままに設定すればよいのですが、WHOIS設定は必ず「弊社情報代理公開」を選択します。じゃないと自分の個人情報がWHOISに載ってしまいます。また、ネームサーバは「ムームーＤＮＳ」を選択します。</p>
 
-
 <figure>
-    
-        <img src="https://gyazo.com/18572fb205282d620ab5109d8d49bcbf/thumb/1000" />
-    
-    
+    <img src="https://gyazo.com/18572fb205282d620ab5109d8d49bcbf/thumb/1000"/> 
 </figure>
 
 
 <p>その後、<a href="https://muumuu-domain.com/?mode=guide&amp;state=custom_setup">カスタム設定のセットアップ方法 | ムームードメイン</a>を参考にしてカスタム設定を行います。今回は、<a href="https://taikii.net/">https://taikii.net</a> にアクセスされると <a href="https://taikii.github.io/">https://taikii.github.io</a> に飛ばしたいため、以下のようにALIASレコードを設定します。</p>
 
-
 <figure>
-    
-        <img src="https://gyazo.com/86bf24488c6dd41d8e228641626999a0/thumb/1000" />
-    
-    
+    <img src="https://gyazo.com/86bf24488c6dd41d8e228641626999a0/thumb/1000"/> 
 </figure>
 
 
@@ -109,12 +93,8 @@
 
 <p>GitHub PagesプロジェクトのSettingページにアクセスして、Custom domain項目に取得したドメインを入力します。ついでに<code>Enforce HTTPS</code>にチェックを入れてHTTPSを強制します。設定の反映まで少し時間がかかりますので、コーヒーでも淹れつつ待ちます。カスタムドメインのSSL証明書は<a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">Let&rsquo;s Encryptの証明書が自動的に発行・適用されます</a>。<a href="https://japan.cnet.com/article/35122977/">Chrome68で非暗号化サイトには警告が表示されるようになった</a>ので簡単にサイトをHTTPS化できるのはありがたい！</p>
 
-
 <figure>
-    
-        <img src="https://gyazo.com/634355b2dde94ab6859e7ff8f772aaba/thumb/1000" />
-    
-    
+    <img src="https://gyazo.com/634355b2dde94ab6859e7ff8f772aaba/thumb/1000"/> 
 </figure>
 
 

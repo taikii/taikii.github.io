@@ -18,9 +18,7 @@
       <pubDate>Fri, 21 Sep 2018 23:48:03 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/09/postgres-lc-collate/</guid>
-      <description>&lt;p&gt;私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。&lt;/p&gt;</description>
     </item>
     
   </channel>

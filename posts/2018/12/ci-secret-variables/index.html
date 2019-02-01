@@ -6,22 +6,16 @@
   <title>みんな～！どうやってCIに変数を渡してるの？ - taikii blog</title>
   <meta property="og:title" content="みんな～！どうやってCIに変数を渡してるの？ - taikii blog" />
   <meta name="twitter:title" content="みんな～！どうやってCIに変数を渡してるの？ - taikii blog" />
-  <meta name="description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？
-
-">
-  <meta property="og:description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？
-
-">
-  <meta name="twitter:description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？
-
-">
+  <meta name="description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？">
+  <meta property="og:description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？">
+  <meta name="twitter:description" content="CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
   <meta property="og:url" content="https://taikii.net/posts/2018/12/ci-secret-variables/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.47.1" />
+  <meta name="generator" content="Hugo 0.53" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -70,8 +64,6 @@
       </ul>
       
       <p>CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？</p>
-
-<p></p>
 
 <p>GitLab-CIはDockerコンテナ上で実行されますよね。ビルドツールにGradleを使っているので<a href="https://hub.docker.com/_/gradle/">Docker LibraryのGradleイメージ</a>を使ってCIを実行しています。もちろんローカルでもテストを実行しますので、ローカルでもGitLab-CI上でも同じようにテストをするために、以下のような環境にしています。</p>
 

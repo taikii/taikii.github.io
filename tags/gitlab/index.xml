@@ -18,9 +18,7 @@
       <pubDate>Thu, 13 Dec 2018 21:57:31 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/12/ci-secret-variables/</guid>
-      <description>&lt;p&gt;CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,9 +29,7 @@
       <guid>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</guid>
       <description>&lt;p&gt;Redmine上のGitリポジトリ更新されてなくない…？という事象が発生。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/koppen/redmine_github_hook&#34;&gt;Redmine GitHub Hook Plugin&lt;/a&gt;を使って、GitLabにPush/Mergeが発生したらRedmineコンテナ上のBareリポジトリをfetchさせてるハズなんですが…。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/koppen/redmine_github_hook&#34;&gt;Redmine GitHub Hook Plugin&lt;/a&gt;を使って、GitLabにPush/Mergeが発生したらRedmineコンテナ上のBareリポジトリをfetchさせてるハズなんですが…。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,9 +38,7 @@
       <pubDate>Mon, 06 Aug 2018 06:30:45 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/08/gitlab11-mattermost-configuration-changes/</guid>
-      <description>&lt;p&gt;先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、&lt;code&gt;gitlab-ctl reconfigure&lt;/code&gt; でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、&lt;code&gt;gitlab-ctl reconfigure&lt;/code&gt; でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -59,8 +53,7 @@
 
 &lt;p&gt;ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。&lt;/p&gt;
 
-&lt;p&gt;なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。
-&lt;/p&gt;</description>
+&lt;p&gt;なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -69,8 +62,7 @@
       <pubDate>Thu, 28 Dec 2017 23:44:02 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2017/12/gitlab-10.3/</guid>
-      <description>&lt;p&gt;先日&lt;a href=&#34;https://about.gitlab.com/2017/12/22/gitlab-10-3-released/&#34;&gt;GitLab 10.3&lt;/a&gt;がリリースされましたが、その中でMermaidをサポートされるようになりました。
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;先日&lt;a href=&#34;https://about.gitlab.com/2017/12/22/gitlab-10-3-released/&#34;&gt;GitLab 10.3&lt;/a&gt;がリリースされましたが、その中でMermaidをサポートされるようになりました。&lt;/p&gt;</description>
     </item>
     
   </channel>
