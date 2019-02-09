@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -172,7 +172,7 @@
 </span><span class="w">
 </span><span class="w">      </span><span class="c"># ユーザページサイトにPushする</span><span class="w">
 </span><span class="w">      </span>-<span class="w"> </span>deploy<span class="p">:</span><span class="w">
-</span><span class="w">          </span>command<span class="p">:</span><span class="w"> </span>cd<span class="w"> </span>public<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--exit-code<span class="w"> </span>--quiet<span class="w"> </span>|<span class="sd">| git commit -m &#34;Rebuilding site&#34; &amp;&amp; git push origin master</span></code></pre></td></tr></table>
+</span><span class="w">          </span>command<span class="p">:</span><span class="w"> </span>cd<span class="w"> </span>public<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--exit-code<span class="w"> </span>--quiet<span class="w"> </span>||<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&#34;Rebuilding site&#34;</span><span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="ciecle-ciの準備">Ciecle CIの準備</h3>

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -261,14 +261,13 @@ $ docker-compose rm -f</code></pre></td></tr></table>
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-diff" data-lang="diff">   db:
      image: postgres:9.6
      environment:
 <span class="gi">+      POSTGRES_INITDB_ARGS: &#34;--encoding=UTF-8 --locale=C&#34;
-</span><span class="gi"></span></code></pre></td></tr></table>
+</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
