@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Tue, 25 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 10 Feb 2019 23:03:24 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitLabにカバレッジバッジを貼る（GitLab CI&#43;Gradle&#43;JaCoCo）</title>
+      <link>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</link>
+      <pubDate>Sun, 10 Feb 2019 23:03:24 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</guid>
+      <description>&lt;p&gt;GitLabにカバレッジバッジを貼りたいと思い、試行錯誤した結果です。GitLabのバージョンは &lt;code&gt;11.6&lt;/code&gt;です。カバレッジはGitLab CI上で実行されるGradleのJaCoCoプラグインのものを使用します。&lt;/p&gt;
+
+&lt;p&gt;カバレッジバッジが正常に表示されるまでには3つのステップがあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitLabにカバレッジバッジを貼る&lt;/li&gt;
+&lt;li&gt;GitLab CIでカバレッジを取得する設定をする&lt;/li&gt;
+&lt;li&gt;GradleのJaCoCoプラグインでカバレッジを出力する&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>同時編集しよう</title>
