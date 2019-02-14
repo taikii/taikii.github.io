@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 10 Feb 2019 23:03:24 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 Feb 2019 00:30:32 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>こんな学習支援サービスがほしい</title>
+      <link>https://taikii.net/posts/2019/02/dream-learning-app/</link>
+      <pubDate>Fri, 15 Feb 2019 00:30:32 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/02/dream-learning-app/</guid>
+      <description>&lt;p&gt;色々箸をつけすぎたせいで、積読やら中途半端に進めたチュートリアルが溜まってしまい、自分が何を学習中なのかわからなくなってしまっています…。タスク管理ツールを導入したほうがいいのかと思うもののしっくり来るものがなく。そこで夢の学習支援サービスを思い描いてみるという現実逃避です。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GitLabにカバレッジバッジを貼る（GitLab CI&#43;Gradle&#43;JaCoCo）</title>
