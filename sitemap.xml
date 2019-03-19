@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/posts/2019/03/redmine-wiki-pages-api/</loc>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2019/02/clibor-regex/</loc>
     <lastmod>2019-02-18T23:08:12+09:00</lastmod>
   </url>
@@ -287,13 +292,13 @@
   
   <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-02-18T23:08:12+09:00</lastmod>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://taikii.net/tags/redmine/</loc>
-    <lastmod>2018-12-19T00:00:00+09:00</lastmod>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -323,7 +328,7 @@
   
   <url>
     <loc>https://taikii.net/</loc>
-    <lastmod>2019-02-18T23:08:12+09:00</lastmod>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
     <priority>0</priority>
   </url>
   
