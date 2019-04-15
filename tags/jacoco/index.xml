@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jacoco on taikii blog</title>
+    <title>JaCoCo on taikii blog</title>
     <link>https://taikii.net/tags/jacoco/</link>
-    <description>Recent content in Jacoco on taikii blog</description>
+    <description>Recent content in JaCoCo on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>

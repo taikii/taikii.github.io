@@ -3,8 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/posts/</loc>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/redmine/</loc>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2019/03/redmine-wiki-pages-api/</loc>
     <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/</loc>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/</loc>
+    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/clibor/</loc>
+    <lastmod>2019-02-18T23:08:12+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -18,8 +48,38 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</loc>
+    <lastmod>2019-02-15T00:30:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/gitlab/</loc>
+    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/gradle/</loc>
+    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/jacoco/</loc>
+    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/vscode/</loc>
+    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -33,6 +93,12 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/ci/</loc>
+    <lastmod>2018-12-13T21:57:31+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/12/ci-secret-variables/</loc>
     <lastmod>2018-12-13T21:57:31+09:00</lastmod>
   </url>
@@ -40,6 +106,12 @@
   <url>
     <loc>https://taikii.net/posts/2018/12/utsunomiya-engineer/</loc>
     <lastmod>2018-12-08T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/%E8%AA%AD%E6%9B%B8%E6%84%9F%E6%83%B3%E6%96%87/</loc>
+    <lastmod>2018-11-13T23:20:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -58,6 +130,12 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/oracle/</loc>
+    <lastmod>2018-11-09T00:02:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/</loc>
     <lastmod>2018-11-09T00:02:00+09:00</lastmod>
   </url>
@@ -68,8 +146,26 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/docker/</loc>
+    <lastmod>2018-09-21T23:48:03+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/09/postgres-lc-collate/</loc>
     <lastmod>2018-09-21T23:48:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/postgres/</loc>
+    <lastmod>2018-09-21T23:48:03+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/bash/</loc>
+    <lastmod>2018-08-28T22:32:09+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -88,8 +184,20 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/github/</loc>
+    <lastmod>2018-07-30T18:00:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/07/github-pages-with-custom-domain/</loc>
     <lastmod>2018-07-30T18:00:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/plantuml/</loc>
+    <lastmod>2018-07-05T21:43:58+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -98,8 +206,26 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/active-directory/</loc>
+    <lastmod>2018-05-19T10:40:48+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2018/05/ad-1500-over-members/</loc>
     <lastmod>2018-05-19T10:40:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/ldap/</loc>
+    <lastmod>2018-05-19T10:40:48+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/markdown/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -118,8 +244,20 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/hugo/</loc>
+    <lastmod>2017-12-25T23:39:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</loc>
     <lastmod>2017-12-25T23:39:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/til/</loc>
+    <lastmod>2018-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -133,6 +271,24 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/circle-ci/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/series/hugo-%E6%A7%8B%E7%AF%89/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/series/</loc>
+    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2017/10/build-site-by-hugo/</loc>
     <lastmod>2017-10-17T00:25:05+09:00</lastmod>
   </url>
@@ -143,8 +299,20 @@
   </url>
   
   <url>
+    <loc>https://taikii.net/tags/jekyll/</loc>
+    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</loc>
     <lastmod>2017-10-13T00:30:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/html5/</loc>
+    <lastmod>2017-10-02T00:00:00+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -158,190 +326,23 @@
   </url>
   
   <url>
-    <loc>https://taikii.net/posts/2017/09/posts-delete-merge-commit/</loc>
-    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/archives/</loc>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/active-directory/</loc>
-    <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/bash/</loc>
-    <lastmod>2018-08-28T22:32:09+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/ci/</loc>
-    <lastmod>2018-12-13T21:57:31+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/circle-ci/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/clibor/</loc>
-    <lastmod>2019-02-18T23:08:12+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/docker/</loc>
-    <lastmod>2018-09-21T23:48:03+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://taikii.net/tags/git/</loc>
     <lastmod>2017-09-29T00:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://taikii.net/tags/github/</loc>
-    <lastmod>2018-07-30T18:00:19+09:00</lastmod>
+    <loc>https://taikii.net/posts/2017/09/posts-delete-merge-commit/</loc>
+    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://taikii.net/tags/gitlab/</loc>
-    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/gradle/</loc>
-    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/html5/</loc>
-    <lastmod>2017-10-02T00:00:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/hugo/</loc>
-    <lastmod>2017-12-25T23:39:49+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/series/hugo-%E6%A7%8B%E7%AF%89/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/jacoco/</loc>
-    <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/jekyll/</loc>
-    <lastmod>2017-10-13T00:30:12+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/ldap/</loc>
-    <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/markdown/</loc>
-    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/oracle/</loc>
-    <lastmod>2018-11-09T00:02:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/plantuml/</loc>
-    <lastmod>2018-07-05T21:43:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/postgres/</loc>
-    <lastmod>2018-09-21T23:48:03+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/redmine/</loc>
-    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/series/</loc>
-    <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/</loc>
-    <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/til/</loc>
-    <lastmod>2018-03-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/vscode/</loc>
-    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/</loc>
-    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</loc>
-    <lastmod>2019-02-15T00:30:32+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/%E8%AA%AD%E6%9B%B8%E6%84%9F%E6%83%B3%E6%96%87/</loc>
-    <lastmod>2018-11-13T23:20:26+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://taikii.net/about/</loc>
   </url>
   
 </urlset>

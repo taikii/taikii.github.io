@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Til on taikii blog</title>
+    <title>TIL on taikii blog</title>
     <link>https://taikii.net/tags/til/</link>
-    <description>Recent content in Til on taikii blog</description>
+    <description>Recent content in TIL on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
