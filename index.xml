@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Wed, 20 Mar 2019 00:09:36 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 00:15:02 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Whiteplain gets DarkPower</title>
+      <link>https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/</link>
+      <pubDate>Fri, 26 Apr 2019 00:15:02 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/</guid>
+      <description>&lt;p&gt;・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>RedmineのWiki REST APIでハマった話</title>
