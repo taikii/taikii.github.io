@@ -18,7 +18,7 @@
       <pubDate>Wed, 01 May 2019 09:07:06 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2019/05/redmine-callout-macro/</guid>
-      <description>&lt;p&gt;Redmine Callout Macroプラグイン作りました。&lt;a href=&#34;https://docs.gitbook.com/content-editing/rich-content#hints-and-callouts&#34;&gt;GitBookではHintsとかCallout&lt;/a&gt;、&lt;a href=&#34;https://vuepress.vuejs.org/guide/markdown.html#custom-containers&#34;&gt;VuePressではCustom Containers&lt;/a&gt;とか呼ばれてるやつです。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Redmineの&lt;a href=&#34;https://github.com/taikii/redmine_callout_macro&#34;&gt;Callout Macroプラグイン&lt;/a&gt;というのを作りました。&lt;a href=&#34;https://docs.gitbook.com/content-editing/rich-content#hints-and-callouts&#34;&gt;GitBookではHintsとかCallout&lt;/a&gt;、&lt;a href=&#34;https://vuepress.vuejs.org/guide/markdown.html#custom-containers&#34;&gt;VuePressではCustom Containers&lt;/a&gt;とか呼ばれてるやつです。&lt;/p&gt;</description>
     </item>
     
     <item>
