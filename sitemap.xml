@@ -3,19 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://taikii.net/tags/hugo/</loc>
-    <lastmod>2019-04-26T00:15:02+09:00</lastmod>
+    <loc>https://taikii.net/posts/</loc>
+    <lastmod>2019-05-01T09:07:06+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-04-26T00:15:02+09:00</lastmod>
+    <loc>https://taikii.net/tags/redmine/</loc>
+    <lastmod>2019-05-01T09:07:06+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/05/redmine-callout-macro/</loc>
+    <lastmod>2019-05-01T09:07:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/tags/</loc>
+    <lastmod>2019-05-01T09:07:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/</loc>
+    <lastmod>2019-05-01T09:07:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/hugo/</loc>
     <lastmod>2019-04-26T00:15:02+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -23,18 +40,6 @@
   <url>
     <loc>https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/</loc>
     <lastmod>2019-04-26T00:15:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/</loc>
-    <lastmod>2019-04-26T00:15:02+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/redmine/</loc>
-    <lastmod>2019-03-20T00:09:36+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

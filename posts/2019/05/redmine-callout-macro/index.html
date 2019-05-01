@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Whiteplain gets DarkPower - taikii blog</title>
-  <meta property="og:title" content="Whiteplain gets DarkPower - taikii blog" />
-  <meta name="twitter:title" content="Whiteplain gets DarkPower - taikii blog" />
-  <meta name="description" content="・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。">
-  <meta property="og:description" content="・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。">
-  <meta name="twitter:description" content="・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。">
+  <title>Redmine Callout Macroプラグイン - taikii blog</title>
+  <meta property="og:title" content="Redmine Callout Macroプラグイン - taikii blog" />
+  <meta name="twitter:title" content="Redmine Callout Macroプラグイン - taikii blog" />
+  <meta name="description" content="Redmine Callout Macroプラグイン作りました。GitBookではHintsとかCallout、VuePressではCustom Containersとか呼ばれてるやつです。">
+  <meta property="og:description" content="Redmine Callout Macroプラグイン作りました。GitBookではHintsとかCallout、VuePressではCustom Containersとか呼ばれてるやつです。">
+  <meta name="twitter:description" content="Redmine Callout Macroプラグイン作りました。GitBookではHintsとかCallout、VuePressではCustom Containersとか呼ばれてるやつです。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
-  <meta property="og:url" content="https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/" />
+  <meta property="og:url" content="https://taikii.net/posts/2019/05/redmine-callout-macro/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.55.4" />
@@ -44,46 +44,86 @@
     <article class="article">
       
       
-      <h1 class="article-title">Whiteplain gets DarkPower</h1>
+      <h1 class="article-title">Redmine Callout Macroプラグイン</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
-        <li class="article-meta-date"><time>April 26, 2019</time></li>
+        <li class="article-meta-date"><time>May 1, 2019</time></li>
         <li class="article-meta-tags">
-          <a href="/tags/hugo/">
+          <a href="/tags/redmine/">
             <i class="fas fa-tag"></i>
-            Hugo
+            Redmine
           </a>&nbsp;
         </li>
       </ul>
       
-      <p>・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。</p>
+      <p>Redmine Callout Macroプラグイン作りました。<a href="https://docs.gitbook.com/content-editing/rich-content#hints-and-callouts">GitBookではHintsとかCallout</a>、<a href="https://vuepress.vuejs.org/guide/markdown.html#custom-containers">VuePressではCustom Containers</a>とか呼ばれてるやつです。</p>
 
-<p>流行ってますね、ダークモード。Windows10にもダークモードが実装されたり、昨日リリースされたばかりのChrome74もダークモードに対応しました。私もダークモードを愛用してますが、いかにブラウザがダークモード対応しても、肝心のWebサイトは白基調のサイトが多いのであまり恩恵を受けられていない感じがします。かく言う私もWhiteplainとかいう白基調のテーマを作ってるわけで。。。これじゃいかん、ということで、<a href="https://github.com/taikii/whiteplain-dark">Whiteplain Dark</a>というなんだかよくわからん名前の黒基調のテーマを作りました。</p>
-
-<p>Hugoはテーマを複数指定して継承させることができるので、これを利用してWhiteplainの背景色と文字色だけ変えることでダークモードを作り出しています。</p>
-
-<p>Readmeにも書いていますが、 <code>comfig.toml</code> に <code>whiteplain-dark</code> と <code>whiteplain</code> の2つのテーマを指定します。<code>whiteplain-dark</code> を先に指定する必要があります。</p>
+<p>以下のように使います。他と同じですね。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="lnt">1
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">theme</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;whiteplain-dark&#34;</span><span class="p">,</span> <span class="s2">&#34;whiteplain&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">{{info(INFO)
+This is information block.
+}}
+
+{{warning(WARNING)
+This is warning block.
+}}
+
+{{danger(DANGER)
+This is danger block.
+}}</code></pre></td></tr></table>
 </div>
 </div>
-<p>また、Whiteplainは <code>static/css/custom.css</code> というファイルを作ることで、簡単に独自のスタイルで上書きできるようにしているのですが、このファイルを作っている方は <code>custom.css</code> の1行目に以下の行を追加する必要があります。</p>
+<p><img src="https://github.com/taikii/redmine_callout_macro/blob/master/doc/images/sample.png?raw=true" alt="" /></p>
+
+<p>第一引数は省略を省略できます。ブロック内にはWikiフォーマットで記述できます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="lnt">1
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">whiteplain-dark</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>これでダークパワーを感じることができます。</p>
+<pre class="chroma"><code class="language-text" data-lang="text">{{info
+This is information block.
 
-<p>このテーマ継承機能は、ショートコードだけのテーマを作ってプラグイン的に使うことが目的のような気もするんですが、これを使えばもっといろいろできそうですねー。</p>
+| key | value |
+| --- | ----- |
+| a   | Hoge  |
+| b   | Fuga  |
+
+- Foo
+- Bar
+}}</code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://i.gyazo.com/ee58c63b10a08c661e16518d876a976a.png" alt="" /></p>
+
+<p>子供が寝てる間に突貫で作ったので、色やマージンはかなりテキトーです。</p>
+
+<p>お気づきの点があったら指摘いただけるとありがたいです。</p>
     </article>
 
     
@@ -92,7 +132,7 @@
     <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </li>
   <li>
-    <div class="fb-share-button" data-href="https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-share-button" data-href="https://taikii.net/posts/2019/05/redmine-callout-macro/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -113,11 +153,9 @@
 
 
     <ul class="pager article-pager">
-      <li class="pager-newer">
-          <a href="/posts/2019/05/redmine-callout-macro/" data-toggle="tooltip" data-placement="top" title="Redmine Callout Macroプラグイン">&lt; Newer</a>
-      </li>
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
       <li class="pager-older">
-        <a href="/posts/2019/03/redmine-wiki-pages-api/" data-toggle="tooltip" data-placement="top" title="RedmineのWiki REST APIでハマった話">Older &gt;</a>
+        <a href="/posts/2019/04/whiteplain-gets-darkpower/" data-toggle="tooltip" data-placement="top" title="Whiteplain gets DarkPower">Older &gt;</a>
       </li>
     </ul>
   </div>
