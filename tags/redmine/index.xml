@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Fri, 31 May 2019 01:21:52 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:15:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redmineのエモい話</title>
+      <link>https://taikii.net/posts/2019/06/emoi-redmine/</link>
+      <pubDate>Mon, 03 Jun 2019 00:15:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/06/emoi-redmine/</guid>
+      <description>&lt;p&gt;1年半前くらいに &lt;a href=&#34;https://taikii.net/posts/2018/01/redmine-is-dead/&#34;&gt;Redmine is Dead&lt;/a&gt; というエントリを書いたのですが、当時とは状況が変わってきていますし、今掘り起こされるとただの感じの悪い人になってしまう気がするので（笑）、その後のエモい感じのことを書きたいと思います。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Redmine: タブ区切りのテキストをテーブルで表示するMacroを作った</title>
