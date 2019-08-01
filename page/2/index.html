@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://taikii.net/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.3" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="taikii blog" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="taikii blog" />
 
@@ -41,6 +41,46 @@
 
   <div class="main" role="main">
     <section class="list home-list">
+      <article class="article">
+        <a href="/posts/2019/02/gitlab-coverage-badge/" class="article-titles">
+          <h2 class="article-title">GitLabにカバレッジバッジを貼る（GitLab CI&#43;Gradle&#43;JaCoCo）</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>February 10, 2019</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/gitlab/">
+              <i class="fas fa-tag"></i>
+              GitLab
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/gradle/">
+              <i class="fas fa-tag"></i>
+              Gradle
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/jacoco/">
+              <i class="fas fa-tag"></i>
+              JaCoCo
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          <p>GitLabにカバレッジバッジを貼りたいと思い、試行錯誤した結果です。GitLabのバージョンは <code>11.6</code>です。カバレッジはGitLab CI上で実行されるGradleのJaCoCoプラグインのものを使用します。</p>
+
+<p>カバレッジバッジが正常に表示されるまでには3つのステップがあります。</p>
+
+<ul>
+<li>GitLabにカバレッジバッジを貼る</li>
+<li>GitLab CIでカバレッジを取得する設定をする</li>
+<li>GradleのJaCoCoプラグインでカバレッジを出力する</li>
+</ul>
+        </div>
+        <div class="article-readmore"><a href="/posts/2019/02/gitlab-coverage-badge/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/posts/2018/12/live-share2/" class="article-titles">
           <h2 class="article-title">同時編集しよう</h2>
@@ -231,38 +271,6 @@
           <p><a href="https://twitter.com/yoshinorin24">YoshinoriN</a>さんがVSCode Live Share pluginがすごいと言ってるのを見て私もやってみたくなったわけですが、会社のプロキシ環境下ではリモートホストに繋がらねぇと怒られてしまいました。</p>
         </div>
         <div class="article-readmore"><a href="/posts/2018/10/vscode-live-share-over-proxy/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/posts/2018/09/postgres-lc-collate/" class="article-titles">
-          <h2 class="article-title">Docker LibraryのPostgreSQLで日本語がうまくソートされない</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>September 21, 2018</time></li>
-          <li class="article-meta-tags">
-            <a href="/tags/redmine/">
-              <i class="fas fa-tag"></i>
-              Redmine
-            </a>&nbsp;
-          </li>
-          <li class="article-meta-tags">
-            <a href="/tags/docker/">
-              <i class="fas fa-tag"></i>
-              Docker
-            </a>&nbsp;
-          </li>
-          <li class="article-meta-tags">
-            <a href="/tags/postgres/">
-              <i class="fas fa-tag"></i>
-              Postgres
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。</p>
-        </div>
-        <div class="article-readmore"><a href="/posts/2018/09/postgres-lc-collate/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

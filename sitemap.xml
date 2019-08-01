@@ -4,8 +4,31 @@
   
   <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-06-03T00:15:00+09:00</lastmod>
+    <lastmod>2019-08-02T00:16:00+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/</loc>
+    <lastmod>2019-08-02T00:16:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/</loc>
+    <lastmod>2019-08-02T00:16:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</loc>
+    <lastmod>2019-08-02T00:16:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/08/modernization/</loc>
+    <lastmod>2019-08-02T00:16:00+09:00</lastmod>
   </url>
   
   <url>
@@ -17,18 +40,6 @@
   <url>
     <loc>https://taikii.net/posts/2019/06/emoi-redmine/</loc>
     <lastmod>2019-06-03T00:15:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/</loc>
-    <lastmod>2019-06-03T00:15:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/</loc>
-    <lastmod>2019-06-03T00:15:00+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -81,12 +92,6 @@
   <url>
     <loc>https://taikii.net/posts/2019/02/dream-learning-app/</loc>
     <lastmod>2019-02-15T00:30:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</loc>
-    <lastmod>2019-02-15T00:30:32+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

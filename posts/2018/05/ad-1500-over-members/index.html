@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/05/ad-1500-over-members/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -137,17 +137,17 @@ member;range=0-1499: cn=user001499,ou=users,dc=example,dc=com</code></pre></td><
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SearchResult</span> <span class="n">sr</span> <span class="o">=</span> <span class="o">(</span><span class="n">SearchResult</span><span class="o">)</span><span class="n">results</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-<span class="n">Attributes</span> <span class="n">attrs</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">();</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">attrs</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SearchResult</span> <span class="nf">sr</span> <span class="o">=</span> <span class="p">(</span><span class="n">SearchResult</span><span class="p">)</span><span class="n">results</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="n">Attributes</span> <span class="nf">attrs</span> <span class="o">=</span> <span class="n">si</span><span class="p">.</span><span class="na">getAttributes</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">attrs</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="c1">// メンバ情報を取得できない
-</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="n">attr1</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;member&#34;</span><span class="o">);</span>
+</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="nf">attr1</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;member&#34;</span><span class="p">);</span>
 
   <span class="c1">// メンバ情報を取得できる
-</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="n">attr2</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;member;range=0-1499&#34;</span><span class="o">);</span>
+</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="nf">attr2</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;member;range=0-1499&#34;</span><span class="p">);</span>
 
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>さらに、1,501件目以降のメンバを取得を取得してみます。</p>
