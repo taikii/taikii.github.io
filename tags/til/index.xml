@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 12 Nov 2017 23:14:22 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 00:57:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TIL 2019/09/04</title>
+      <link>https://taikii.net/posts/2019/09/til-20190904/</link>
+      <pubDate>Thu, 05 Sep 2019 00:57:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/09/til-20190904/</guid>
+      <description>&lt;p&gt;最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。&lt;/p&gt;
+
+&lt;p&gt;あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていくのは自分的に意味はありそう。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>バージョン1709時代のWSLリフレッシュ</title>
