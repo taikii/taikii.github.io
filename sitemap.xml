@@ -3,18 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/tags/git/</loc>
+    <lastmod>2019-09-09T00:47:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/09/git-email/</loc>
+    <lastmod>2019-09-09T00:47:57+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-09-05T00:57:00+09:00</lastmod>
+    <lastmod>2019-09-09T00:47:57+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/tags/</loc>
-    <lastmod>2019-09-05T00:57:00+09:00</lastmod>
+    <lastmod>2019-09-09T00:47:57+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/</loc>
-    <lastmod>2019-09-05T00:57:00+09:00</lastmod>
+    <lastmod>2019-09-09T00:47:57+09:00</lastmod>
   </url>
   
   <url>
@@ -335,11 +345,6 @@
   <url>
     <loc>https://taikii.net/posts/2017/10/semantics/</loc>
     <lastmod>2017-10-01T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/git/</loc>
-    <lastmod>2017-09-29T00:00:00+09:00</lastmod>
   </url>
   
   <url>
