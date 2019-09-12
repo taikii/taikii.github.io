@@ -74,7 +74,7 @@
 
 <p>であるので、ロードバランスで振られるインスタンスが変わると、採番される数値が急に飛んだり、前回より小さくなる現象が発生します。重複する数値は採番されないので、アイデンティティという意味では問題はありませんが、発行された数値でデータの作成順を意識する作りをしていると問題になります。</p>
 
-<p>要求順通りに採番されるようにするには <code>CREATE SEQUENCE</code> 時に <code>NOCACHE</code> / <code>ORDER</code> を指定します。</p>
+<p>要求順通りに採番されるようにするには <code>CREATE SEQUENCE</code> 時に <code>NOCACHE</code> / <code>ORDER</code> を指定します。キャッシュされなくなるので速度面での劣化はあるように思います。</p>
 
 <p>いやーマジで焦った。<a href="https://docs.oracle.com/cd/E57425_01/121/SQLRF/statements_6017.htm">公式マニュアル</a> も見てね。</p>
     </article>
