@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://taikii.net/tags/oracle/</loc>
-    <lastmod>2019-09-13T06:17:16+09:00</lastmod>
+    <loc>https://taikii.net/tags/java/</loc>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://taikii.net/posts/2019/09/oracle-sequence-noorder/</loc>
-    <lastmod>2019-09-13T06:17:16+09:00</lastmod>
+    <loc>https://taikii.net/tags/jpa/</loc>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/09/jpa-sequence-generator/</loc>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/oracle/</loc>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-09-13T06:17:16+09:00</lastmod>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/tags/</loc>
-    <lastmod>2019-09-13T06:17:16+09:00</lastmod>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://taikii.net/</loc>
+    <lastmod>2019-09-18T23:40:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/09/oracle-sequence-noorder/</loc>
     <lastmod>2019-09-13T06:17:16+09:00</lastmod>
   </url>
   

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Fri, 13 Sep 2019 06:17:16 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 23:40:30 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JPAでシーケンスを使ってIDを自動採番する場合の注意点</title>
+      <link>https://taikii.net/posts/2019/09/jpa-sequence-generator/</link>
+      <pubDate>Wed, 18 Sep 2019 23:40:30 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/09/jpa-sequence-generator/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://taikii.net/posts/2019/09/oracle-sequence-noorder/&#34;&gt;Oracle シーケンスのデフォルトはNOORDERである罠&lt;/a&gt; の続きです。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Oracle シーケンスのデフォルトはNOORDERである罠</title>
