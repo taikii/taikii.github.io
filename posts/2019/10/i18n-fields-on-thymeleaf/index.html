@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Thymeleafで言語別フィールドをカッコよく表示する - taikii blog</title>
+  <meta property="og:title" content="Thymeleafで言語別フィールドをカッコよく表示する - taikii blog" />
+  <meta name="twitter:title" content="Thymeleafで言語別フィールドをカッコよく表示する - taikii blog" />
+  <meta name="description" content="日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。">
+  <meta property="og:description" content="日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。">
+  <meta name="twitter:description" content="日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。">
+  <meta name="author" content="taikii"/>
+  <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Thymeleafで言語別フィールドをカッコよく表示する</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 17, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/til/">
+            <i class="fas fa-tag"></i>
+            TIL
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/thymeleaf/">
+            <i class="fas fa-tag"></i>
+            Thymeleaf
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。</p>
+
+<h2 id="tl-dr">TL;DR</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="やっていき">やっていき</h2>
+
+<p>Spring Boot 2.1.x です。</p>
+
+<p>こういうクラスがあったとします。名前フィールドが<code>nameEn</code>と<code>nameJa</code>に別れてます。これをうまいことユーザのロケールによって切り替えて画面に表示させたいわけです。</p>
+
+<p>ちなみに、私は「そもそも」と言われるとしんでしまいます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">Item</span> <span class="p">{</span>
+  <span class="nd">@Id</span>
+  <span class="nd">@Getter</span>
+  <span class="nd">@Setter</span>
+  <span class="kd">private</span> <span class="nf">Integer</span> <span class="n">id</span><span class="p">;</span>
+
+  <span class="nd">@Getter</span>
+  <span class="nd">@Setter</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">nameEn</span><span class="p">;</span>
+
+  <span class="nd">@Getter</span>
+  <span class="nd">@Setter</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">nameJa</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>普通に考えると、条件分岐でしょうか。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${#locale.language == &#39;ja&#39;} ? ${item.nameJa} : ${item.nameEn}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>でも、私はif文を書くとしんでしまう体質だし、三項演算子書いたら三項演算子警察にころされるじゃないですか。</p>
+
+<p>ていうか、こんな事やってて別のロケールフィールドが増えたらどうすんじゃいって感じだし、固定のフィールドと言えどもResourceBundleであるところのメッセージプロパティと同じように扱いたい。</p>
+
+<p>で、ちょっと思ったんですけど、Thymeleafってオブジェクトのフィールドを<code>${item.nameEn}</code>のようにドットを使った記法で取得する他に<code>${item['nameEn']}</code>のように角括弧を使って取得することもできるんですよね。角括弧の引数は文字列なので、これを変数で渡してやれば取得するフィールドを動的に切り替えることができるはずです。</p>
+
+<p>余談ですが、対象のオブジェクトがMapの場合も<code>${map['key1']}</code>でも<code>${map.key1}</code>でも取れますね。Getterでのアクセスなのか<code>Map#get()</code>なのかView側では意識することなく扱えるってことですねー。Rubyっぽいっていうか。よく知りませんが、最近のテンプレートエンジンはみんなこんな感じなんですかね？</p>
+
+<p><a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E5%A4%89%E6%95%B0">https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E5%A4%89%E6%95%B0</a></p>
+
+<p>結局やりたいのは固定フィールドもメッセージプロパティと同じように取り回ししたいということなので、じゃあ角括弧の引数はメッセージプロパティから取ればいいじゃんと思いました。</p>
+
+<p><strong>messages_en.properties</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameEn</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>messages_ja.properties</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameJa</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>通常Thymeleafでメッセージを表示する場合は<code>#{i18nfields.name}</code>のような構文で記述しますが、<code>#messages</code>オブジェクトを使って<code>${#messages.msg('i18nfields.name')}</code>のように記述することも可能です。角括弧の引数に直接メッセージを渡す場合は<code>#messages</code>オブジェクトを使う必要があります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>#{i18nfields.name}</code>構文で書きたければ、一旦変数に入れてから渡します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:with</span><span class="o">=</span><span class="s">&#39;x=#{i18nfields.name}&#39;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[x]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>また余談ですが、ドットを使った記法だと、<code>${item?.nameJa}</code>のようにオブジェクトの後ろに<code>?</code>を付けることで、対象オブジェクトがNullでない場合のみGetterを呼び出す…というかメソッドチェーンを実行することが可能ですが（Null安全？）、角括弧を使った記法だとこれはできません。オブジェクトがNullになる可能性がある場合は愚直にNullチェックする必要があります。</p>
+
+<p>&hellip;</p>
+
+<p>これがスマートかって言われるとそうではない気がしますし、みんなどうやってるのか知りませんが、多少は格好がついたのではないかと思います。カッコなだけに。</p>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Thymeleaf%e3%81%a7%e8%a8%80%e8%aa%9e%e5%88%a5%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89%e3%82%92%e3%82%ab%e3%83%83%e3%82%b3%e3%82%88%e3%81%8f%e8%a1%a8%e7%a4%ba%e3%81%99%e3%82%8b%20-%20taikii%20blog&amp;url=https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2019/10/jouhouniumore-tai/" data-toggle="tooltip" data-placement="top" title="情報に埋もれTai">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114764514-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>

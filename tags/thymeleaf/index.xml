@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thymeleaf on taikii blog</title>
+    <link>https://taikii.net/tags/thymeleaf/</link>
+    <description>Recent content in Thymeleaf on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Thu, 17 Oct 2019 23:15:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.net/tags/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Thymeleafで言語別フィールドをカッコよく表示する</title>
+      <link>https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/</link>
+      <pubDate>Thu, 17 Oct 2019 23:15:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/</guid>
+      <description>&lt;p&gt;日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
