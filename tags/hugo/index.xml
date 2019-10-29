@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Fri, 26 Apr 2019 00:15:02 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 23:27:40 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ブラウザのカラースキームによってWhiteplainの明暗を切り替わるようにしました</title>
+      <link>https://taikii.net/posts/2019/10/prefers-color-scheme/</link>
+      <pubDate>Tue, 29 Oct 2019 23:27:40 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/10/prefers-color-scheme/</guid>
+      <description>&lt;p&gt;Chrome 78で試験的にWebページにダークモードを強制する機能が実装されたというニュースから、&lt;code&gt;prefers-color-scheme&lt;/code&gt;というブラウザのカラースキームによってスタイルを切り替えるメディアクエリがあることを知りました。Hugoのテーマ&lt;a href=&#34;https://github.com/taikii/whiteplain&#34;&gt;Whiteplain&lt;/a&gt;の&lt;a href=&#34;https://github.com/taikii/whiteplain-dark&#34;&gt;暗色版&lt;/a&gt;を作ったときから、自動で切り替わるといいのに…とは思っていたので、このメディアクエリを使って明色と暗色が切り替わるようにしました。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Whiteplain gets DarkPower</title>

@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Thu, 17 Oct 2019 23:15:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 23:27:40 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS</title>
+      <link>https://taikii.net/tags/css/</link>
+      <pubDate>Tue, 29 Oct 2019 23:27:40 +0900</pubDate>
+      
+      <guid>https://taikii.net/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://taikii.net/tags/hugo/</link>
+      <pubDate>Tue, 29 Oct 2019 23:27:40 +0900</pubDate>
+      
+      <guid>https://taikii.net/tags/hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Thymeleaf</title>
@@ -81,15 +99,6 @@
       <pubDate>Mon, 03 Jun 2019 00:15:00 +0900</pubDate>
       
       <guid>https://taikii.net/tags/redmine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://taikii.net/tags/hugo/</link>
-      <pubDate>Fri, 26 Apr 2019 00:15:02 +0900</pubDate>
-      
-      <guid>https://taikii.net/tags/hugo/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on taikii blog</title>
+    <link>https://taikii.net/tags/css/</link>
+    <description>Recent content in CSS on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Tue, 29 Oct 2019 23:27:40 +0900</lastBuildDate>
+    
+	<atom:link href="https://taikii.net/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ブラウザのカラースキームによってWhiteplainの明暗を切り替わるようにしました</title>
+      <link>https://taikii.net/posts/2019/10/prefers-color-scheme/</link>
+      <pubDate>Tue, 29 Oct 2019 23:27:40 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/10/prefers-color-scheme/</guid>
+      <description>&lt;p&gt;Chrome 78で試験的にWebページにダークモードを強制する機能が実装されたというニュースから、&lt;code&gt;prefers-color-scheme&lt;/code&gt;というブラウザのカラースキームによってスタイルを切り替えるメディアクエリがあることを知りました。Hugoのテーマ&lt;a href=&#34;https://github.com/taikii/whiteplain&#34;&gt;Whiteplain&lt;/a&gt;の&lt;a href=&#34;https://github.com/taikii/whiteplain-dark&#34;&gt;暗色版&lt;/a&gt;を作ったときから、自動で切り替わるといいのに…とは思っていたので、このメディアクエリを使って明色と暗色が切り替わるようにしました。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
