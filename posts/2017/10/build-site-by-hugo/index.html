@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/10/build-site-by-hugo/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -65,129 +65,83 @@
       
 <aside class="toc">
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#github-pagesについて">GitHub Pagesについて</a>
-<ul>
-<li><a href="#ユーザページサイトを作成する場合">ユーザページサイトを作成する場合</a></li>
-<li><a href="#プロジェクトページサイトを作成する場合">プロジェクトページサイトを作成する場合</a>
-<ul>
-<li><a href="#1-gh-pages-branch">1. gh-pages branch</a></li>
-<li><a href="#2-master-branch">2. master branch</a></li>
-<li><a href="#3-mastar-branch-docs-folder">3. mastar branch /docs folder</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#hugoでサイトを作って公開する">Hugoでサイトを作って公開する</a></li>
-<li><a href="#その他解説">その他解説</a>
-<ul>
-<li><a href="#テーマごとのコンフィグ">テーマごとのコンフィグ</a></li>
-<li><a href="#コンフィグへのテンプレートの指定">コンフィグへのテンプレートの指定</a></li>
-<li><a href="#タグ-カテゴリ">タグ、カテゴリ</a></li>
-</ul></li>
-<li><a href="#最後に">最後に</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#github-pages">GitHub Pagesについて</a>
+      <ul>
+        <li><a href="#heading">ユーザページサイトを作成する場合</a></li>
+        <li><a href="#heading1">プロジェクトページサイトを作成する場合</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo">Hugoでサイトを作って公開する</a></li>
+    <li><a href="#heading2">その他解説</a>
+      <ul>
+        <li><a href="#heading3">テーマごとのコンフィグ</a></li>
+        <li><a href="#heading4">コンフィグへのテンプレートの指定</a></li>
+        <li><a href="#heading5">タグ、カテゴリ</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading6">最後に</a></li>
+  </ul>
 </nav>
 </aside>
       <p>静的サイトジェネレータHugoとGitHub Pagesでブログを公開する方法についてまとめました。</p>
-
 <p><a href="https://taikii.net/posts/2017/10/jekyll-vs-hugo/">Jekyllに対するHugoの優位点</a>の続きです。</p>
-
 <p>私の環境は以下のようなものです。</p>
-
 <ul>
 <li>ジェネレータ: Hugo v0.30</li>
 <li>OS: Windows10</li>
 <li>エディタ:  Atom</li>
 </ul>
-
 <p>HugoとGitHub Pagesでブログサイトを作成するためには、まずGitHub Pagesの概要について知っておく必要があります。</p>
-
-<h2 id="github-pagesについて">GitHub Pagesについて</h2>
-
+<h2 id="github-pages">GitHub Pagesについて</h2>
 <p>GitHub Pagesで個人として作ることのできるサイトは <strong>ユーザページサイト</strong>（User Pages site） と <strong>プロジェクトページサイト</strong>（Project Pages site owned by a user account） の2種類があります。</p>
-
 <p>ユーザページサイトのURLは<code>https://ユーザ名.github.io</code>となり、プロジェクトページサイトのURLは<code>https://ユーザ名.github.io/リポジトリ名（プロジェクト名）</code>となります。</p>
-
 <p>うだうだ書きますが、<strong>公式ページを見れば一発です</strong>。</p>
-
 <ul>
 <li><a href="https://help.github.com/articles/user-organization-and-project-pages/">User, Organization, and Project Pages - User Documentation</a></li>
 </ul>
-
-<h3 id="ユーザページサイトを作成する場合">ユーザページサイトを作成する場合</h3>
-
+<h3 id="heading">ユーザページサイトを作成する場合</h3>
 <p>ユーザページサイトを作成する際は、 <strong><code>ユーザ名.github.io</code></strong> という名前のリポジトリを作ります。それだけでサイトのデプロイは完了です。試しにリポジトリのルートディレクトリに<code>index.html</code>を作成して、<code>https://ユーザ名.github.io</code>にアクセスすると<code>index.html</code>の画面が表示されます。</p>
-
 <p>ユーザページサイトは、 <strong><code>ユーザ名.github.io</code>という名前のリポジトリ</strong> の <strong><code>master</code>ブランチ</strong> が公開ディレクトリとなります。現時点でこれを変更することはできません。</p>
-
 <p>また、<code>ユーザ名.github.io</code>という名前のプロジェクトを作成すると、自動的にGitHub Pagesとして公開されます。現時点でプロジェクトを削除する以外に公開を停止する方法はありません。</p>
-
 <p>このサイトはユーザページサイトとして作成しています。GitHub上のプロジェクトは <a href="https://github.com/taikii/taikii.github.io">https://github.com/taikii/taikii.github.io</a> です。</p>
-
-<h3 id="プロジェクトページサイトを作成する場合">プロジェクトページサイトを作成する場合</h3>
-
+<h3 id="heading1">プロジェクトページサイトを作成する場合</h3>
 <p>プロジェクトページサイトは任意の名前のリポジトリから作成できます。プロジェクトページのSetting -&gt; GitHub Pages の<code>Source</code>を<code>None</code>からそれ以外に変更することでプロジェクトページサイトが作成されます。</p>
-
 <p>プロジェクトページサイトの公開ディレクトリは3種類+1から選択できます。</p>
-
 <ol>
 <li><strong><code>gh-pages branch</code></strong>: <code>gh-pages</code>ブランチを公開ディレクトリとする</li>
 <li><strong><code>master branch</code></strong>: <code>master</code>ブランチを公開ディレクトリとする（ユーザページサイトと同じ）</li>
 <li><strong><code>mastar branch /docs folder</code></strong>: <code>master</code>ブランチの<code>/docs</code>フォルダーを公開ディレクトリとする</li>
 <li><strong><code>None</code></strong>: GitHub Pagesとして公開しない ※デフォルト</li>
 </ol>
-
-<h4 id="1-gh-pages-branch">1. gh-pages branch</h4>
-
+<h4 id="1-ghpages-branch">1. gh-pages branch</h4>
 <p>既存のリポジトリ（普通にソースを置いているようなリポジトリ）をGitHub Pagesとして公開する場合に使用することになると思います。きっと次の様に思うことでしょう。</p>
-
 <blockquote>
 <p>リポジトリと同じ名前のURLで公開したい、でもソースの中にHTMLファイルを配置したくないし、HTMLファイルを更新したコミットログを混ぜたくない。</p>
 </blockquote>
-
 <p><code>gh-pages</code>ブランチは大体において<code>--orphan</code>で作ります。</p>
-
 <pre><code>git checkout --orphan gh-pages
-</code></pre>
-
-<p>orphanとは孤児のことで親を持たないブランチが作成されます。これで既存の開発用コミットツリーとは無関係にサイトの管理ができるようになります。</p>
-
+</code></pre><p>orphanとは孤児のことで親を持たないブランチが作成されます。これで既存の開発用コミットツリーとは無関係にサイトの管理ができるようになります。</p>
 <p><code>gh-pages</code>ブランチを作る上でいくつかの注意点があります。</p>
-
 <ul>
 <li>リポジトリ上に<code>gh-pages</code>ブランチがないと設定画面上の<code>gh-pages branch</code>選択肢は表示されません。</li>
 <li><code>gh-pages</code>ブランチを作成すると、自動的に<code>gh-pages</code>が公開ディレクトリとして設定され、プロジェクトページサイトが作成されます。</li>
 <li><code>gh-pages</code>ブランチを作成すると、<code>None</code>を選択できなくなります。公開を停止するには<code>gh-pages</code>ブランチを削除する他ありません。</li>
 </ul>
-
 <h4 id="2-master-branch">2. master branch</h4>
-
 <p><code>master</code>ブランチが公開ディレクトリとして設定されます。GitHub Pagesとして公開することを目的として作ったリポジトリの場合はこれがよいでしょう。わざわざ<code>gh-pages</code>ブランチを作成する必要はありません。</p>
-
 <h4 id="3-mastar-branch-docs-folder">3. mastar branch /docs folder</h4>
-
 <p>既存のリポジトリで、<code>/docs</code>にマニュアルなどのHTMLドキュメント類を含んでいてそれを公開したい場合はこれになると思います。また、Hugoのような静的サイトジェネレータで生成したHTMLファイルを<code>/docs</code>に出力している場合はこれでしょう。</p>
-
 <p>Hugoの公式マニュアルでは、この<code>/docs</code>を使ってプロジェクトページサイトを公開するのが<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">最も簡単な方法</a>と述べられています。</p>
-
 <p>今回はこの3の<code>mastar branch /docs folder</code>を例にして説明します。</p>
-
-<h2 id="hugoでサイトを作って公開する">Hugoでサイトを作って公開する</h2>
-
+<h2 id="hugo">Hugoでサイトを作って公開する</h2>
 <p>Hugoについても、<strong>公式ページを見れば一発です</strong>。</p>
-
 <ul>
 <li><a href="https://gohugo.io/getting-started/">Hugo | Get Started</a></li>
 </ul>
-
 <p>Hugoリポジトリの<a href="https://github.com/gohugoio/hugo/releases">Releases</a>から自分の環境に合わせてた最新版をダウンロードしてきます。私の環境はWindowsなので<code>hugo_0.30_Windows-64bit.zip</code>をダウロードします。</p>
-
 <p>適当なディレクトリに展開し、めんどくさいのでパスを通しておきます。</p>
-
 <p><code>hugo new site</code>でHugoのサイトを作ります。以下の例では<code>D:\gitrepos\gh-pages-example</code>というディレクトリにサイトを作ります。</p>
-
 <pre><code>$ mkdir D:\gitrepos
 $ cd /d D:\gitrepos
 $ hugo new site gh-pages-example
@@ -205,10 +159,7 @@ Just a few more steps and you're ready to go:
 Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 $ cd gh-pages-example
-</code></pre>
-
-<p>以下の様なフォルダ構成となっています。</p>
-
+</code></pre><p>以下の様なフォルダ構成となっています。</p>
 <pre><code>$ tree /f .
 D:\GITREPOS\GH-PAGES-EXAMPLE
 │  config.toml
@@ -221,32 +172,22 @@ D:\GITREPOS\GH-PAGES-EXAMPLE
 ├─layouts
 ├─static
 └─themes
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li><code>config.toml</code>はサイトの設定ファイルです。</li>
 <li><code>archetypes/default.md</code>は新しいポストを作成した際のデフォルト値を定義します。</li>
 <li><code>content</code>の下にページやポストを配置します。</li>
 <li><code>themes</code>の下にテーマを配置します。</li>
 </ul>
-
 <p>ここで、GitHub上に同じ名前のリポジトリ（今回の例では<code>gh-pages-example</code>）を作っておき、Git管理対象としておきます。</p>
-
 <pre><code>$ cd
 D:\gitrepos\gh-pages-example
 $ git init
 Initialized empty Git repository in D:/gitrepos/gh-pages-example/.git/
 $ git remote add origin https://github.com/taikii/gh-pages-example.git
 $ git fetch origin
-</code></pre>
-
-<p>また、Hugoは何かしらテーマを入れないと何も表示されません。テーマは<a href="https://themes.gohugo.io/">Hugo Themes | Complete List</a>にたくさんありますが、今回はかっこいい<a href="https://themes.gohugo.io/liquorice/">Liquorice</a>を入れてみます。（今回はHugoのサイトディレクトリをGitで管理しているため、<code>git clone</code>ではなく<code>git submodule</code>にします。）</p>
-
+</code></pre><p>また、Hugoは何かしらテーマを入れないと何も表示されません。テーマは<a href="https://themes.gohugo.io/">Hugo Themes | Complete List</a>にたくさんありますが、今回はかっこいい<a href="https://themes.gohugo.io/liquorice/">Liquorice</a>を入れてみます。（今回はHugoのサイトディレクトリをGitで管理しているため、<code>git clone</code>ではなく<code>git submodule</code>にします。）</p>
 <pre><code>$ git submodule add https://github.com/eliasson/liquorice.git themes/liquorice
-</code></pre>
-
-<p>Hugoはサーバ機能がついており、HTMLに変換していない状態で出来栄えを確認できます。新しいコマンドプロンプトウィンドウを開き<code>hugo server -t liquorice -w -D</code>を実行して放置します。</p>
-
+</code></pre><p>Hugoはサーバ機能がついており、HTMLに変換していない状態で出来栄えを確認できます。新しいコマンドプロンプトウィンドウを開き<code>hugo server -t liquorice -w -D</code>を実行して放置します。</p>
 <pre><code>$ cd /d D:\gitrepos\gh-pages-example
 $ hugo server -t liquorice -w -D
 Started building sites ...
@@ -267,38 +208,25 @@ Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li><strong><code>-t</code></strong>: <code>/themes</code>フォルダ配下に入れたテーマを指定します。</li>
 <li><strong><code>-w</code></strong>: ファイルシステムを監視してファイルが更新された際に自動でWebページをリロードします。</li>
 <li><strong><code>-D</code></strong>: <code>draft: true</code>が指定されている下書き状態のページも表示します。</li>
 </ul>
-
-<p>ブラウザで <a href="http://localhost:1313/">http://localhost:1313/</a> にアクセスするとサイトを確認できます。まだなにも記事を作っていのでタイトルだけ表示された状態です。</p>
-
+<p>ブラウザで http://localhost:1313/ にアクセスするとサイトを確認できます。まだなにも記事を作っていのでタイトルだけ表示された状態です。</p>
 <p>新しい記事を作成してみます。</p>
-
 <pre><code>$ hugo new posts/hello-hugo-world.md
 D:\gitrepos\gh-pages-example\content\posts\hello-hugo-world.md created
-</code></pre>
-
-<p>表示されたパスのファイルをテキストエディタで開くと以下のようになっています。</p>
-
+</code></pre><p>表示されたパスのファイルをテキストエディタで開くと以下のようになっています。</p>
 <pre><code>---
 title: &quot;Hello Hugo World&quot;
 date: 2017-10-13T20:33:56+09:00
 draft: true
 ---
 
-</code></pre>
-
-<p><code>---</code>で囲まれた内容はYAML形式で書かれたメタデータです。Front Matterといいます。<code>---</code>ではなく、<code>+++</code>で囲むとTOML形式、<code>{</code> <code>}</code>で括るとJSON形式で書くことができます。（Front Matterの詳細については<a href="https://gohugo.io/content-management/front-matter/">Hugo | Front Matter</a>を参照してください。）</p>
-
+</code></pre><p><code>---</code>で囲まれた内容はYAML形式で書かれたメタデータです。Front Matterといいます。<code>---</code>ではなく、<code>+++</code>で囲むとTOML形式、<code>{` `}</code>で括るとJSON形式で書くことができます。（Front Matterの詳細については<a href="https://gohugo.io/content-management/front-matter/">Hugo | Front Matter</a>を参照してください。）</p>
 <p>このFront Matterにはファイル名から自動生成したタイトルと記事の日時、ドラフトであることを示す<code>draft: true</code>があります。</p>
-
 <p>Front Matterの下に記事を書いていきますが・・・ちょっとまって！！</p>
-
 <table>
 <thead>
 <tr>
@@ -306,7 +234,6 @@ draft: true
 <th>改行コード</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>UTF-8</code></td>
@@ -314,9 +241,7 @@ draft: true
 </tr>
 </tbody>
 </table>
-
 <p>で書きましょう。改行コードはぶっちゃけどうでもいいですが、初期値が<code>Lf</code>なので<code>Lf</code>で統一しましょう。</p>
-
 <pre><code>---
 title: &quot;Hello Hugo World&quot;
 date: 2017-10-13T20:33:56+09:00
@@ -326,30 +251,20 @@ draft: true
 
 ## ふがふが
 はげはげ
-</code></pre>
-
-<p>（また髪の話してる・・・。）ブラウザのページを見ると記事が表示されていることが確認できます。あとは適当にMarkdown記法で記事を書きます。記事が書けたら、Front Matterの<code>draft: true</code>を削除しておきます。</p>
-
+</code></pre><p>（また髪の話してる・・・。）ブラウザのページを見ると記事が表示されていることが確認できます。あとは適当にMarkdown記法で記事を書きます。記事が書けたら、Front Matterの<code>draft: true</code>を削除しておきます。</p>
 <p>次に<code>config.toml</code>を編集します。デフォルトはTOML形式ですがYAML、JSON形式でも書けます。（Hugoのコンフィグについては<a href="https://gohugo.io/getting-started/configuration/">Hugo | Configure Hugo</a>を参照してください。）</p>
-
 <p>これも<code>UTF-8</code>で編集するようにしてください。<code>baseURL</code>、<code>languageCode</code>、<code>title</code>を適切なものに変更します。</p>
-
 <pre><code>baseURL = &quot;https://taikii.github.io/gh-pages-example/&quot;
 languageCode = &quot;ja&quot;
 title = &quot;Hugo Example&quot;
 publishDir = &quot;docs&quot;
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li><code>baseURL</code> を<code>https://ユーザ名.github.io/リポジトリ名/</code>に変更します。</li>
 <li><code>languageCode</code> を<code>ja</code>に変更します。（日本語以外のサイトを作る場合はその言語に合わせて変更）</li>
 <li><code>publishDir = &quot;docs&quot;</code> の行を追加します。これにより変換してできたHTMLファイルが<code>/docs</code>フォルダーに出力されるようになります。（デフォルトは<code>/public</code>フォルダーです。）</li>
 </ul>
-
 <p><code>config.toml</code>の変更は自動的には反映されません。一度<code>hugo server</code>を<code>Ctrl+C</code>で停止して、再度起動し直してください。また、<code>config.toml</code>の<code>baseURL</code>にサブディレクトリ<code>/gh-pages-example/</code>を含むURLを設定したので、<code>http://localhost:1313/</code>だと見れなくなっています。<code>http://localhost:1313/gh-pages-example/</code>にアクセスしてください。</p>
-
 <p>ここまでできたら、<code>hugo</code>コマンドを実行してHTMLファイルを生成します。</p>
-
 <pre><code>$ hugo -t liquorice
 Started building sites ...
 
@@ -364,46 +279,27 @@ Built site for language en:
 0 tags created
 0 categories created
 total in 45 ms
-</code></pre>
-
-<p><code>docs</code>フォルダーが作られて、その中にHTMLファイルが生成されているのが確認できると思います。では、コミットしてGitHub上の<code>master</code>ブランチにPushしましょう。</p>
-
+</code></pre><p><code>docs</code>フォルダーが作られて、その中にHTMLファイルが生成されているのが確認できると思います。では、コミットしてGitHub上の<code>master</code>ブランチにPushしましょう。</p>
 <pre><code>$ git add .
 $ git commit -m &quot;Initial commit&quot;
 $ git push --set-upstream origin master
-</code></pre>
-
-<p>GitHubのリポジトリ上に<code>/docs</code>フォルダーが作成されたため、設定画面を確認すると<code>mastar branch /docs folder</code>が選択できるようになっているはずです。これを選択して少し待ちます。</p>
-
+</code></pre><p>GitHubのリポジトリ上に<code>/docs</code>フォルダーが作成されたため、設定画面を確認すると<code>mastar branch /docs folder</code>が選択できるようになっているはずです。これを選択して少し待ちます。</p>
 <p>指定のURLをブラウザで開いてみると、見事にサイトが表示されているはずです。</p>
-
-<h2 id="その他解説">その他解説</h2>
-
-<h3 id="テーマごとのコンフィグ">テーマごとのコンフィグ</h3>
-
+<h2 id="heading2">その他解説</h2>
+<h3 id="heading3">テーマごとのコンフィグ</h3>
 <p>上記で<code>config.toml</code>で指定した設定はHugoの基本的なものですが、テーマごとに<code>config.toml</code>に追加の設定項目が存在します。これについてはそれぞれのテーマの公式サイトを確認して下さい。</p>
-
-<h3 id="コンフィグへのテンプレートの指定">コンフィグへのテンプレートの指定</h3>
-
+<h3 id="heading4">コンフィグへのテンプレートの指定</h3>
 <p><code>config.toml</code>に以下の行を追加することで、<code>hugo server</code>コマンドや<code>hugo</code>コマンドを実行する際に<code>-t</code>オプションでテンプレートを指定する必要がなくなります。</p>
-
 <pre><code>theme = &quot;liquorice&quot;
-</code></pre>
-
-<h3 id="タグ-カテゴリ">タグ、カテゴリ</h3>
-
+</code></pre><h3 id="heading5">タグ、カテゴリ</h3>
 <p>記事のヘッダに<code>categories</code>、<code>tags</code>を書くことで、カテゴリやタグを使用できます。タグもカテゴリも複数指定できるため、あまり違いは無いように思います。また、それぞれが使用できるかどうかはテンプレートによって決まります。</p>
-
 <pre><code>---
 title: &quot;Hello Hugo World&quot;
 date: 2017-10-13T20:33:56+09:00
 categories = [ &quot;hoge&quot; ]
 tags = [ &quot;fuga&quot;, &quot;foobar&quot; ]
 ---
-</code></pre>
-
-<h2 id="最後に">最後に</h2>
-
+</code></pre><h2 id="heading6">最後に</h2>
 <p>自分がつまづいた所をなるべく書いたつもりです。これからHugoを始めようと思っている方の足しになればと思います。</p>
     </article>
     <section class="article-series">

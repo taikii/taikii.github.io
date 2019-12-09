@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://taikii.net/posts/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/thymeleaf/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://taikii.net/tags/vscode/</loc>
+    <lastmod>2019-12-10T01:11:08+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://taikii.net/tags/css/</loc>
     <lastmod>2019-10-29T23:27:40+09:00</lastmod>
   </url>
@@ -13,28 +43,8 @@
   </url>
   
   <url>
-    <loc>https://taikii.net/posts/</loc>
-    <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/</loc>
-    <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/</loc>
-    <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://taikii.net/posts/2019/10/prefers-color-scheme/</loc>
     <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/thymeleaf/</loc>
-    <lastmod>2019-10-17T23:15:00+09:00</lastmod>
   </url>
   
   <url>
@@ -175,11 +185,6 @@
   <url>
     <loc>https://taikii.net/tags/jacoco/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://taikii.net/tags/vscode/</loc>
-    <lastmod>2018-12-25T00:00:00+09:00</lastmod>
   </url>
   
   <url>

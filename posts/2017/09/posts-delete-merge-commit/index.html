@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/09/posts-delete-merge-commit/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,31 +64,20 @@
       </ul>
       
       <p>マージコミットを<code>git reset</code>したらどうなるの？</p>
-
 <p>例えば以下のようにマージ済みのコミットがあり、マージ前のブランチを消している状態として、</p>
-
 <pre><code>* 3333333 master
 |\
 | * 22222222
 |/
 * 1111111
-</code></pre>
-
-<p>マージ先間違えた！みたいな感じで、そのまま<code>git reset --soft HEAD^</code>しちゃうと、</p>
-
+</code></pre><p>マージ先間違えた！みたいな感じで、そのまま<code>git reset --soft HEAD^</code>しちゃうと、</p>
 <pre><code>* 3333333 master
 |
 * 1111111
-</code></pre>
-
-<p>こうなってしまう。</p>
-
+</code></pre><p>こうなってしまう。</p>
 <p>このため、マージコミットを削除する時は、マージ前のコミットにブランチを付け直しましょう。</p>
-
 <pre><code>git checkout -b topic.revive 2222222
-</code></pre>
-
-<p>ただし、gitの世界では、<code>git reset</code>や<code>git rebase</code>しても、該当のコミットは残っているそうなので、マージコミット削除後でも、コミットIDさえ覚えていれば、そこからブランチを復旧できる・・・ハズ。</p>
+</code></pre><p>ただし、gitの世界では、<code>git reset</code>や<code>git rebase</code>しても、該当のコミットは残っているそうなので、マージコミット削除後でも、コミットIDさえ覚えていれば、そこからブランチを復旧できる・・・ハズ。</p>
     </article>
 
     

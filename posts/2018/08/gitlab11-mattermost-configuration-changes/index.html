@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -60,38 +60,25 @@
       </ul>
       
       <p>先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、<code>gitlab-ctl reconfigure</code> でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分</p>
-
-<h3 id="原因">原因</h3>
-
+<h3 id="heading">原因</h3>
 <p><code>gitlab-ctl reconfigure</code> がコケた原因は、11.0 で廃止されたMattermost系の設定が残っていた為でした。そうです、私はOmnibusにバンドルされているMattermostを使っているのです。これらの設定は <code>docker-compose.yml</code> 内でGitLabに環境変数として渡していたのですが、これらを削除することで無事バージョンアップできましたとさ。</p>
-
 <figure>
     <img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png"/> 
 </figure>
 
-
-<h3 id="mattermostの設定の廃止について">Mattermostの設定の廃止について</h3>
-
+<h3 id="mattermost">Mattermostの設定の廃止について</h3>
 <p>廃止の理由等々については公式サイト上で説明されていますので読むといいと思います。</p>
-
 <p><a href="https://docs.gitlab.com/omnibus/gitlab-mattermost/#upgrading-gitlab-mattermost-from-versions-prior-to-11-0">Upgrading GitLab Mattermost from versions prior to 11.0 | GitLab Mattermost | GitLab</a></p>
-
 <p>・・・これだけだと乱暴なので軽く解説したいと思います。</p>
-
-<p>Mattermostの設定というのは、本来であれば管理コンソール画面で変更することができ、その設定は <code>config.json</code> というファイルに保存されます。しかしGitLab Omnibus packageでは、<code>gitlab.rb</code> の設定内容を元に <code>config.json</code> を自動生成するということをしていたため、管理コンソールで設定を変更したとしても、<code>gitlab.rb</code> の内容で上書きされ設定が元に戻ってしまう<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>という問題がありました。</p>
-
+<p>Mattermostの設定というのは、本来であれば管理コンソール画面で変更することができ、その設定は <code>config.json</code> というファイルに保存されます。しかしGitLab Omnibus packageでは、<code>gitlab.rb</code> の設定内容を元に <code>config.json</code> を自動生成するということをしていたため、管理コンソールで設定を変更したとしても、<code>gitlab.rb</code> の内容で上書きされ設定が元に戻ってしまう<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>という問題がありました。</p>
 <p>このため GitLab 10.x までは、Mattermostの設定を変更する際はまず <code>gitlab.rb</code> を編集し、そして <code>gitlab-ctl reconfigure</code> を実行する、ということをやっていました。本当なら管理コンソールでちゃちゃっと変更できるはずなのに。めんどくさ・・・。</p>
-
 <p>で、11.0ではこの問題に対処するために、<code>gitlab.rb</code> から <code>config.json</code> を生成することをやめ、必要な設定だけを環境変数でMattermostに渡すように変更したそうです。<code>config.json</code> は晴れて管理コンソールの下に帰ってきたのです。</p>
-
-<p>では、 <code>gitlab.rb</code> でMattermostの設定をすることが出来なくなったかというとそうではなく、書き方を変えることでこれまで通り設定することが可能です。前述の通りMattermostには環境変数で渡すようになったため、<code>mattermost[env]</code> という設定項目にMattermostのお作法に則った環境変数名<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>で記述します。</p>
-
+<p>では、 <code>gitlab.rb</code> でMattermostの設定をすることが出来なくなったかというとそうではなく、書き方を変えることでこれまで通り設定することが可能です。前述の通りMattermostには環境変数で渡すようになったため、<code>mattermost[env]</code> という設定項目にMattermostのお作法に則った環境変数名<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>で記述します。</p>
 <p>一方で廃止されていない設定項目もあります。おそらくこれらの設定はGitLabとしても情報を取得する必要があるのでしょう。</p>
-
 <p><strong>継続してサポートされるgitlab.rb項目</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -142,15 +129,14 @@
 <span class="n">mattermost</span><span class="o">[</span><span class="s1">&#39;gitlab_scope&#39;</span><span class="o">]</span>
 <span class="n">mattermost</span><span class="o">[</span><span class="s1">&#39;gitlab_auth_endpoint&#39;</span><span class="o">]</span>
 <span class="n">mattermost</span><span class="o">[</span><span class="s1">&#39;gitlab_token_endpoint&#39;</span><span class="o">]</span>
-<span class="n">mattermost</span><span class="o">[</span><span class="s1">&#39;gitlab_user_api_endpoint&#39;</span><span class="o">]</span></code></pre></td></tr></table>
+<span class="n">mattermost</span><span class="o">[</span><span class="s1">&#39;gitlab_user_api_endpoint&#39;</span><span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>docker-compose.yml</code>に書くとしたら、10.xと11.xの違いはこんな感じ。抜粋です。</p>
-
+</div><p><code>docker-compose.yml</code>に書くとしたら、10.xと11.xの違いはこんな感じ。抜粋です。</p>
 <p><strong>GitLab 10.x</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -171,17 +157,17 @@
 </span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
 </span><span class="w">    </span>environment<span class="p">:</span><span class="w">
 </span><span class="w">      </span>GITLAB_OMNIBUS_CONFIG<span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
+</span><span class="sd">       </span><span class="sd"> </span><span class="sd">mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_server&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_port&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="m">25</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_feedback_name&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;GitLab Mattermost&#39;</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_feedback_email&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mattermost@example.com&#39;</span></code></pre></td></tr></table>
+</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_feedback_email&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mattermost@example.com&#39;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>GitLab 11.x</strong></p>
+</div><p><strong>GitLab 11.x</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -204,37 +190,32 @@
 </span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
 </span><span class="w">    </span>environment<span class="p">:</span><span class="w">
 </span><span class="w">      </span>GITLAB_OMNIBUS_CONFIG<span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
+</span><span class="sd">       </span><span class="sd"> </span><span class="sd">mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;env&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span>{<span class="w">
 </span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_SMTPSERVER&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="p">,</span><span class="w">
 </span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_SMTPPORT&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;25&#39;</span><span class="p">,</span><span class="w">
 </span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_FEEDBACKNAME&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;GitLab Mattermost&#39;</span><span class="p">,</span><span class="w">
 </span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_FEEDBACKEMAIL&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;mattermost@example.com&#39;</span><span class="w">
-</span><span class="w">        </span>}</code></pre></td></tr></table>
+</span><span class="w">        </span>}<span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="廃止された設定は削除するだけでいいの">廃止された設定は削除するだけでいいの？</h3>
-
+</div><h3 id="heading1">廃止された設定は削除するだけでいいの？</h3>
 <p>イイんです！ <code>gitlab.rb</code> での設定方法を書きましたが、実際にはこんなことやらなくてイイんです！</p>
-
 <p><code>config.json</code> はコンテナ上では <code>/var/opt/gitlab/mattermost/config.json</code> に配置されています。あなたが<a href="https://docs.gitlab.com/omnibus/docker/">公式のマニュアル</a>に従っているとすれば、<code>/var/opt/gitlab</code> 配下のファイルは永続化されているはずです。<code>config.json</code> も10.xのものが残っていることになりますので、改めて環境変数で設定を渡してやる必要はありません。ですので廃止された設定は <code>gitlab.rb</code> から削除するだけでイイんです！（たぶん）</p>
-
-<h3 id="さいごに">さいごに</h3>
-
+<h3 id="heading2">さいごに</h3>
 <p>ちなみにログはこんな感じで出てました。みんなもログはちゃんと確認しようね。</p>
-
 <p><a href="https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f">https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f</a></p>
-<div class="footnotes">
-
-<hr />
-
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1"><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a>
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a><a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
 </ol>
-</div>
+</section>
     </article>
 
     

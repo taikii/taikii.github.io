@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,42 +58,25 @@
       </ul>
       
       <p><a href="https://ejje.weblio.jp/content/SSIA">SSIA</a>って感じですが…</p>
-
 <p>※今回検証した環境はOracle Database 11gです。（古い）</p>
-
-<h2 id="データベース-リンクについて">データベース・リンクについて</h2>
-
+<h2 id="heading">データベース・リンクについて</h2>
 <p>データベース・リンク（以下DBリンク）は他のデータベースのオブジェクトを操作できる機能です。以下のようにして作成します。（参考: <a href="https://docs.oracle.com/cd/E16338_01/server.112/b56299/statements_5005.htm">CREATE DATABASE LINK</a>）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">LINK</span> <span class="n">remotedb</span> <span class="k">CONNECT</span> <span class="k">TO</span> <span class="n">scott</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="n">tiger</span> <span class="k">USING</span> <span class="s1">&#39;remotedbname&#39;</span><span class="p">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">LINK</span> <span class="n">remotedb</span> <span class="k">CONNECT</span> <span class="k">TO</span> <span class="n">scott</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="n">tiger</span> <span class="k">USING</span> <span class="s1">&#39;</span><span class="s1">remotedbname</span><span class="s1">&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li><code>remotedb</code>: DBリンクオブジェクトの名前</li>
 <li><code>scott</code>: 接続するリモートDBの接続ユーザ名</li>
 <li><code>tiger</code>: 接続ユーザのパスワード</li>
 <li><code>remotedbname</code>: 通常は<code>tnsnames.ora</code>上の接続名になると思います（接続情報をべた書きすることも可能）</li>
 </ul>
-
 <p>あらかじめOracle Databaseサーバ上の<code>tnsnames.ora</code>には以下のように接続するリモートDBの接続情報が記載されている必要があります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-tnsnames.ora" data-lang="tnsnames.ora"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-tnsnames.ora" data-lang="tnsnames.ora">remotedbname =
+<pre><code class="language-tnsnames.ora" data-lang="tnsnames.ora">remotedbname =
   (DESCRIPTION =
     (ADDRESS_LIST =
       (ADDRESS = (PROTOCOL = TCP)(HOST = dbserver-1.example.com)(PORT = 1521))
@@ -101,37 +84,27 @@
     (CONNECT_DATA =
       (SERVICE_NAME = XE)
     )
-  )</code></pre></td></tr></table>
-</div>
-</div>
-<p>そして、リモートDBのオブジェクトを検索する際は、以下のようにオブジェクト名の後ろに<code>@</code>に続いて作成したDBリンクオブジェクトの名前<code>remotedb</code>をくっつけます。これで検索が可能。</p>
+  )
+</code></pre><p>そして、リモートDBのオブジェクトを検索する際は、以下のようにオブジェクト名の後ろに<code>@</code>に続いて作成したDBリンクオブジェクトの名前<code>remotedb</code>をくっつけます。これで検索が可能。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tab1</span><span class="o">@</span><span class="n">remotedb</span><span class="p">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tab1</span><span class="o">@</span><span class="n">remotedb</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>同じようにして<code>UPDATE</code>や<code>DELETE</code>もできます。</p>
-
-<h2 id="本題">本題</h2>
-
+</div><p>同じようにして<code>UPDATE</code>や<code>DELETE</code>もできます。</p>
+<h2 id="heading1">本題</h2>
 <p>で、このリモートDBのホスト名が変わる場合（例えば<code>dbserver-1.example.com</code>から<code>dbserver-2.example.com</code>）、ホスト名は<code>tnsnames.ora</code>にしか書かれていないので<code>tnsnames.ora</code>を修正するわけですが、それだけでは接続先は変更されません。</p>
-
 <p>どうもホスト名やサービス名などの<code>tnsnames.ora</code>に書かれている接続情報は、DBリンクを作成した時点でDBリンクオブジェクトが持ってしまうようで、いくら<code>tnsnames.ora</code>を書き換えても古いリモートDBに繋がってしまいます。（文献を見つけることができませんでした。）</p>
-
 <p>※試してないですが、DBインスタンスを再起動したりすれば反映されるかも？</p>
-
 <p>じゃあ、<a href="https://docs.oracle.com/cd/E16338_01/server.112/b56299/statements_1005.htm">ALTER DATABASE LINK</a> か？となるわけですが、<code>ALTER DATABASE LINK</code>は接続ユーザのパスワードが変わった場合のみ使用されるもので、接続ユーザや接続情報は変更することはできません。</p>
-
 <blockquote>
 <p>接続または認証ユーザーのパスワードが変更された場合に固定ユーザー・データベース・リンクを変更するには、ALTER DATABASE LINK文を使用します。
 この文を使用して、データベース・リンクに関連付けられた接続または認証ユーザーを変更することはできません。userを変更するには、データベース・リンクを再作成する必要があります。</p>
 </blockquote>
-
 <p>このことからも、リモートDBのホスト名が変わる等で<code>tnsnames.ora</code>を変更した場合は、DBリンクの再作成（<code>DROP</code>して<code>CREATE</code>）が必要となると考えられます。</p>
-
 <p>(&lsquo;A`)ﾏﾝﾄﾞｸｾ</p>
     </article>
 

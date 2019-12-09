@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Tue, 29 Oct 2019 23:27:40 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 01:11:08 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない</title>
+      <link>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</link>
+      <pubDate>Tue, 10 Dec 2019 01:11:08 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</guid>
+      <description>&lt;p&gt;VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない問題に直面したのでメモ。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>ブラウザのカラースキームによってWhiteplainの明暗を切り替わるようにしました</title>
@@ -73,7 +82,6 @@
       
       <guid>https://taikii.net/posts/2019/09/til-20190904/</guid>
       <description>&lt;p&gt;最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。&lt;/p&gt;
-
 &lt;p&gt;あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていくのは自分的に意味はありそう。&lt;/p&gt;</description>
     </item>
     
@@ -156,7 +164,6 @@
       
       <guid>https://taikii.net/posts/2019/02/clibor-regex/</guid>
       <description>&lt;p&gt;Windowsのクリップボード拡張ツールといえば&lt;a href=&#34;https://www.amunsnet.com/&#34;&gt;Clibor&lt;/a&gt;が有名ですよね。私も愛用しています。&lt;/p&gt;
-
 &lt;p&gt;Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。&lt;/p&gt;</description>
     </item>
     
@@ -176,9 +183,7 @@
       
       <guid>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</guid>
       <description>&lt;p&gt;GitLabにカバレッジバッジを貼りたいと思い、試行錯誤した結果です。GitLabのバージョンは &lt;code&gt;11.6&lt;/code&gt;です。カバレッジはGitLab CI上で実行されるGradleのJaCoCoプラグインのものを使用します。&lt;/p&gt;
-
 &lt;p&gt;カバレッジバッジが正常に表示されるまでには3つのステップがあります。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;GitLabにカバレッジバッジを貼る&lt;/li&gt;
 &lt;li&gt;GitLab CIでカバレッジを取得する設定をする&lt;/li&gt;
@@ -193,7 +198,6 @@
       
       <guid>https://taikii.net/posts/2018/12/live-share2/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/3086&#34;&gt;IT地方エンジニア Advent Calendar 2018&lt;/a&gt; 25日目の記事ですが、地方関係ないです。最終日に穴が空いていると締まらないかな～と思って書きます。&lt;/p&gt;
-
 &lt;p&gt;先日Visual StudioのLive Shareに感動したので、ちょっとエモいことを書きたいと思います。私はアジャイルとかモダンな開発経験がないので、「そんなん当たり前やろ」みたいなアレかもしれませんが、ご容赦ください。&lt;/p&gt;</description>
     </item>
     
@@ -204,7 +208,6 @@
       
       <guid>https://taikii.net/posts/2018/12/my-redmine-plugins/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://adventar.org/calendars/3352&#34;&gt;Redmine Advent Calendar 2018&lt;/a&gt; 19日目の記事です。&lt;/p&gt;
-
 &lt;p&gt;これまでいくつかRedmineのプラグインを（自分用に）作ってきました。どれもわずか数ステップの、大したものではないのですが、個人的には便利に使ってるので布教を兼ねてまとめて紹介したいと思います。&lt;/p&gt;</description>
     </item>
     
@@ -251,7 +254,6 @@
       
       <guid>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</guid>
       <description>&lt;p&gt;Redmine上のGitリポジトリ更新されてなくない…？という事象が発生。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://github.com/koppen/redmine_github_hook&#34;&gt;Redmine GitHub Hook Plugin&lt;/a&gt;を使って、GitLabにPush/Mergeが発生したらRedmineコンテナ上のBareリポジトリをfetchさせてるハズなんですが…。&lt;/p&gt;</description>
     </item>
     
@@ -315,7 +317,7 @@
       <pubDate>Mon, 30 Jul 2018 18:00:19 +0900</pubDate>
       
       <guid>https://taikii.net/posts/2018/07/github-pages-with-custom-domain/</guid>
-      <description>&lt;p&gt;このブログはGitHub Pagesにホスティングされています。先日ブログのURLを &lt;a href=&#34;https://taikii.net/&#34;&gt;https://taikii.net&lt;/a&gt; という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。&lt;/p&gt;</description>
+      <description>&lt;p&gt;このブログはGitHub Pagesにホスティングされています。先日ブログのURLを &lt;a href=&#34;https://taikii.net/&#34;&gt;&lt;a href=&#34;https://taikii.net&#34;&gt;https://taikii.net&lt;/a&gt;&lt;/a&gt; という独自ドメインに変更したのですが、このカスタムドメインの設定がお昼休み中にできちゃうくらい簡単な作業でしたので、ちょっと紹介したいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -334,7 +336,6 @@
       
       <guid>https://taikii.net/posts/2018/05/ad-1500-over-members/</guid>
       <description>&lt;p&gt;Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。&lt;/p&gt;
-
 &lt;p&gt;この記事では&lt;code&gt;ldapsearch&lt;/code&gt;コマンドで検証しています。また、そこまで値が増える属性は&lt;code&gt;member&lt;/code&gt;くらいしか無いと思いますので、&lt;code&gt;member&lt;/code&gt;属性に絞って書いています。&lt;/p&gt;</description>
     </item>
     
@@ -354,11 +355,8 @@
       
       <guid>https://taikii.net/posts/2018/01/redmine-is-dead/</guid>
       <description>&lt;p&gt;ぶっちゃけ、私も &amp;ldquo;XX is Dead&amp;rdquo; という記事を書いてみたかっただけです。はい。&lt;/p&gt;
-
 &lt;p&gt;私は&lt;strong&gt;まだ&lt;/strong&gt;Redmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。&lt;/p&gt;
-
 &lt;p&gt;ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。&lt;/p&gt;
-
 &lt;p&gt;なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。&lt;/p&gt;</description>
     </item>
     

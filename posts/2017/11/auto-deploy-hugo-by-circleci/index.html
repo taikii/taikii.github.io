@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -70,17 +70,11 @@
       </ul>
       
       <p>以前、<a href="https://taikii.net/posts/2017/10/build-site-by-hugo/">Hugoでブログサイトを作る</a>記事を書きましたが、Circle CI 2.0を使って自動デプロイできるようにしたので、自分のやったことについてまとめます。</p>
-
-<h2 id="前提として">前提として</h2>
-
+<h2 id="heading">前提として</h2>
 <p>私はCircle CIについてほとんど知識がありません。また、業務でCIを触っていないので、CIそのものに対する知見も狭いです。この状態でネット上の記事を切り貼りして書いていますので、間違っている箇所もあるかもしれません。その際はご指摘いただけると幸いです。</p>
-
-<h2 id="circle-ci-2-0でのhugo自動デプロイ">Circle CI 2.0でのHugo自動デプロイ</h2>
-
+<h2 id="circle-ci-20hugo">Circle CI 2.0でのHugo自動デプロイ</h2>
 <p>Ciecle CIでHugoのビルドをして自動でデプロイする方法について、インターネット上にはいくつかの記事がありますが、現時点で多くがCircle CI 1.0ベースのものです。どうせなら今年7月に正式リリースされた2.0ベースでやりたいと思います。</p>
-
 <p>今回は、GitHub Pagesのユーザページサイトを作ることを前提に考えます。ユーザページサイトのリポジトリにはHugoでビルドして生成したHTMLファイルのみがコミットされているとし、ビルド前のファイルは別のリポジトリ（blogリポジトリとします）があるものとします。ざっと以下のようなフローで自動デプロイを行います。</p>
-
 <ol>
 <li>PCでblogリポジトリに記事を作成</li>
 <li>コミット＆Push</li>
@@ -91,25 +85,17 @@
 <li>Circle CI：<code>public</code>フォルダをコミット＆Push</li>
 <li>ユーザページサイトが更新されている</li>
 </ol>
-
-<h3 id="circle-ci-2-0の設定ファイルを作成する">Circle CI 2.0の設定ファイルを作成する</h3>
-
+<h3 id="circle-ci-20">Circle CI 2.0の設定ファイルを作成する</h3>
 <p>Circle CI側の設定はあとでやるとして、まずblogリポジトリにCircle CI 2.0の設定ファイルを作成します。</p>
-
 <p>※Circle CI 1.0と2.0では設定ファイルの書き方が変わっていますので、1.0の設定ファイルでは2.0ベースで実行することはできません。（このためインターネット上に多く転がっているCircle CI 1.0でHugoの自動デプロイする記事をそのまま利用できません）</p>
-
 <p>ちなみに、1.0ではCircle CI側で用意されているUbuntu上でビルドを行っていましたが、2.0ではDockerコンテナ上でビルドを実行するようになりました。あらかじめテストやビルド用のソフトウェアやライブラリが導入されたDockerイメージを準備しておけるようになり、実行環境の準備が容易になったり、実行時間の短縮にもなっているそうです。このように1.0と2.0ではかなり環境が変わっているため設定ファイルのフォーマットも全く違っています。</p>
-
 <p>しかし、ありがたいことに、Circle CIの中の人がHugoのビルド用Dockerイメージを作成してくれています。ありがたくFelicianoさんのDockerイメージを使用することにします。</p>
-
 <p><a href="https://discuss.circleci.com/t/introducing-docker-hugo-a-circleci-2-0-ready-docker-image/12420">Introducing Docker Hugo - a CircleCI 2.0 Ready Docker Image - Community / Projects - CircleCI Community Discussion</a></p>
-
 <p>Circle CI 2.0ではリポジトリのルードディレクトリに<code>.circleci/config.yml</code>というファイルを作成します。（1.0の設定ファイルは<code>circle.yml</code>でした）</p>
-
 <p>こんなんでいいんだろうか・・・</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -172,23 +158,16 @@
 </span><span class="w">
 </span><span class="w">      </span><span class="c"># ユーザページサイトにPushする</span><span class="w">
 </span><span class="w">      </span>-<span class="w"> </span>deploy<span class="p">:</span><span class="w">
-</span><span class="w">          </span>command<span class="p">:</span><span class="w"> </span>cd<span class="w"> </span>public<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--exit-code<span class="w"> </span>--quiet<span class="w"> </span>||<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&#34;Rebuilding site&#34;</span><span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master</code></pre></td></tr></table>
+</span><span class="w">          </span>command<span class="p">:</span><span class="w"> </span>cd<span class="w"> </span>public<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--exit-code<span class="w"> </span>--quiet<span class="w"> </span>||<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&#34;Rebuilding site&#34;</span><span class="w"> </span><span class="cp">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="ciecle-ciの準備">Ciecle CIの準備</h3>
-
+</div><h3 id="ciecle-ci">Ciecle CIの準備</h3>
 <p>Circle CIのアカウントを作成します。GitHubのアカウントでログインできるため、GitHubのアカウントでログインします。</p>
-
 <p><a href="https://circleci.com/">https://circleci.com/</a></p>
-
 <p>Circle CIにログインすると、自分のGitHub上のプロジェクトの一覧が表示され、セットアップしろと言われるので、blogリポジトリの右側に表示されている<code>Setup project</code>をクリックして設定画面に進みます。その後、Operating systemは<code>Linux</code>、Platformは<code>2.0</code>を選択して（どちらもデフォルト）、<code>Start building</code>をクリックします。</p>
-
 <p>この時点ではCircle CIにユーザページサイトリポジトリへの書き込み権限を与えていないためビルドが失敗します。このため、Circle CIに書き込み権限を与える必要があります。</p>
-
 <p>BUILDS画面の右上の歯車アイコンをクリックして設定画面を開きます。<code>PERMISSIONS</code> &gt; <code>Checkout SSH keys</code> と選択し、<code>Add User key</code>にある <code>Create and Add User key</code>ボタンをクリックします。GitHubの認証画面が表示されるので認証を行えば、権限付与の完了です。</p>
-
 <p>これで何か記事を<code>blog</code>リポジトリにPushすると自動的にユーザページサイトにデプロイされるはずです。</p>
-
 <p>かーんたーん！</p>
     </article>
     <section class="article-series">

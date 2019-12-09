@@ -7,25 +7,16 @@
   <meta property="og:title" content="Redmine is Dead - taikii blog" />
   <meta name="twitter:title" content="Redmine is Dead - taikii blog" />
   <meta name="description" content="ぶっちゃけ、私も &ldquo;XX is Dead&rdquo; という記事を書いてみたかっただけです。はい。
-
 私はまだRedmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。
-
 ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。
-
 なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。">
   <meta property="og:description" content="ぶっちゃけ、私も &ldquo;XX is Dead&rdquo; という記事を書いてみたかっただけです。はい。
-
 私はまだRedmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。
-
 ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。
-
 なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。">
   <meta name="twitter:description" content="ぶっちゃけ、私も &ldquo;XX is Dead&rdquo; という記事を書いてみたかっただけです。はい。
-
 私はまだRedmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。
-
 ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。
-
 なぜ私 …">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
@@ -33,7 +24,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/01/redmine-is-dead/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -82,106 +73,57 @@
       </ul>
       
       <p>ぶっちゃけ、私も &ldquo;XX is Dead&rdquo; という記事を書いてみたかっただけです。はい。</p>
-
 <p>私は<strong>まだ</strong>Redmineユーザです。Redmineは私をExcel地獄から救ってくれましたし、これまでにどれだけ助けられたかわかりません。Redmineを愛していると言ってもいいかもしれません。</p>
-
 <p>ですが、使えば使うほど、競合製品/サービスに遅れを感じ、将来が不安になります。</p>
-
 <p>なぜ私が「Redmineは死んだ」と考えるのか、それでもなおRedmineユーザであり続けるのかを書きたいと思います。</p>
-
-<h2 id="redmineの死因">Redmineの死因</h2>
-
+<h2 id="redmine">Redmineの死因</h2>
 <p>私が「Redmineは死んだ」と考える理由は大きく2点あります。</p>
-
-<h3 id="1-レガシーなシステムになってしまった">1. レガシーなシステムになってしまった</h3>
-
+<h3 id="1-">1. レガシーなシステムになってしまった</h3>
 <p>Redmineは<strong>現代</strong>の<strong>インテリジェンス</strong>な競合製品が標準的に持つ以下のような機能を持っていません。</p>
-
 <p>我々Redmineユーザは、Redmineにこれらの機能を実装して現代的なソフトウェアになって欲しいと願っていますが、Redmineの開発者であるJean-Philippe氏やコミッターの方々はそうは考えていないように見えます。彼らは、Redmineを12年前のシステム開発のためのソフトウェアだと考えているようです（そんな印象を受けます）。</p>
-
-<h4 id="分散型バージョン管理システム-dvcs-のcloneやpull-requestがサポートされていない">分散型バージョン管理システム（DVCS）のcloneやPull requestがサポートされていない</h4>
-
+<h4 id="dvcsclonepull-request">分散型バージョン管理システム（DVCS）のcloneやPull requestがサポートされていない</h4>
 <p>RedmineではSCMに使用できるDVCSとしてGitやMercurialをサポートしていますが、<code>clone</code>や<code>Pull request</code>ができません。これは、Redmineのリポジトリ機能が<strong>Subversionをメインターゲットとしている</strong>（たぶん）ことに由来していると考えています。</p>
-
 <p>Subversionのような集中型バージョン管理システムにはリポジトリがひとつ（中央リポジトリ）しかありません。開発者は中央リポジトリからローカルにチェックアウトしてワークスペースを作り、ワークスペースから中央リポジトリに対してコミットを行います。コミット権限を持たないユーザはパッチファイルなどを作成してコミッターにコミットを依頼する必要があります。また、中央リポジトリはバージョン管理とコミットの受付するシンプルな機能しか持たないので、高度なGUIを備える必要がありません。ブランチのマージなどはワークスペース側の仕事ですし。このため、Subversionリポジトリサーバは純粋なリポジトリとしての機能に特化していることが多いように思います。このような理由により、Redmine自体が中央リポジトリとなる必要はなく、別に立っている中央リポジトリの情報を参照するだけで事足りるのです。</p>
-
 <p>それに対し、GitのようなDVCSは各環境にリポジトリが存在し、集中型バージョン管理システムのように中央リポジトリが存在しないため、ハブとなるリポジトリを決める必要があります。社内の共有フォルダ上のリポジトリをハブにしてもかまいませんが、大体はGitHubやBitbucket、GitLabのようなプロダクトを利用します。各リポジトリ間の同期はコミット情報を連携して行います。これは、ハブリポジトリにPushする権限を持たないユーザの改修を取り込む際も同様ですので、そこで必要になるのが<code>Pull request</code>です。<code>Pull request</code>を実装するということは、ハブリポジトリにはGUIが必要となります。GUIが存在するということは、その周りにゴテゴテと機能が追加されていき、その結果GitHubが誕生することになるのです。</p>
-
 <p>つまり、DVCSをサポートするということは<code>clone</code>や<code>Pull request</code>をサポートしてハブリポジトリとなることに他ならないのです。逆に言うと、それができないRedmineは、新規のDVCSベースのシステム開発に採用されることはまずないでしょう。</p>
-
 <p>redmine.orgにもIssueは上がっていますが実現には遠いように思います。</p>
-
 <ul>
 <li><a href="https://www.redmine.org/issues/9427">Feature #9427: server side clone support for DCVS. - Redmine</a>（DCVSではなくDVCSですね）</li>
 <li><a href="https://www.redmine.org/issues/8363">Feature #8363: Git: Pull requests - Redmine</a></li>
 </ul>
-
-<h4 id="シンタックスハイライトで使用できる言語-フォーマットが少ない">シンタックスハイライトで使用できる言語/フォーマットが少ない</h4>
-
+<h4 id="heading">シンタックスハイライトで使用できる言語/フォーマットが少ない</h4>
 <p>Redmineの<a href="http://blog.redmine.jp/articles/syntax-hilight/">シンタックスハイライトで使用できる言語/フォーマットは数えるられるほどしかありません</a>。これは、Redmineで採用している<a href="http://coderay.rubychan.de/">CodeRay</a>というライブラリの制約によるものです。</p>
-
 <p>巷の女子高生に大人気！ナウくてヤングなイケイケプログラム言語はたくさんありますが、それらはまったくサポートされていません。例えば、Kotlin、Scala、Rust、そしてSwiftまでもサポートされていません。シンタックスハイライトは必ずしも必要な機能ではありませんが、Redmineのメインターゲットはやはりシステム開発者ですので、自分たちが日常的に使用しているプログラム言語がサポートされているかどうかは重要なポイントになるでしょう。</p>
-
-<p>CodeRayから<a href="http://rouge.jneen.net/">Rouge</a>に<a href="http://www.redmine.org/issues/24681">変更する動き</a>もありますが、今のところ実現には至っていません。<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-
-<h4 id="sns機能がない">SNS機能がない</h4>
-
+<p>CodeRayから<a href="http://rouge.jneen.net/">Rouge</a>に<a href="http://www.redmine.org/issues/24681">変更する動き</a>もありますが、今のところ実現には至っていません。<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h4 id="sns">SNS機能がない</h4>
 <p>Redmineにはフォロー、メンションなどのSNS機能がありません。フォローと似た機能に「ウォッチ」がありますが、ユーザをウォッチすることはできません。個人のフィードは見ることができます。</p>
-
 <p>そもそもRedmineでは、Issueの担当者とステータスを変えることでIssueの受け渡しを行い、プロジェクトを推進します。「コーディングが終わったのでテストお願い」「テストでエラーが出たので差し戻し」のような感じです。この考え方自体は間違いではないのですが、「これどう思う？」のような気軽に意見を聞きたいときに、わざわざ担当者を変えるのは大げさです。このようなときにメンションできるとすごくいいですよね。</p>
-
 <p>ちなみに、<a href="https://github.com/arkhitech/redmine_mentions">メンションを可能にするプラグインはあります</a>が、やはりフォロー、メンションなどはRedmineがネイティブにサポートするべきのように感じます。</p>
-
 <p>RedmineはGitHubのようなOSSホスティングサービスではなくプロジェクト管理ソフトウェアであるので、ターゲットが違うということなんでしょうが、今の時代テレワークなどもありますし、Redmineだけでコミュニケーションが完結できるのが望ましいですよね。</p>
-
-<h4 id="デスクトップ通知がされない">デスクトップ通知がされない</h4>
-
+<h4 id="heading1">デスクトップ通知がされない</h4>
 <p>してほしいですね。</p>
-
-<h3 id="2-開発体制への不安">2. 開発体制への不安</h3>
-
+<h3 id="2-">2. 開発体制への不安</h3>
 <p>では、今後ユーザと開発者の間のギャップが解消されていくかというと、そこには開発体制への不安があります。</p>
-
-<h4 id="コミッターがわずか数名しかいない">コミッターがわずか数名しかいない</h4>
-
+<h4 id="heading2">コミッターがわずか数名しかいない</h4>
 <p>Redmineのアクティブなコミッターは数名しかいないそうです。昨年Redmine.JP/MyRedmineを運営しているファーエンドテクノロジーの前田さんがコミッターになられた際にも<a href="https://www.farend.co.jp/blog/2017/12/redmine-committer/">その辺を少し吐露</a>されていましたが、今後に期待したいところですね。</p>
-
-<h4 id="開発の基盤をgit-githubに移してくれない">開発の基盤をGit/GitHubに移してくれない</h4>
-
+<h4 id="gitgithub">開発の基盤をGit/GitHubに移してくれない</h4>
 <p>前述の「Redmineのリポジトリ機能はSubversionをメインターゲットとしている」と考える理由のひとつが、Redmineの開発自体がSubversionを基盤としている点です。<a href="https://www.redmine.org/issues/14961">Git/GitHubへの移行を要望するIssue</a>も上がってはいますが、実現は難しいように思います。</p>
-
 <p>Subversionがダメなわけではないですが（いや、ダメだと思いますが・・・）、パッチを作って提供するよりPRを出すほうがあきらかに垣根は下がりますので、世界中のエンジニアに対してコントリビュートの門が開かれるんじゃないかと思います。</p>
-
 <p>それに・・・ほら・・・あれじゃないですか、<strong>パッチ提供じゃコミットログに自分の名前載らないじゃん</strong>。</p>
-
 <p>OSS活動って奉仕活動じゃないと思うんです。やったぞ！という手応えというか、みんなが幸せになるだけじゃなくて頑張った自分だけの特別な何かが欲しいじゃないですか。メジャーリポジトリのコミットログに自分の名前が載ることはその一つだと思うんです。映画のスタッフロールに名前が載るようなもんですよ。モチベーションに繋がりますよね。まあ、金につながるのが一番いいんですけど。</p>
-
-<h4 id="redmine-orgがイケてない">redmine.orgがイケてない</h4>
-
+<h4 id="redmineorg">redmine.orgがイケてない</h4>
 <p><a href="redmine.org">redmine.org</a> で使用されているバージョンがなんか古いです。おそらく<code>2.x</code>と思われます。ドッグフーディングできてないですよね。未解決のIssueだけ検索したいなぁ。。。Plugin directoryももうちょっとなんとかならんもんかなぁ。</p>
-
-<h2 id="redmineからの移行する選択肢">Redmineからの移行する選択肢</h2>
-
-<h3 id="github-https-github-com"><a href="https://github.com/">GitHub</a></h3>
-
+<h2 id="redmine1">Redmineからの移行する選択肢</h2>
+<h3 id="githubhttpsgithubcom"><a href="https://github.com/">GitHub</a></h3>
 <p>みんな大好きGitHub。Redmineはオンプレミス環境に立てていることが多いと思うので、移行するとなるとクラウドであることがネックになるのではないでしょうか。オンプレミスのGitHub Enterpriseもありますがちょっと高価かな。</p>
-
-<h3 id="bitbucket-https-bitbucket-org"><a href="https://bitbucket.org/">Bitbucket</a></h3>
-
+<h3 id="bitbuckethttpsbitbucketorg"><a href="https://bitbucket.org/">Bitbucket</a></h3>
 <p>GitHubと双璧をなすアトラシアンのやつです。</p>
-
-<h3 id="gitbucket-https-gitbucket-github-io"><a href="https://gitbucket.github.io/">Gitbucket</a></h3>
-
+<h3 id="gitbuckethttpsgitbucketgithubio"><a href="https://gitbucket.github.io/">Gitbucket</a></h3>
 <p>GitHubのクローンです。<a href="http://takezoe.hatenablog.com/entry/2016/03/21/031733">以前GitHubから似すぎと指摘されたことがあった</a>そうです。現在のUIは当時とは別物ですね。クラウドサービスはないので、オンプレミス環境に構築する必要があります。</p>
-
-<h3 id="gitlab-gitlab-com-https-about-gitlab-com"><a href="https://about.gitlab.com/">GitLab/GitLab.com</a></h3>
-
+<h3 id="gitlabgitlabcomhttpsaboutgitlabcom"><a href="https://about.gitlab.com/">GitLab/GitLab.com</a></h3>
 <p>GitLabもGitHubのクローンと言われますが、現在は独自性が強く、オールインワンの超ヘビー級なシステムになっています。Redmineから移行を検討する際の最有力候補になると思います。RedmineのIssueとの連携できることも大きなメリットです。</p>
-
 <p>GitLabのインストールは<strong>苦行</strong>と言われた時代がありましたが、現在は<a href="https://docs.gitlab.com/omnibus/docker/README.html">GitLab公式のDockerイメージ</a>もあり、簡単に立てることができます。</p>
-
 <p>GitLabは以下の機能を持っています。</p>
-
 <ul>
 <li>Gitリポジトリ</li>
 <li>Issue管理</li>
@@ -190,75 +132,50 @@
 <li>GitLab Pages</li>
 <li>Mattermost</li>
 </ul>
-
 <p>GitLab.comはGitLabのクラウドサービスです。<a href="http://www.publickey1.jp/blog/17/gitlabcom56.html">GitLab.comがデータを消失し、バックアップが機能しておらず、リカバリ作業をYoutubeでストリーミング配信</a>したのは大きな話題になりました。</p>
-
 <p>私は現在、RedmineとGitLabを併用しています。できればGitLab一本にしたいと考えているのですが、なかなか実現できません。その理由を書きたいと思います。</p>
-
-<h2 id="gitlabに移行しきれない理由">GitLabに移行しきれない理由</h2>
-
-<h3 id="1-issue番号の採番の違い">1. Issue番号の採番の違い</h3>
-
+<h2 id="gitlab">GitLabに移行しきれない理由</h2>
+<h3 id="1-issue">1. Issue番号の採番の違い</h3>
 <p>RedmineではIssueの番号はインスタンスで一意になるように採番されますが、GitLabではプロジェクト毎に採番されます。GitLabでもIssueを別のプロジェクトに移動するができますがその際は番号が変わります。</p>
-
 <p>ひとつのインスタンス内にプロジェクトがひとつだけでリポジトリもひとつだけ、であれば移行に問題はないのですが、プロジェクトが複数あったり、複数のリポジトリがある場合はIssueの番号が問題になります。</p>
-
 <p>私はすべてをあきらめ、IssueはRedmineで管理しています。</p>
-
 <p>また、RedmineからGitLabへのIssueの移行は、 <a href="https://qiita.com/jeffi7/items/75834ca22b9ddf473ed1">Redmine のプロジェクトを GitLab Issues へ移行する - Qiita</a> が参考になると思います。私も時間があるときに試してみたいと思います。</p>
-
-<h3 id="2-カスタムフィールドがない">2. カスタムフィールドがない</h3>
-
+<h3 id="2-1">2. カスタムフィールドがない</h3>
 <p>カスタムフィールドは非常に便利な機能です。GitLabにはカスタムフィールド相当の機能がないので、どのように移行するか検討する必要があります。</p>
-
 <p>GitLabの記法はMarkdownですので、Front Matterを書くことができます。特別なことはできないのですが、将来的に特別なことができそうな気がするので、どうしようもないカスタムフィールドはFront Matterに書いておくのも一案かなと思います。</p>
-
 <pre><code>---
 ここに: YAML記法で書く
 ---
 本文
-</code></pre>
-
-<h3 id="3-issueのdescription欄のヒストリが管理されない">3. IssueのDescription欄のヒストリが管理されない</h3>
-
+</code></pre><h3 id="3-issuedescription">3. IssueのDescription欄のヒストリが管理されない</h3>
 <p>RedmineではIssueの説明欄を更新した際にHistoryで差分をみることができますが、GitLabではDescription欄を更新したことはわかりますが変更内容がわかりません。この点については<a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/15597">このIssue</a>でディスカッションされています。</p>
-
-<h3 id="4-wikiがイケてない">4. Wikiがイケてない</h3>
-
+<h3 id="4-wiki">4. Wikiがイケてない</h3>
 <p>Wikiがイケてない理由はいくつかあります。</p>
-
 <ul>
-<li>サイドバーがWikiページの名前順でカスタマイズできない。<br />
+<li>サイドバーがWikiページの名前順でカスタマイズできない。<br>
 重要なページへのリンクをサイドバーに置きたいですよね。また、Wikiページのリストは名前順だけじゃなくて更新日順でも表示したいですね。</li>
-<li>Wikiフォーマットのリンク（<code>[[WikiLink]]</code>みたいなやつ）を書けるんだか書けないんだかよくわからない。<br />
+<li>Wikiフォーマットのリンク（<code>[[WikiLink]]</code>みたいなやつ）を書けるんだか書けないんだかよくわからない。<br>
 一応機能するのですが、Wikiフォーマットリンクより後ろの文字が表示されなかったりします。よくわからん。</li>
 <li>TOCがない。</li>
 </ul>
-
-<h2 id="tl-dr">TL;DR</h2>
-
+<h2 id="tldr">TL;DR</h2>
 <ul>
 <li>Redmineは12年前の亡霊のようなシステム</li>
 <li>GitLabに完全に移行するにはハードルが高すぎる</li>
 <li>今のところRedmineとGitLabの並行運用が無難</li>
 </ul>
-
 <p>なんだか「と思う」「たぶん」が多い要領を得ない記事になってしまいました。すみません。</p>
-
 <p>もしRedmineが開発基盤をGitHubに移した暁には、ガシガシPRを書いてやりたいと思います。Rubyはそこまで得意じゃないけど。</p>
-
-<hr />
-
+<hr>
 <p><a href="/posts/2019/06/emoi-redmine/">その後のエントリっぽいものを書きました。</a></p>
-<div class="footnotes">
-
-<hr />
-
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">2018/12/9にリリースされた <a href="http://blog.redmine.jp/articles/4_0/changelog/">Redmine 4.0</a> でRougeに変更されました！
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>2018/12/9にリリースされた <a href="http://blog.redmine.jp/articles/4_0/changelog/">Redmine 4.0</a> でRougeに変更されました！<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
 </ol>
-</div>
+</section>
     </article>
 
     

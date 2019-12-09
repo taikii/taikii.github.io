@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/09/jpa-sequence-generator/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -76,26 +76,25 @@
       </ul>
       
       <p><a href="/posts/2019/09/oracle-sequence-noorder/">Oracle シーケンスのデフォルトはNOORDERである罠</a> の続きです。</p>
-
 <p>JPAでEntityのIDを自動採番するとき、DBMSがOracleの場合はシーケンスを使うことになります。シーケンスを使う場合は、<code>@GeneratedValue</code>の<code>strategy</code>プロパティに<code>GenerationType.SEQUENCE</code>を指定します。たぶん<code>GenerationType.AUTO</code>でもシーケンスになります。（<code>GenerationType.AUTO</code> を指定するとはDBMSによって適切な採番方法が選択されます）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Id</span>
-<span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">SEQUENCE</span><span class="p">)</span>
-<span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="p">)</span>
-<span class="kd">private</span> <span class="nf">String</span> <span class="n">userId</span><span class="p">;</span></code></pre></td></tr></table>
+<span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">)</span>
+<span class="nd">@Column</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">userId</span><span class="o">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>SequenceGenerator</code>は、デフォルトではシステムでひとつのシーケンス（名前は<code>hibernate_sequence</code>）を共有で使用します。該当テーブル専用のシーケンスを使う場合は<code>@SequenceGenerator</code>の<code>sequenceName</code>プロパティで指定することができます。以下の例では<code>user_id_seq</code>がシーケンスオブジェクト名です。</p>
+</div><p><code>SequenceGenerator</code>は、デフォルトではシステムでひとつのシーケンス（名前は<code>hibernate_sequence</code>）を共有で使用します。該当テーブル専用のシーケンスを使う場合は<code>@SequenceGenerator</code>の<code>sequenceName</code>プロパティで指定することができます。以下の例では<code>user_id_seq</code>がシーケンスオブジェクト名です。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -103,24 +102,20 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Id</span>
-<span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">SEQUENCE</span><span class="p">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="p">)</span>
-<span class="nd">@SequenceGenerator</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="p">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">&#34;user_id_seq&#34;</span><span class="p">)</span>
-<span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="p">)</span>
-<span class="kd">private</span> <span class="nf">String</span> <span class="n">userId</span><span class="p">;</span></code></pre></td></tr></table>
+<span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="o">)</span>
+<span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="o">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">&#34;user_id_seq&#34;</span><span class="o">)</span>
+<span class="nd">@Column</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">userId</span><span class="o">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>SequenceGenerator</code>は採番都度シーケンスにアクセスして採番するのではなく、あらかじめ一定の採番枠を確保し、その採番枠内の増分であればDBアクセスを発生させないようにしています。</p>
-
+</div><p><code>SequenceGenerator</code>は採番都度シーケンスにアクセスして採番するのではなく、あらかじめ一定の採番枠を確保し、その採番枠内の増分であればDBアクセスを発生させないようにしています。</p>
 <p>この採番枠は<code>@SequenceGenerator</code>の<code>allocationSize</code>というプロパティで指定でき、デフォルトは<code>50</code>となっています。</p>
-
 <p>また、<code>user_id_seq.nextval</code>した時に<code>allocationSize</code>分増加している必要があるので、<code>allocationSize</code>とシーケンスの<code>increment by</code>は一致している必要があります。（事実、Spring Bootにおいて<code>spring.jpa.hibernate.ddl-auto=update</code>としてシーケンスオブジェクトを自動作成すると<code>increment by 50</code>のシーケンスが作成されます。）</p>
-
 <p>しかし、これには一つ問題があり、同じテーブルのIDを採番する<code>SequenceGenerator</code>インスタンスが複数存在すると（つまり複数のアプリケーションサーバが存在するLB構成だと）、インスタンスAは<code>1～50</code>、インスタンスBは<code>51～100</code>の枠内でそれぞれ採番することになるので、テーブルのIDは<code>1, 51, 2, 52...</code>のように番号の戻りが発生してしまいます。これは <a href="/posts/2019/09/oracle-sequence-noorder/">Oracle シーケンスのデフォルトはNOORDERである罠</a> と同じ問題です。</p>
-
 <p>このため、IDに対して順序を期待する場合は<code>allocationSize = 1</code>を指定して都度SEQUENCEから採番させる必要があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -128,13 +123,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Id</span>
-<span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">SEQUENCE</span><span class="p">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="p">)</span>
-<span class="nd">@SequenceGenerator</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="p">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">&#34;user_id_seq&#34;</span><span class="p">,</span> <span class="n">allocationSize</span> <span class="o">=</span> <span class="n">1</span><span class="p">)</span>
-<span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="p">)</span>
-<span class="kd">private</span> <span class="nf">String</span> <span class="n">userId</span><span class="p">;</span></code></pre></td></tr></table>
+<span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="o">)</span>
+<span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;user_id_generator&#34;</span><span class="o">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">&#34;user_id_seq&#34;</span><span class="o">,</span> <span class="n">allocationSize</span> <span class="o">=</span> <span class="n">1</span><span class="o">)</span>
+<span class="nd">@Column</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;user_id&#34;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">userId</span><span class="o">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>そんな感じです。</p>
+</div><p>そんな感じです。</p>
     </article>
 
     

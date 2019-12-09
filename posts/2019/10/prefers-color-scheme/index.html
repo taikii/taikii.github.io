@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/10/prefers-color-scheme/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,42 +64,31 @@
       </ul>
       
       <p>Chrome 78で試験的にWebページにダークモードを強制する機能が実装されたというニュースから、<code>prefers-color-scheme</code>というブラウザのカラースキームによってスタイルを切り替えるメディアクエリがあることを知りました。Hugoのテーマ<a href="https://github.com/taikii/whiteplain">Whiteplain</a>の<a href="https://github.com/taikii/whiteplain-dark">暗色版</a>を作ったときから、自動で切り替わるといいのに…とは思っていたので、このメディアクエリを使って明色と暗色が切り替わるようにしました。</p>
-
 <p><a href="https://japanese.engadget.com/2019/10/23/chrome-78/">Chrome 78公開。未対応ページを強制ダークモード化、保存したパスワードの安全度確認機能など搭載 - Engadget 日本版</a></p>
-
 <p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme - CSS: カスケーディングスタイルシート | MDN</a></p>
-
-<h2 id="明色または暗色のままにする">明色または暗色のままにする</h2>
-
+<h2 id="heading">明色または暗色のままにする</h2>
 <p>ユーザの環境によらず明色または暗色のままにする場合は、<a href="https://github.com/taikii/whiteplain-light">Whiteplain Light</a> / <a href="https://github.com/taikii/whiteplain-dark">Whiteplain Dark</a>を<code>themes</code>ディレクトリに入れて、<code>config.toml</code>で<code>whiteplain</code>の左側に併記します。</p>
-
 <p>ちなみに<code>whiteplain-light</code>は今回新しく作りました。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c">#theme = [&#34;whiteplain-light&#34;, &#34;whiteplain&#34;]</span>
-<span class="nx">theme</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;whiteplain-dark&#34;</span><span class="p">,</span> <span class="s2">&#34;whiteplain&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="nx">theme</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;whiteplain-dark&#34;</span><span class="p">,</span> <span class="s2">&#34;whiteplain&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ただし、上記のChrome 78のForce Darkが有効な場合は、Whiteplain Lightを指定しても自動で暗色にされます。。。</p>
-
-<h2 id="chrome-78のforce-darkについて">Chrome 78のForce Darkについて</h2>
-
+</div><p>ただし、上記のChrome 78のForce Darkが有効な場合は、Whiteplain Lightを指定しても自動で暗色にされます。。。</p>
+<h2 id="chrome-78force-dark">Chrome 78のForce Darkについて</h2>
 <p>Chrome 78のForce Dark Mode for Web Contentsは、<code>prefers-color-scheme</code>メディアクエリのブラケット内のカラー指定は変更しませんが、それ以外は暗色化します。</p>
-
 <p>Whiteplainの場合、構造系のCSSと色系のCSSがごちゃまぜになっていたので、Whiteplain Darkを作ったときは色系のCSSだけパッチを当てる感じで実現しました。今回はその暗色CSSパッチを<code>prefers-color-scheme: dark</code>メディアクエリで自動適用するようにしただけなので、明色のCSSは<code>prefers-color-scheme</code>のブラケットで囲われていません。このため、Force Darkの対象となってしまいます。</p>
-
-<h2 id="cssファイルのインポート">CSSファイルのインポート</h2>
-
+<h2 id="css">CSSファイルのインポート</h2>
 <p>構造系のCSSと色系のCSSを分離して、<code>prefers-color-scheme: light</code>だろうが<code>prefers-color-scheme: dark</code>だろうが明色のCSSを読み込むようにしてやればいいと思ったのですが、一つのCSSファイルは二度読み込まれることがない（？）ため、下記の例だとダークモードの時に色系Style全く効かなくなってしまいます。</p>
-
 <p>さらに、下記の例では、<code>prefers-color-scheme</code>に対応してないブラウザ（例えばIE）でも<code>color-light.css</code>が適用されません。IEを考慮すると明色か暗色を<code>prefers-color-scheme</code>ブラケットの外に置く必要があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -111,24 +100,21 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">structure</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">structure</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 
 <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">light</span><span class="o">)</span> <span class="p">{</span>
-  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
   <span class="c">/* color-light.cssは上でインポート済みなので、インポートされない？＝ダークモードで色系Styleが適用されない */</span>
-  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>あっちを立てればこっちが立たずって感じです。。。</p>
-
+</div><p>あっちを立てればこっちが立たずって感じです。。。</p>
 <p>まぁ、現時点でForce Darkは試験機能なので、あまり考えなくていいんですけど。</p>
-
 <h2 id="todo">ToDo</h2>
-
 <ul>
 <li>テーマのスクリーンショットを明暗の両方を表現したものに変更する。</li>
 <li>whiteplain-lightテーマは、Chromeがダークモードを強制しても明色で表示できるようにする。</li>
@@ -156,7 +142,9 @@
 
 
     <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-newer">
+          <a href="/posts/2019/12/vscode-thymeleaf-format/" data-toggle="tooltip" data-placement="top" title="VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない">&lt; Newer</a>
+      </li>
       <li class="pager-older">
         <a href="/posts/2019/10/i18n-fields-on-thymeleaf/" data-toggle="tooltip" data-placement="top" title="Thymeleafで言語別フィールドをカッコよく表示する">Older &gt;</a>
       </li>

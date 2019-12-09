@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/09/git-email/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,21 +58,15 @@
       </ul>
       
       <p>私はこれまでGitの <code>user.email</code> は <a href="https://help.github.com/ja/articles/setting-your-commit-email-address">GitHubのnoreplyアドレス</a> を使っていたのですが、思うところがあって実在するメールアドレスに変更しました。</p>
-
 <ul>
-<li>GitHubだけで完結できればいいけど、GitLab.comやBitBucketにForkされている場合にそれぞれのサービスにある自分のアカウントと紐付けられない。（GitLab.comやBitBucketで <code>*@users.noreply.github.com</code> は登録できないので）</li>
+<li>GitHubだけで完結できればいいけど、GitLab.comやBitBucketにForkされている場合にそれぞれのサービスにある自分のアカウントと紐付けられない。（GitLab.comやBitBucketで <a href="mailto:%60*@users.noreply.github.com">`*@users.noreply.github.com</a>` は登録できないので）</li>
 <li>そもそもGitは分散リポジトリなのでGitHub固有のサービスに依存する運用はするべきではないのでは。</li>
-<li>将来、GitHubのユーザ名を変えたくなるかもしれないし。（現在は <code>id+username@users.noreply.github.com</code> というemailでコミットされていれば、ユーザ名を変えてもコミットとの紐づきは維持されそうです。 <a href="https://qiita.com/the_red/items/240fdea1a132b7843afc">GitHubのユーザー名を変更するとnoreplyメールアドレスのコミット履歴はどうなるのか？ - Qiita</a> が参考になりました。ありがとうございます。）</li>
+<li>将来、GitHubのユーザ名を変えたくなるかもしれないし。（現在は <a href="mailto:%60id+username@users.noreply.github.com">`id+username@users.noreply.github.com</a>` というemailでコミットされていれば、ユーザ名を変えてもコミットとの紐づきは維持されそうです。 <a href="https://qiita.com/the_red/items/240fdea1a132b7843afc">GitHubのユーザー名を変更するとnoreplyメールアドレスのコミット履歴はどうなるのか？ - Qiita</a> が参考になりました。ありがとうございます。）</li>
 </ul>
-
 <p>ただ、コミットにメールアドレスと入れるということはメアドを全世界に公開することでもあり、つまりスパムメールが来ることになるわけで。現代のスパムフィルタが優秀とはいえ、やっぱりスパムは少ないほうがいいし、実際どのくらいスパムがくるのか検討がつかないので、Gitコミット専用のメアドを発行することにしました。</p>
-
 <p>新しくどこかにアカウントを作るのは面倒だったので、Outlook.comでエイリアスを作ることにしました。Gmailの「エイリアス」はアドレスのローカル部の後ろに <code>+hogehoge</code> のようにプラス記号と任意の文字列をくっつけることができるものですが、これはあくまでフィルタリングをやりやすくするためのもので、自分のメールアドレスを隠蔽することはできません。それに対してOutlook.comは全く新規のアドレスをエイリアスとして発行することができます。たぶんExchangeのセカンダリアドレスですね、<code>smtp</code>が小文字のやつ。確か、プライマリアドレス含めて10個まで作れたと思います。</p>
-
 <p><a href="https://support.office.com/ja-jp/article/outlook-com-%E3%81%A7%E3%83%A1%E3%83%BC%E3%83%AB-%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%BE%E3%81%9F%E3%81%AF%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B-459b1989-356d-40fa-a689-8f285b13f1f2">Outlook.com でメール エイリアスを追加または削除する - Outlook</a></p>
-
 <p>もし、スパムフィーバーするようだったら、このエイリアス宛のメールは全部捨てるか、<code>users.noreply.github.com</code> に戻してエイリアス自体を削除するか、考えたいと思います。</p>
-
 <p>つか、GitHubに日本語のヘルプができてることが衝撃…</p>
     </article>
 

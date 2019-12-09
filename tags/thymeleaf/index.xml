@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Thu, 17 Oct 2019 23:15:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 01:11:08 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/tags/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない</title>
+      <link>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</link>
+      <pubDate>Tue, 10 Dec 2019 01:11:08 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</guid>
+      <description>&lt;p&gt;VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない問題に直面したのでメモ。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Thymeleafで言語別フィールドをカッコよく表示する</title>

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -70,26 +70,22 @@
       </ul>
       
       <p>私はRedmineをDocker Libraryのイメージで立てており、DBには同じくDocker LibraryのPostgreSQLを使用しています。以前はMuSQLを使ってたんですが、PostgreSQLに移行してからソートしても日本語がうまくソートされない問題が発生するようになりました。</p>
-
 <p>調べたところ、照合順序（<code>lc_collate</code>）が適切でないとこの問題が発生するとのこと。以下のページを参考にさせていただきました。</p>
-
 <p><a href="http://se.ykysd.com/2015/09/28/orderby/">PostgreSQLで並び順がおかしい時の修正方法</a></p>
-
 <p><code>lc_collate</code>が<code>C</code>だと文字コードのバイナリ順、<code>ja_JP.UTF-8</code>だと辞書順でのソートになるようですね。ポスグレコンテナに入って確認してみます。</p>
-
 <p>ポスグレコンテナへの入り方はこんな感じ。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_db_1 /bin/bash</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_db_1 /bin/bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ポスグレコンテナに入ったら、<code>postgres</code>ユーザにスイッチしてから<code>psql</code>を叩きます。</p>
+</div><p>ポスグレコンテナに入ったら、<code>postgres</code>ユーザにスイッチしてから<code>psql</code>を叩きます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -114,23 +110,18 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
  lc_monetary | en_US.utf8 | user
  lc_numeric  | en_US.utf8 | user
  lc_time     | en_US.utf8 | user
-(6 rows)</code></pre></td></tr></table>
+(6 rows)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>lc_collate=en_US.utf8</code>ですね。<a href="https://hub.docker.com/_/postgres/">Docker LibraryのPostgreSQL</a>のデフォルトロケールは<code>en_US.utf8</code>みたいです。</p>
-
+</div><p><code>lc_collate=en_US.utf8</code>ですね。<a href="https://hub.docker.com/_/postgres/">Docker LibraryのPostgreSQL</a>のデフォルトロケールは<code>en_US.utf8</code>みたいです。</p>
 <p>これを<code>C</code>か<code>ja_JP.UTF-8</code>に変更する必要があるのですが、このポスグレのイメージには<code>ja_JP.UTF-8</code>が入っていません。<code>ja_JP.UTF-8</code>をインストールするのも面倒な話なので、特別な理由が無い限り<code>C</code>でいいんじゃないでしょうか。Linuxの<code>sort</code>コマンドとかも同じ文字コード順だったはずなので馴染みが無い訳ではないと思います。<code>ja_JP.UTF-8</code>がよければ<code>Dockerfile</code>を作ってどうのこうのする必要があります。</p>
-
 <p>ではこの<code>lc_collate</code>をどうやって変更するかというと、これは<code>initdb</code>の<code>--locale</code>オプションで指定するものとのこと。</p>
-
 <p>しかし、<code>initdb</code>はデータベースクラスタを作成する際の初期化コマンドですので、何も考えずに実行すると綺麗さっぱりデータがなくなっちゃいます。普通にインストールしたポスグレであれば、上記のページにあるようにダンプを取ってリストアとなるんでしょうが、こちとらDockerコンテナですので、そうは問屋がおろさない。クラスタを落とした時点でコンテナが落ちちゃう気がするし。試してないですけど。</p>
-
 <p>とりあえず<code>initdb</code>で指定するのはわかったとして、このDockerコンテナに対してどうやってこのオプションを渡すのかという話なんですが、<a href="https://hub.docker.com/_/postgres/">Docker Hubのページ</a>を確認すると、<code>POSTGRES_INITDB_ARGS</code>という環境変数でinitdbのオプションを渡すことができるようです。まぁ、initdb自体、まっさらな状態からコンテナを初めて作るときしか実行されないんでしょうけど。</p>
-
 <p>つまり、<code>docker-compose.yml</code>ではこんな感じで指定することになります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -145,19 +136,14 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 </span><span class="w">  </span>db<span class="p">:</span><span class="w">
 </span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>postgres<span class="p">:</span><span class="m">9.6</span><span class="w">
 </span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>POSTGRES_INITDB_ARGS<span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span></code></pre></td></tr></table>
+</span><span class="w">      </span>POSTGRES_INITDB_ARGS<span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>新しくRedmineを立てるのならこれで終わりです。しかし、私は既に運用を開始してしまっていますので、ここからは既存のポスグレのロケールを変更するのに四苦八苦していきます。</p>
-
+</div><p>新しくRedmineを立てるのならこれで終わりです。しかし、私は既に運用を開始してしまっていますので、ここからは既存のポスグレのロケールを変更するのに四苦八苦していきます。</p>
 <p>で、やっぱりダンプとってリストアしようかとも考えたのですが、Dockerとして運用しているポスグレにはなーんかそぐわない気がして。通常だとまっさらなポスグレにはRedmineがマイグレーションしてテーブルを作るわけですし。</p>
-
 <p>そこで「これってMySQLからポスグレに移行するのと一緒やん？」と思いつきました。ポスグレ移行の際は以下のRedmine.JPの記事を参考にしたのですが、今回も同じようにyaml_dbを使って移行できるんじゃないかと。これなら文字コード関係ないし、実績あるし。</p>
-
 <p><a href="http://blog.redmine.jp/articles/change-database/">Redmineで使うデータベースを変更する | Redmine.JP Blog</a></p>
-
 <p>そんなわけでこのような手順でやっていきます。もっとうまい方法はあると思いますけど許してください。</p>
-
 <ol>
 <li>兎にも角にもデータボリュームをバックアップ</li>
 <li>Redmineにyaml_dbを入れる</li>
@@ -166,98 +152,88 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 <li>lc_collate=Cクラスタの作成とRedmineのマイグレーション</li>
 <li>yaml_dbでリストア</li>
 </ol>
-
-<h2 id="ポスグレロケール変更大作戦">ポスグレロケール変更大作戦</h2>
-
+<h2 id="heading">ポスグレロケール変更大作戦</h2>
 <p>ではやっていきましょう。ちなみに、Redmineのバージョンは<code>3.4</code>、PostgreSQLは<code>9.6</code>を使っています。いずれもDocker LibraryのDockerイメージです。</p>
-
-<h3 id="兎にも角にもデータボリュームをバックアップ">兎にも角にもデータボリュームをバックアップ</h3>
-
+<h3 id="heading1">兎にも角にもデータボリュームをバックアップ</h3>
 <p>です。後にyaml_dbでダンプを取得しますが、これはバックアップではありません。やっとかないと絶対後悔します。</p>
-
-<p>また、ハマりどころを後述しますが、ここで<a href="#ゴミテーブルがある場合は予め削除しておく">ゴミテーブルがある場合は予め削除しておく</a>ことをおすすめします。</p>
-
-<h3 id="redmineにyaml-dbを入れる">Redmineにyaml_dbを入れる</h3>
-
+<p>また、ハマりどころを後述しますが、ここで<a href="#%E3%82%B4%E3%83%9F%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF%E4%BA%88%E3%82%81%E5%89%8A%E9%99%A4%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8F">ゴミテーブルがある場合は予め削除しておく</a>ことをおすすめします。</p>
+<h3 id="redmineyamldb">Redmineにyaml_dbを入れる</h3>
 <p>Redmine上のGemfileの適当なところに書きます。</p>
-
 <p>Redmineコンテナへの入り方はこうですね。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_web_1 /bin/bash</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker exec -it redmine_web_1 /bin/bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Gemfileにはこんな行を追加したい。</p>
+</div><p>Gemfileにはこんな行を追加したい。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Gemfile" data-lang="Gemfile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Gemfile" data-lang="Gemfile"><span class="n">gem</span> <span class="s2">&#34;yaml_db&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-Gemfile" data-lang="Gemfile"><span class="n">gem</span> <span class="s2">&#34;</span><span class="s2">yaml_db</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ここでRedmineコンテナにvimが入ってない問題が発生。わざわざvimを入れるのもアホくさいので<code>docker cp</code>コマンドでホストOSにGemfileをコピーして編集しました。</p>
+</div><p>ここでRedmineコンテナにvimが入ってない問題が発生。わざわざvimを入れるのもアホくさいので<code>docker cp</code>コマンドでホストOSにGemfileをコピーして編集しました。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-text" data-lang="text">$ docker cp redmine:/usr/src/redmine/ ./Gemfile
 $ vim Gemfile
-$ docker cp ./Gemfile redmine:/usr/src/redmine/</code></pre></td></tr></table>
+$ docker cp ./Gemfile redmine:/usr/src/redmine/
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Gemfileの編集ができたので、改めて<code>bundle install</code>を実行してyaml_dbをインストールします。（Redmineコンテナで実行）</p>
+</div><p>Gemfileの編集ができたので、改めて<code>bundle install</code>を実行してyaml_dbをインストールします。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ bundle install --without development test</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ bundle install --without development test
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="yaml-dbでダンプを取得">yaml_dbでダンプを取得</h3>
-
+</div><h3 id="yamldb">yaml_dbでダンプを取得</h3>
 <p>yaml_dbがインストールできたのでダンプを取ります。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ RAILS_ENV=production bundle exec rake db:data:dump</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ RAILS_ENV=production bundle exec rake db:data:dump
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ダンプファイルは<code>db/data.yml</code>に出力されます。この後Redmineコンテナも再作成を行うので、永続化しているディレクトリにコピーしときます。（Redmineコンテナで実行）</p>
+</div><p>ダンプファイルは<code>db/data.yml</code>に出力されます。この後Redmineコンテナも再作成を行うので、永続化しているディレクトリにコピーしときます。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ cp -pi db/data.yml files/</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ cp -pi db/data.yml files/
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="ポスグレコンテナを初期化">ポスグレコンテナを初期化</h3>
-
-<p>ホストOSに戻って、コンテナを停止・削除します。これもハマりどころとして後述しますが、<a href="#postgresqlコンテナだけを削除しない">無理にポスグレコンテナだけ作り直そうとせずRedmineコンテナも含めて削除</a>します。</p>
+</div><h3 id="heading2">ポスグレコンテナを初期化</h3>
+<p>ホストOSに戻って、コンテナを停止・削除します。これもハマりどころとして後述しますが、<a href="#postgresql%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%A0%E3%81%91%E3%82%92%E5%89%8A%E9%99%A4%E3%81%97%E3%81%AA%E3%81%84">無理にポスグレコンテナだけ作り直そうとせずRedmineコンテナも含めて削除</a>します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose stop
-$ docker-compose rm -f</code></pre></td></tr></table>
+$ docker-compose rm -f
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>docker-compose.yml</code>を編集します。前述の通り、<code>--locale=C</code>です。</p>
+</div><p><code>docker-compose.yml</code>を編集します。前述の通り、<code>--locale=C</code>です。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -269,39 +245,34 @@ $ docker-compose rm -f</code></pre></td></tr></table>
 <span class="gi">+      POSTGRES_INITDB_ARGS: &#34;--encoding=UTF-8 --locale=C&#34;
 </span></code></pre></td></tr></table>
 </div>
-</div>
-<p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
-
-<h3 id="lc-collate-cクラスタの作成とredmineのマイグレーション">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
-
+</div><p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
+<h3 id="lccollatecredmine">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
 <p>改めてコンテナを作成します。ポスグレはデータボリュームが無くなっているので<code>initdb</code>が実行され、空のクラスタが<code>lc_collate=C</code>で作られる…はず。そしてRedmineはDBが空になっているのでマイグレーションしてくれる…はず。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose up -d</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose up -d
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="yaml-dbでリストア">yaml_dbでリストア</h3>
-
+</div><h3 id="yamldb1">yaml_dbでリストア</h3>
 <p>Redmineコンテナが再作成されているので、もう一回Gemfileを配置～<code>bundle install</code>してyaml_dbをインストールします。（割愛）</p>
-
 <p>先程永続化されたディレクトリに退避した<code>data.yml</code>を<code>db/</code>ディレクトリに戻して、ロードします。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-text" data-lang="text">$ mv -i files/data.yml db/
-$ RAILS_ENV=production bundle exec rake db:data:load</code></pre></td></tr></table>
+$ RAILS_ENV=production bundle exec rake db:data:load
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>これで<code>lc_collate=C</code>に変更できました！</p>
+</div><p>これで<code>lc_collate=C</code>に変更できました！</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -322,29 +293,19 @@ $ RAILS_ENV=production bundle exec rake db:data:load</code></pre></td></tr></tab
  lc_monetary | C       | user
  lc_numeric  | C       | user
  lc_time     | C       | user
-(6 rows)</code></pre></td></tr></table>
+(6 rows)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ブラウザでRedmineを見てもそれっぽくソートできるようになっているはずです。やったね！</p>
-
-<h2 id="ハマりどころ">ハマりどころ</h2>
-
+</div><p>ブラウザでRedmineを見てもそれっぽくソートできるようになっているはずです。やったね！</p>
+<h2 id="heading3">ハマりどころ</h2>
 <p>いくつかハマりどころがあったので解説。</p>
-
-<h3 id="ゴミテーブルがある場合は予め削除しておく">ゴミテーブルがある場合は予め削除しておく</h3>
-
+<h3 id="heading4">ゴミテーブルがある場合は予め削除しておく</h3>
 <p>私は以前ナレッジベースプラグインを使っていたのですが、これを削除した際に<code>VERSION=0</code>でマイグレーションしていなかったようです。このため、プラグインは存在しないのにテーブルが残留している状態となっていました。</p>
-
 <p>この状態でyaml_dbでダンプを取ると、当然ナレッジベースプラグインのテーブルデータもエクスポートされますが、その後のマイグレーションではプラグインがないためテーブルは作成されません。そうすると、yaml_dbでデータをロードする際にテーブルが存在しないエラーが発生してしまいます。こうなると、もう一度プラグインをインストールしてテーブルを作るか、<code>data.yml</code>をシコシコ編集して該当データを削除する必要があります。</p>
-
 <p>ですので、マイグレーションで作成されないテーブルが存在しないか、一度チェックしておくことをおすすめします。</p>
-
 <p>チェック方法ですか？同じプラグイン配置された状態で空のRedmineインスタンスを立ててみて、DB上に作成されたテーブルを比較してみるとかですかね…。面倒ですがやったほうがいいと思います…。</p>
-
-<h3 id="postgresqlコンテナだけを削除しない">PostgreSQLコンテナだけを削除しない</h3>
-
+<h3 id="postgresql">PostgreSQLコンテナだけを削除しない</h3>
 <p>ポスグレのデータを削除してコンテナを再作成する際、Redmineコンテナも作り直す必要なくね？と思ったのですが、以下のようにコンテナ間のリンクがおかしくなってしまう様です。Docker Networkを修正することで対処できるかもしれませんが、面倒ですしRedmineコンテナも作り直すが無難かなと思います。</p>
-
 <pre><code>$ docker exec -it redmine_web_1 /bin/bash
 Error response from daemon: Cannot link to a non running container: /redmine_db_1 AS /redmine_web_1/db
 </code></pre>

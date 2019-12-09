@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/05/redmine-callout-macro/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,11 +58,10 @@
       </ul>
       
       <p>Redmineの<a href="https://github.com/taikii/redmine_callout_macro">Callout Macroプラグイン</a>というのを作りました。<a href="https://docs.gitbook.com/content-editing/rich-content#hints-and-callouts">GitBookではHintsとかCallout</a>、<a href="https://vuepress.vuejs.org/guide/markdown.html#custom-containers">VuePressではCustom Containers</a>とか呼ばれてるやつです。</p>
-
 <p>以下のように使います。他と同じですね。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -85,15 +84,14 @@ This is warning block.
 
 {{danger(DANGER)
 This is danger block.
-}}</code></pre></td></tr></table>
+}}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="https://github.com/taikii/redmine_callout_macro/blob/master/doc/images/sample.png?raw=true" alt="" /></p>
-
+</div><p><img src="https://github.com/taikii/redmine_callout_macro/blob/master/doc/images/sample.png?raw=true" alt=""></p>
 <p>第一引数は省略を省略できます。ブロック内にはWikiフォーマットで記述できます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -116,13 +114,11 @@ This is information block.
 
 - Foo
 - Bar
-}}</code></pre></td></tr></table>
+}}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="https://i.gyazo.com/ee58c63b10a08c661e16518d876a976a.png" alt="" /></p>
-
+</div><p><img src="https://i.gyazo.com/ee58c63b10a08c661e16518d876a976a.png" alt=""></p>
 <p>子供が寝てる間に突貫で作ったので、色やマージンはかなりテキトーです。</p>
-
 <p>お気づきの点があったら指摘いただけるとありがたいです。</p>
     </article>
 

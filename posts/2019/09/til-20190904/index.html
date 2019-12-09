@@ -7,21 +7,18 @@
   <meta property="og:title" content="TIL 2019/09/04 - taikii blog" />
   <meta name="twitter:title" content="TIL 2019/09/04 - taikii blog" />
   <meta name="description" content="最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。
-
 あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていくのは自分的に意味はありそう。">
   <meta property="og:description" content="最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。
-
 あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていくのは自分的に意味はありそう。">
   <meta name="twitter:description" content="最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。
-
-あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしてい …">
+あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていく …">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
   <meta property="og:site_name" content="taikii blog" />
   <meta property="og:url" content="https://taikii.net/posts/2019/09/til-20190904/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,33 +61,20 @@
       </ul>
       
       <p>最近技術調査とか勉強とかしてるので久しぶりにTILやってこうと思います。そもそもこのブログを始めたときっかけがTILやるためだったので、初心に帰るというか。</p>
-
 <p>あまりきれいにまとめる時間は取れないけど、技術メモを取ってるScrapboxにStreamというアクティビティっぽいビューがあることを知ったので、これを雑にまとめる感じで。Streamは直近の変更しか見れないっぽいし、TILとして起こしていくのは自分的に意味はありそう。</p>
-
-<h2 id="フロントの技術">フロントの技術</h2>
-
+<h2 id="heading">フロントの技術</h2>
 <p>TypeScript何もわからんけど今後のために無理してでも採用したい。jQueryを淘汰するのは無理な気がする。</p>
-
 <p>TS使ってもBabel必要があるの？TSをトランスパイルするときにES5にしてくれそうだけど。ちょっとよくわからん。</p>
-
 <p>webpackはJSファイルをまとめるモジュールバンドラーでHTTP/1.1の同時リクエスト制限のアンサーって感じなんですかね？gulpはnode.jsのタスクランナー？ビルドに限定されないビルドツールって感じでしょうか。gulpは最近あまり活発ではない感じなのかな？この辺は必要性が出てきたら導入を検討すればいいかな。</p>
-
 <p>TSの学習が優先かな。</p>
-
-<h2 id="gradleでtypescriptもビルドしたい">GradleでTypeScriptもビルドしたい</h2>
-
+<h2 id="gradletypescript">GradleでTypeScriptもビルドしたい</h2>
 <p>GradleでSpring Bootと一緒にTypeScriptもビルドしたい気がする。Gradleのプラグインにあるっぽいけど、メンテされてるのか疑問。何種類かありそうかな？あと、これまでJavaのビルド（Spring Bootではない）はDocker公式のGradleイメージでやってたけど、TSのトランスパイルもやるのであれば、TSを予め入れたイメージを作っとく必要がありそう。そもそもSpring Bootのビルドはこれとは別のイメージでやったほうがいいんだろうか？みんなどうしてるの？</p>
-
-<h2 id="テスト">テスト</h2>
-
+<h2 id="heading1">テスト</h2>
 <p>合わせてE2Eテストも導入したいと思ってるけど、無謀かな…。jUnitからSelenium起動できるのかい？</p>
-
-<h2 id="その他">その他</h2>
-
+<h2 id="heading2">その他</h2>
 <ul>
 <li>最近知ったわけじゃないけど、<a href="https://tools.ietf.org/html/rfc4519#section-3.5">groupOfNamesはmember属性が必須</a>なのは納得いかん。</li>
 </ul>
-
 <p>まとめてみたら全然学んでなかったわ。</p>
     </article>
 

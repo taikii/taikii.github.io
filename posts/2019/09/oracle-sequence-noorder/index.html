@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/09/oracle-sequence-noorder/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,24 +58,16 @@
       </ul>
       
       <p>Oracleのシーケンスを使っていて見事にハマったのでメモ。</p>
-
 <p>Oracle には MySQL の <code>AUTO_INCREMENT</code> のようなテーブルのIDを自動採番する機能はないので、同じことをやりたければ「シーケンス」という一意な整数を生成してくれるオブジェクトを使用します。場合によっては欠番が発生することがあるので、それを意識して使用する必要があります。</p>
-
 <p>欠番は意識していたのですが、 <code>1, 2, 3, 21, 4, 22</code> のように採番される番号に「戻り」が発生し、かなり焦りました。</p>
-
 <p>早い話、RAC（複数のインスタンスで一つのデータベースを構成する Oracle Database のクラスタリング構成）を組んでいる場合、デフォルトのオプションのままシーケンスを作ると「番号の戻り」が発生します。</p>
-
 <p><a href="https://www.shift-the-oracle.com/sequence/sequence-faq.html#content_1_7">SHIFT the Oracle</a> さんに詳しい説明があるのですが、</p>
-
 <ul>
 <li>シーケンスのジェネレータはインスタンス毎に存在する</li>
 <li>シーケンスのデフォルトオプションが <code>CACHE 20</code> / <code>NOORDER</code></li>
 </ul>
-
 <p>であるので、ロードバランスで振られるインスタンスが変わると、採番される数値が急に飛んだり、前回より小さくなる現象が発生します。重複する数値は採番されないので、アイデンティティという意味では問題はありませんが、発行された数値でデータの作成順を意識する作りをしていると問題になります。</p>
-
 <p>要求順通りに採番されるようにするには <code>CREATE SEQUENCE</code> 時に <code>NOCACHE</code> / <code>ORDER</code> を指定します。キャッシュされなくなるので速度面での劣化はあるように思います。</p>
-
 <p>いやーマジで焦った。<a href="https://docs.oracle.com/cd/E57425_01/121/SQLRF/statements_6017.htm">公式マニュアル</a> も見てね。</p>
     </article>
 

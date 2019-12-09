@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/11/refresh-wsl-on-1709/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,15 +58,12 @@
       </ul>
       
       <p>Windows 10 Fall Creators Update（バージョン<code>1709</code>） において、Windows Subsystem for Linux（以下WSL）のアンインストールで少しハマりました。</p>
-
-<h2 id="wslのアンインストールではまる">WSLのアンインストールではまる</h2>
-
+<h2 id="wsl">WSLのアンインストールではまる</h2>
 <p>Windows Subsystem for Linux（以下WSL）で色々試してましたが、環境が汚くなってきたので一度初期化したいと思い、「Windowsの機能の有効化または無効化」から一度「Windows Subsystem for Linux」のチェックを外して再起動、またチェックを入れ直して再起動したところ、環境やデータは残ったままでした。まぁ、そりゃそうか。</p>
-
 <p>そこでググったところ、<code>lxrun.exe</code>というコマンドがあるとのこと。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -101,13 +98,13 @@ https://aka.ms/wslstore
     /setdefaultuser - 既定のサブシステム ユーザーを設定します。ユーザー アカウントが存在しない場合は作成されます。
         オプションの引数:
             username - ユーザー名を指定します
-            /y - ユーザー名が指定された場合、パスワードの作成を求めません</code></pre></td></tr></table>
+            /y - ユーザー名が指定された場合、パスワードの作成を求めません
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>つまり <code>lxrun /uninstall /full /y</code> を実行すればいいわけです。</p>
+</div><p>つまり <code>lxrun /uninstall /full /y</code> を実行すればいいわけです。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -126,50 +123,36 @@ https://aka.ms/wslstore
 これにより Windows 上の Ubuntu がアンインストールされます。
 Ubuntu 環境およびすべての変更内容、新しいアプリケーション、およびユーザー データが削除されます。
 アンインストールしています...
-Windows Subsystem for Linux でインストール、アンインストール操作が保留中です。</code></pre></td></tr></table>
+Windows Subsystem for Linux でインストール、アンインストール操作が保留中です。
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>保留中ってなんスか・・・。</p>
-
+</div><p>保留中ってなんスか・・・。</p>
 <p>なんか、更新プログラムのインストール等で再起動待ちになってるんじゃないかという感じらしいので、Windowsを再起動してもう一度試す。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">Windows Subsystem for Linux でインストール、アンインストール操作が保留中です。</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">Windows Subsystem for Linux でインストール、アンインストール操作が保留中です。
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>その後やったこと</p>
-
+</div><p>その後やったこと</p>
 <ul>
 <li>もう一度再起動してみる→<code>保留中です</code></li>
 <li>「Windowsの機能の有効化または無効化」でチェックを外した後<code>lxrun /uninstall</code>→そんなコマンドはありません。</li>
 <li><code>lxrun /install</code>してみる→一生懸命ダウンロードした後にエラー</li>
 </ul>
-
-<h2 id="tl-dr">TL;DR</h2>
-
+<h2 id="tldr">TL;DR</h2>
 <p><del><strong>普通に「アプリと機能」上のUbuntuをアンインストールすればよかった</strong> のでした。</del> アンインストールする必要はなく、リセットという項目がありました。（<a href="#2018年3月8日追記">追記参照</a>）</p>
-
 <p>2017年4月リリースのCreators Update（バージョン<code>1703</code>）では<code>lxrun.exe</code>での操作だったようですが、<code>1709</code>ではWSLが正式版となり、Ubuntu他LinuxのインストールがMicrosoft Storeからのインストールとなったため、この操作となるようです。再度WSLをインストールする際はダウンロードから行う必要があります。</p>
-
 <p>わかってしまえばなんでそんなことでハマってたんだろうという結論でした。。。自分で考えずにGoogle先生に頼るのは良くないという教訓を学びました。（何回目だろうか・・・）</p>
-
 <p>もっとスマートなやり方をご存知でしたら教えていただけると嬉しいです。</p>
-
-<h2 id="2018年3月8日追記">2018年3月8日追記</h2>
-
+<h2 id="201838">2018年3月8日追記</h2>
 <p>「アプリと機能」をよく見ると、「詳細オプション」というリンクがあり、これをクリックすると「記憶域の使用状況とアプリのリセット」という画面が開き、そこに「リセット」というボタンがあります。</p>
-
-<p><img src="https://i.imgur.com/LkCoVR0.png" alt="Imgur" /></p>
-
-<p><img src="https://i.imgur.com/ykMkzR5.png" alt="Imgur" /></p>
-
+<p><img src="https://i.imgur.com/LkCoVR0.png" alt="Imgur"></p>
+<p><img src="https://i.imgur.com/ykMkzR5.png" alt="Imgur"></p>
 <p>このリセットをすると、初期状態に戻ります。</p>
-
-<p><img src="https://i.imgur.com/JUznZbb.png" alt="Imgur" /></p>
-
+<p><img src="https://i.imgur.com/JUznZbb.png" alt="Imgur"></p>
 <p>「詳細オプション」もボタンにしてアンインストールの横に並べてほしい。。。</p>
     </article>
 

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,31 +58,27 @@
       </ul>
       
       <p>・・・・・・暗・・・こ・・・・・・・ロ・・・も・・チ・・・・・・。</p>
-
 <p>流行ってますね、ダークモード。Windows10にもダークモードが実装されたり、昨日リリースされたばかりのChrome74もダークモードに対応しました。私もダークモードを愛用してますが、いかにブラウザがダークモード対応しても、肝心のWebサイトは白基調のサイトが多いのであまり恩恵を受けられていない感じがします。かく言う私もWhiteplainとかいう白基調のテーマを作ってるわけで。。。これじゃいかん、ということで、<a href="https://github.com/taikii/whiteplain-dark">Whiteplain Dark</a>というなんだかよくわからん名前の黒基調のテーマを作りました。</p>
-
 <p>Hugoはテーマを複数指定して継承させることができるので、これを利用してWhiteplainの背景色と文字色だけ変えることでダークモードを作り出しています。</p>
-
 <p>Readmeにも書いていますが、 <code>comfig.toml</code> に <code>whiteplain-dark</code> と <code>whiteplain</code> の2つのテーマを指定します。<code>whiteplain-dark</code> を先に指定する必要があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">theme</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;whiteplain-dark&#34;</span><span class="p">,</span> <span class="s2">&#34;whiteplain&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">theme</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;whiteplain-dark&#34;</span><span class="p">,</span> <span class="s2">&#34;whiteplain&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>また、Whiteplainは <code>static/css/custom.css</code> というファイルを作ることで、簡単に独自のスタイルで上書きできるようにしているのですが、このファイルを作っている方は <code>custom.css</code> の1行目に以下の行を追加する必要があります。</p>
+</div><p>また、Whiteplainは <code>static/css/custom.css</code> というファイルを作ることで、簡単に独自のスタイルで上書きできるようにしているのですが、このファイルを作っている方は <code>custom.css</code> の1行目に以下の行を追加する必要があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">whiteplain-dark</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">whiteplain-dark</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>これでダークパワーを感じることができます。</p>
-
+</div><p>これでダークパワーを感じることができます。</p>
 <p>このテーマ継承機能は、ショートコードだけのテーマを作ってプラグイン的に使うことが目的のような気もするんですが、これを使えばもっといろいろできそうですねー。</p>
     </article>
 

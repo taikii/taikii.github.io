@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/08/bash-exclusive-control/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,13 +58,11 @@
       </ul>
       
       <p>若いのから「バッチの多重起動を防止するのになんでロックディレクトリなんですか？ロックファイルじゃだめなんですか？」と聞かれたので、メモ。</p>
-
 <p>バッチ処理を作成する際、多重起動を防止することがあると思いますが、特にそれがシェルスクリプトで書かれている場合には、ロックディレクトリを作って排他制御を行います。</p>
-
 <p>若いのが言うようにロックファイルでやろうとすると多分こうなるでしょう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -90,18 +88,18 @@
 	<span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> i in <span class="o">{</span>1..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
 	sleep <span class="m">1</span>
-	<span class="nb">echo</span> <span class="s2">&#34;ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目&#34;</span>
+	<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目</span><span class="s2">&#34;</span>
 <span class="k">done</span>
 
-rm -f .lock</code></pre></td></tr></table>
+rm -f .lock
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>コレをバチバチっと2回実行してみると一見多重起動が防止されているように見えます。</p>
+</div><p>コレをバチバチっと2回実行してみると一見多重起動が防止されているように見えます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -124,13 +122,13 @@ $ 多重起動はいけないと思います
 ショリショリ君アイス 3 本目
 
 [1]-  Done                    ./test1.bash
-[2]+  Exit 1                  ./test1.bash</code></pre></td></tr></table>
+[2]+  Exit 1                  ./test1.bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>この問題点は、ロックチェックとロック処理が同時に処理されていないことにあります。ロックファイルの存在チェックから作成までに時間がかかってしまったらどうなるか、容易に想像できるでしょう。</p>
+</div><p>この問題点は、ロックチェックとロック処理が同時に処理されていないことにあります。ロックファイルの存在チェックから作成までに時間がかかってしまったらどうなるか、容易に想像できるでしょう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -168,18 +166,18 @@ $ 多重起動はいけないと思います
 	<span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> i in <span class="o">{</span>1..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
 	sleep <span class="m">1</span>
-	<span class="nb">echo</span> <span class="s2">&#34;ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目&#34;</span>
+	<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目</span><span class="s2">&#34;</span>
 <span class="k">done</span>
 
-rm -f .lock</code></pre></td></tr></table>
+rm -f .lock
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>そうなっちゃいますよねー。</p>
+</div><p>そうなっちゃいますよねー。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -206,13 +204,13 @@ $ ショリショリ君アイス 1 本目
 ショリショリ君アイス 3 本目
 
 [1]-  Done                    ./test2.bash
-[2]+  Done                    ./test2.bash</code></pre></td></tr></table>
+[2]+  Done                    ./test2.bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>で、ロックディレクトリの話になるのですが、ディレクトリを作成するコマンド <code>mkdir</code> はディレクトリを作成する際にディレクトリが既に存在するとエラーコードを返します。これを使用することで、ロックとチェックを同時に行います。</p>
+</div><p>で、ロックディレクトリの話になるのですが、ディレクトリを作成するコマンド <code>mkdir</code> はディレクトリを作成する際にディレクトリが既に存在するとエラーコードを返します。これを使用することで、ロックとチェックを同時に行います。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -230,26 +228,23 @@ $ ショリショリ君アイス 1 本目
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
-mkdir .lock &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+mkdir .lock &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
         <span class="nb">echo</span> <span class="s2">&#34;多重起動はいけないと思います&#34;</span>
         <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> i in <span class="o">{</span>1..3<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
         sleep <span class="m">1</span>
-        <span class="nb">echo</span> <span class="s2">&#34;ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目&#34;</span>
+        <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">ショリショリ君アイス </span><span class="nv">$i</span><span class="s2"> 本目</span><span class="s2">&#34;</span>
 <span class="k">done</span>
 
-rmdir .lock</code></pre></td></tr></table>
+rmdir .lock
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上書きされたり追加書き込みされたりするファイルと比べ、ディレクトリといふものの性質を考えると、作成処理をロック処理として使えるのは当たり前っちゃー当たり前ですよね。ちなみに、<code>mkdir -p</code>するとディレクトリが存在してもエラーにならないので注意（？）してください。</p>
-
+</div><p>上書きされたり追加書き込みされたりするファイルと比べ、ディレクトリといふものの性質を考えると、作成処理をロック処理として使えるのは当たり前っちゃー当たり前ですよね。ちなみに、<code>mkdir -p</code>するとディレクトリが存在してもエラーにならないので注意（？）してください。</p>
 <p>余談なのですが、ディレクトリは二重作成できなくて当たり前ということを考えると、これはプログラム言語を超えてロックが可能ということでもあります。主要な言語をすべて調べたわけではないですが、だいたいディレクトリ作成処理はディレクトリが存在するとエラーやfalseを返します。</p>
-
 <p>例）<a href="https://docs.oracle.com/javase/jp/7/api/java/io/File.html#mkdir()">Java</a></p>
-
 <p>なので、シェルで多重起動防止する際はロックディレクトリを使うといいと思います。もっとこうできるよというものがあればご教示いただけると幸いです。</p>
     </article>
 

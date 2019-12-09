@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,26 +64,22 @@
       </ul>
       
       <p>日本語名カラムと英語名カラムを持つテーブルってよくあるじゃないですか。…よくありますよね？まぁよくあるとして、それを画面表示する際にユーザのロケールによって切り替えたい。カッコよく。そんな試行錯誤のメモです。</p>
-
-<h2 id="tl-dr">TL;DR</h2>
+<h2 id="tldr">TL;DR</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="やっていき">やっていき</h2>
-
+</div><h2 id="heading">やっていき</h2>
 <p>Spring Boot 2.1.x です。</p>
-
 <p>こういうクラスがあったとします。名前フィールドが<code>nameEn</code>と<code>nameJa</code>に別れてます。これをうまいことユーザのロケールによって切り替えて画面に表示させたいわけです。</p>
-
 <p>ちなみに、私は「そもそも」と言われるとしんでしまいます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -101,83 +97,75 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="nf">class</span> <span class="n">Item</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
   <span class="nd">@Id</span>
   <span class="nd">@Getter</span>
   <span class="nd">@Setter</span>
-  <span class="kd">private</span> <span class="nf">Integer</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
 
   <span class="nd">@Getter</span>
   <span class="nd">@Setter</span>
-  <span class="kd">private</span> <span class="nf">String</span> <span class="n">nameEn</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nameEn</span><span class="o">;</span>
 
   <span class="nd">@Getter</span>
   <span class="nd">@Setter</span>
-  <span class="kd">private</span> <span class="nf">String</span> <span class="n">nameJa</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nameJa</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>普通に考えると、条件分岐でしょうか。</p>
+</div><p>普通に考えると、条件分岐でしょうか。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${#locale.language == &#39;ja&#39;} ? ${item.nameJa} : ${item.nameEn}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${#locale.language == &#39;ja&#39;} ? ${item.nameJa} : ${item.nameEn}&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>でも、私はif文を書くとしんでしまう体質だし、三項演算子書いたら三項演算子警察にころされるじゃないですか。</p>
-
+</div><p>でも、私はif文を書くとしんでしまう体質だし、三項演算子書いたら三項演算子警察にころされるじゃないですか。</p>
 <p>ていうか、こんな事やってて別のロケールフィールドが増えたらどうすんじゃいって感じだし、固定のフィールドと言えどもResourceBundleであるところのメッセージプロパティと同じように扱いたい。</p>
-
 <p>で、ちょっと思ったんですけど、Thymeleafってオブジェクトのフィールドを<code>${item.nameEn}</code>のようにドットを使った記法で取得する他に<code>${item['nameEn']}</code>のように角括弧を使って取得することもできるんですよね。角括弧の引数は文字列なので、これを変数で渡してやれば取得するフィールドを動的に切り替えることができるはずです。</p>
-
 <p>余談ですが、対象のオブジェクトがMapの場合も<code>${map['key1']}</code>でも<code>${map.key1}</code>でも取れますね。Getterでのアクセスなのか<code>Map#get()</code>なのかView側では意識することなく扱えるってことですねー。Rubyっぽいっていうか。よく知りませんが、最近のテンプレートエンジンはみんなこんな感じなんですかね？</p>
-
 <p><a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E5%A4%89%E6%95%B0">https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E5%A4%89%E6%95%B0</a></p>
-
 <p>結局やりたいのは固定フィールドもメッセージプロパティと同じように取り回ししたいということなので、じゃあ角括弧の引数はメッセージプロパティから取ればいいじゃんと思いました。</p>
-
 <p><strong>messages_en.properties</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameEn</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameEn</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>messages_ja.properties</strong></p>
+</div><p><strong>messages_ja.properties</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameJa</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">i18nfields.name</span><span class="o">=</span><span class="s">nameJa</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通常Thymeleafでメッセージを表示する場合は<code>#{i18nfields.name}</code>のような構文で記述しますが、<code>#messages</code>オブジェクトを使って<code>${#messages.msg('i18nfields.name')}</code>のように記述することも可能です。角括弧の引数に直接メッセージを渡す場合は<code>#messages</code>オブジェクトを使う必要があります。</p>
+</div><p>通常Thymeleafでメッセージを表示する場合は<code>#{i18nfields.name}</code>のような構文で記述しますが、<code>#messages</code>オブジェクトを使って<code>${#messages.msg('i18nfields.name')}</code>のように記述することも可能です。角括弧の引数に直接メッセージを渡す場合は<code>#messages</code>オブジェクトを使う必要があります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[#messages.msg(&#39;i18nfields.name&#39;)]}&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>#{i18nfields.name}</code>構文で書きたければ、一旦変数に入れてから渡します。</p>
+</div><p><code>#{i18nfields.name}</code>構文で書きたければ、一旦変数に入れてから渡します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:with</span><span class="o">=</span><span class="s">&#39;x=#{i18nfields.name}&#39;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[x]}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:with</span><span class="o">=</span><span class="s">&#39;x=#{i18nfields.name}&#39;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item[x]}&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>また余談ですが、ドットを使った記法だと、<code>${item?.nameJa}</code>のようにオブジェクトの後ろに<code>?</code>を付けることで、対象オブジェクトがNullでない場合のみGetterを呼び出す…というかメソッドチェーンを実行することが可能ですが（Null安全？）、角括弧を使った記法だとこれはできません。オブジェクトがNullになる可能性がある場合は愚直にNullチェックする必要があります。</p>
-
+</div><p>また余談ですが、ドットを使った記法だと、<code>${item?.nameJa}</code>のようにオブジェクトの後ろに<code>?</code>を付けることで、対象オブジェクトがNullでない場合のみGetterを呼び出す…というかメソッドチェーンを実行することが可能ですが（Null安全？）、角括弧を使った記法だとこれはできません。オブジェクトがNullになる可能性がある場合は愚直にNullチェックする必要があります。</p>
 <p>&hellip;</p>
-
 <p>これがスマートかって言われるとそうではない気がしますし、みんなどうやってるのか知りませんが、多少は格好がついたのではないかと思います。カッコなだけに。</p>
     </article>
 

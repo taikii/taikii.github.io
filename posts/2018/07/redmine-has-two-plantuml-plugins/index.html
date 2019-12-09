@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://imgur.com/gofQOdg.jpg" />
   <meta name="twitter:image" content="https://imgur.com/gofQOdg.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -66,56 +66,28 @@
       </ul>
       
       <p>RedmineでPlantUMLを書くことのできるプラグインを2つ紹介したいと思います。</p>
-
-<h2 id="plantumlとは">PlantUMLとは？</h2>
-
+<h2 id="plantuml">PlantUMLとは？</h2>
 <p>UMLを書くとき、Visioを使ったり、ExcelやPowerPointでゴリゴリ書いたり、または専用のモデリングツールを使ったりしますが、ファイルフォーマットがバイナリデータだとバージョン管理に不向きだし、Diffも取りづらいですよね。このような理由により、最近だとテキストでUMLを書くことのできる <a href="http://plantuml.com/">PlantUML</a> や <a href="https://mermaidjs.github.io/">Mermaid.js</a> が（私の中で）人気を博しています。</p>
-
 <p>PlantUMLでは、以下のような独自のフォーマットで記述することにより、自動的にダイアグラムを生成することができます。生成可能なファイルフォーマットはPNG/SVG/LaTeX（シーケンス図のみアスキーアートも可）です。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-plantuml" data-lang="plantuml"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-plantuml" data-lang="plantuml">@startuml
+<pre><code class="language-plantuml" data-lang="plantuml">@startuml
 Bob -&gt; Alice : hello
-@enduml</code></pre></td></tr></table>
-</div>
-</div>
-<p><img src="https://imgur.com/5ZgCNge.png" alt="" /></p>
-
+@enduml
+</code></pre><p><img src="https://imgur.com/5ZgCNge.png" alt=""></p>
 <p>PlantUMLはJavaで書かれていますので、使用するにはJavaの実行環境が必要です。または、PlantUML Serverを導入する必要があります。</p>
-
 <p>ここではPlantUMLの書き方や導入方法については言及しませんので、もっとPlantUMLについて知りたい方は、<a href="http://plantuml.com/">公式サイト</a>や、インターネット上の文献を探してみて下さい。たくさん見つかります。</p>
-
-<h2 id="redmineのplantumlプラグイン">RedmineのPlantUMLプラグイン</h2>
-
+<h2 id="redmineplantuml">RedmineのPlantUMLプラグイン</h2>
 <p>Redmineで PlantUML を書くためのプラグインは2つあります。それぞれの特徴を紹介したいと思います。</p>
-
 <h3 id="plantuml-plugin">PlantUML plugin</h3>
-
 <p><a href="https://github.com/dkd">@dkd</a>さんの <a href="https://github.com/dkd/plantuml">PlantUML Plugin for Redmine</a> です。こちらのプラグインは<a href="https://www.redmine.org/plugins/plantuml">RedmineのPlugins Directory</a>に登録があります。</p>
-
 <p>このプラグインは、プラグイン本体の他に、PlantUMLのバイナリファイルとPlantUMLをコールするスクリプトをRedmineのサーバ上に配置する必要があります。Redmineのサーバを汚しますが、そのかわり別のサーバを立てる必要はありません。</p>
-
 <h3 id="plantuml-redmine-macro">PlantUML Redmine Macro</h3>
-
 <p><a href="https://bitbucket.org/gelin">@gelin</a>さんの <a href="https://bitbucket.org/gelin/plantuml-redmine-macro">PlantUML Redmine Macro</a> です。こちらのプラグインはPlugins Directoryには登録されていません。</p>
-
 <p>このプラグインは外部のPlantUML Serverに対してリクエストする方式です。デフォルトでは <a href="http://plantuml.com/plantuml/">http://plantuml.com/plantuml/</a> に対してリクエストするようになっていますが、設定により変更することが可能です。</p>
-
 <p>とはいえ、ローカル環境にPlantUML Serverを立てたほうが無難でしょう。Dockerの心得がある方であれば、<a href="https://hub.docker.com/r/plantuml/plantuml-server/">PlantUMLのオフィシャルのDockerイメージ</a>がありますので、これを使えばPlantUML Serverを簡単に立てることができます。</p>
-
-<h2 id="どちらのプラグインを使うべきか">どちらのプラグインを使うべきか</h2>
-
+<h2 id="heading">どちらのプラグインを使うべきか</h2>
 <p>Redmineから話が逸れますが、<a href="https://docs.gitlab.com/ee/administration/integration/plantuml.html">PlantUML ServerがあればGitLab上でもPlantUMLを表示できます</a>。私の所属するチームではGitLabを使用していることもあり、どうせPlantUML Serverが必要なので後者の<a href="https://bitbucket.org/gelin/plantuml-redmine-macro">PlantUML Redmine Macro</a>を使用しています。また、Redmineサーバ上にバイナリファイルを配置する必要もないため、Redmineのバージョンアップ時にも余計な考慮が不要です。</p>
-
 <p>PlantUML Serverを立てることが億劫であれば、<a href="https://github.com/dkd">@dkd</a>さんのプラグインを使うほうが良いように思います。</p>
-
-<h2 id="さいごに">さいごに</h2>
-
+<h2 id="heading1">さいごに</h2>
 <p>PlantUMLプラグインを導入して快適なUMLライフを過ごしましょう！（PlantUMLもいいけど<a href="https://github.com/taikii/redmine_mermaid_macro">Mermaid</a>もね）</p>
     </article>
 

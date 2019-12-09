@@ -19,7 +19,6 @@
       
       <guid>https://taikii.net/posts/2019/02/clibor-regex/</guid>
       <description>&lt;p&gt;Windowsのクリップボード拡張ツールといえば&lt;a href=&#34;https://www.amunsnet.com/&#34;&gt;Clibor&lt;/a&gt;が有名ですよね。私も愛用しています。&lt;/p&gt;
-
 &lt;p&gt;Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。&lt;/p&gt;</description>
     </item>
     

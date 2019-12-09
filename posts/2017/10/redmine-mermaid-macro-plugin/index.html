@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/10/redmine-mermaid-macro-plugin/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,25 +58,15 @@
       </ul>
       
       <p>Redmine上で<code>mermaid.js</code>を実行するプラグインを作りました。</p>
-
 <p><a href="https://mermaidjs.github.io/">mermaid</a> はテキストベースで作図するライブラリです。簡単に作図できますし、生成される図もスタイリッシュなので気に入って使っています。</p>
-
 <p>RedmineではPlantUMLで作図できるRedmineプラグインは元々あってそれも使っていたのですが、UMLとは言えないちょっとした図を書こうとした時に仰々しい感じになってしまうのと、見た目がいかにも「URLです！！」という感じなので、mermaidを使いたいなぁと思っていました。</p>
-
 <p>そんなとき、 <a href="https://serol.ro/posts/2016/redmine_mermaid_js/">Redmine and mermaid.js integration</a> という記事を見つけて、プラグイン化できそうじゃね？と思い、作りました。</p>
-
 <p>（このプラグインを作るにあたり、一部コードやメッセージはSerolさんに許可をいただいてそのまま使用させていただきました。）</p>
-
-<h2 id="使用するmermaid-jsについて">使用するmermaid.jsについて</h2>
-
+<h2 id="mermaidjs">使用するmermaid.jsについて</h2>
 <p>デフォルトではCDNのものを使用していますが、 <em>Redmine &gt; Plugin</em> ページから変更ができます。</p>
-
 <p>Redmineに添付ファルとしてアップロードしても使えます。プレビューページｎDownloadリンクのURLをコピーしてプラグイン設定ページに貼り付けてください。以下のようなURLのはずです。（プレビューページのURLではないので注意）</p>
-
 <pre><code>http://localhost:3000/attachments/download/1/mermaid.min.js
-</code></pre>
-
-<p><a href="https://github.com/taikii/redmine_mermaid_macro">taikii/redmine_mermaid_macro: Mermaid.js for Redmine</a></p>
+</code></pre><p><a href="https://github.com/taikii/redmine_mermaid_macro">taikii/redmine_mermaid_macro: Mermaid.js for Redmine</a></p>
     </article>
 
     

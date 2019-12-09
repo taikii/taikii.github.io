@@ -7,13 +7,10 @@
   <meta property="og:title" content="Active Directoryのグループから1,500件を超えるメンバーを取得する方法（はもう考えなくていい） - taikii blog" />
   <meta name="twitter:title" content="Active Directoryのグループから1,500件を超えるメンバーを取得する方法（はもう考えなくていい） - taikii blog" />
   <meta name="description" content="Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。
-
 この記事ではldapsearchコマンドで検証しています。また、そこまで値が増える属性はmemberくらいしか無いと思いますので、member属性に絞って書いています。">
   <meta property="og:description" content="Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。
-
 この記事ではldapsearchコマンドで検証しています。また、そこまで値が増える属性はmemberくらいしか無いと思いますので、member属性に絞って書いています。">
   <meta name="twitter:description" content="Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。
-
 この記事ではldapsearchコマンドで検証しています。また、そこまで値が増える属性はmemberくらいしか無いと思いますので、member属性に絞って書いています。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
@@ -21,7 +18,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/05/ad-1500-over-members/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -70,19 +67,14 @@
       </ul>
       
       <p>Active Directoryにおいて属性値が1,500件を超えている場合、すべての値を一度に取得することができません（でした）。この場合の属性値の取得方法について解説します。</p>
-
 <p>この記事では<code>ldapsearch</code>コマンドで検証しています。また、そこまで値が増える属性は<code>member</code>くらいしか無いと思いますので、<code>member</code>属性に絞って書いています。</p>
-
-<h2 id="tl-dr">TL;DR</h2>
-
+<h2 id="tldr">TL;DR</h2>
 <p>最近のWindows Serverではこのような考慮が不要で、どんなに属性値が多くても一度に取得できるようです。やったね！</p>
-
-<h2 id="1-500件以上だと返却される属性名が-member-ではなくなる">1,500件以上だと返却される属性名が<code>member</code>ではなくなる</h2>
-
+<h2 id="1500member">1,500件以上だと返却される属性名が<code>member</code>ではなくなる</h2>
 <p>まず、普通に<code>ldapsearch</code>コマンドでグループのメンバを取得してみます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -93,15 +85,14 @@
 dn: cn=group1,ou=groups,dc=example,dc=com
 member: cn=user000000,ou=users,dc=example,dc=com
 member: cn=user000001,ou=users,dc=example,dc=com
-member: cn=user000002,ou=users,dc=example,dc=com</code></pre></td></tr></table>
+member: cn=user000002,ou=users,dc=example,dc=com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>3件のグループメンバを取得することができました。</p>
-
+</div><p>3件のグループメンバを取得することができました。</p>
 <p>しかし、該当のグループのメンバが1,500件を超えていると、以下のように返却されます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -116,15 +107,14 @@ member;range=0-1499: cn=user000000,ou=users,dc=example,dc=com
 member;range=0-1499: cn=user000001,ou=users,dc=example,dc=com
 member;range=0-1499: cn=user000002,ou=users,dc=example,dc=com
 .................
-member;range=0-1499: cn=user001499,ou=users,dc=example,dc=com</code></pre></td></tr></table>
+member;range=0-1499: cn=user001499,ou=users,dc=example,dc=com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>返却される属性名が<code>member</code>から<code>member;range=0-1499</code>に変わっています。Active Directoryでは属性値を一度に<strong>1,500件</strong>までしか取得することができないため、範囲を絞って取得されたことを属性名を使って示しているのです。</p>
-
+</div><p>返却される属性名が<code>member</code>から<code>member;range=0-1499</code>に変わっています。Active Directoryでは属性値を一度に<strong>1,500件</strong>までしか取得することができないため、範囲を絞って取得されたことを属性名を使って示しているのです。</p>
 <p>属性名自体が変わっているので、Javaなどのプログラムで属性値を取得する場合は注意が必要です。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -137,25 +127,24 @@ member;range=0-1499: cn=user001499,ou=users,dc=example,dc=com</code></pre></td><
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SearchResult</span> <span class="nf">sr</span> <span class="o">=</span> <span class="p">(</span><span class="n">SearchResult</span><span class="p">)</span><span class="n">results</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
-<span class="n">Attributes</span> <span class="nf">attrs</span> <span class="o">=</span> <span class="n">si</span><span class="p">.</span><span class="na">getAttributes</span><span class="p">();</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">attrs</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SearchResult</span> <span class="n">sr</span> <span class="o">=</span> <span class="o">(</span><span class="n">SearchResult</span><span class="o">)</span><span class="n">results</span><span class="o">.</span><span class="na">next</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">Attributes</span> <span class="n">attrs</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">attrs</span> <span class="o">!</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
 
   <span class="c1">// メンバ情報を取得できない
-</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="nf">attr1</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;member&#34;</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="n">attr1</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;member&#34;</span><span class="o">)</span><span class="o">;</span>
 
   <span class="c1">// メンバ情報を取得できる
-</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="nf">attr2</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;member;range=0-1499&#34;</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="n">Attribute</span> <span class="n">attr2</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;member;range=0-1499&#34;</span><span class="o">)</span><span class="o">;</span>
 
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>さらに、1,501件目以降のメンバを取得を取得してみます。</p>
-
+</div><p>さらに、1,501件目以降のメンバを取得を取得してみます。</p>
 <p>リクエストする属性名を<code>member;range=1500-*</code>または<code>member;range=1500-2999</code>とすると、1,501件目以降の値を取得できます。TOにあたる部分を<code>*</code>を指定することは、最大件数、つまりこの場合だと<code>2999</code>を指定するのと同じ意味になります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -170,15 +159,14 @@ member;range=1500-2999: cn=user001500,ou=users,dc=example,dc=com
 member;range=1500-2999: cn=user001501,ou=users,dc=example,dc=com
 member;range=1500-2999: cn=user001502,ou=users,dc=example,dc=com
 .................
-member;range=1500-2999: cn=user002999,ou=users,dc=example,dc=com</code></pre></td></tr></table>
+member;range=1500-2999: cn=user002999,ou=users,dc=example,dc=com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>member;range=1500-*</code>として投げたのに、返却された属性名が<code>member;range=1500-2999</code>でした。属性名の範囲のTOにあたる部分が具体的な数字で返却される場合は、取得した範囲以降にまだ値が残っていることを表しています。</p>
-
+</div><p><code>member;range=1500-*</code>として投げたのに、返却された属性名が<code>member;range=1500-2999</code>でした。属性名の範囲のTOにあたる部分が具体的な数字で返却される場合は、取得した範囲以降にまだ値が残っていることを表しています。</p>
 <p>次に<code>3001</code>件目以降を取得します。リクエストする属性名を<code>member;range=3000-4499</code>として検索してみます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -193,15 +181,14 @@ member;range=3000-*: cn=user003000,ou=users,dc=example,dc=com
 member;range=3000-*: cn=user003001,ou=users,dc=example,dc=com
 member;range=3000-*: cn=user003002,ou=users,dc=example,dc=com
 .................
-member;range=3000-*: cn=user003999,ou=users,dc=example,dc=com</code></pre></td></tr></table>
+member;range=3000-*: cn=user003999,ou=users,dc=example,dc=com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>range=3000-*</code>という属性名で1000件分が返却されました。指定した範囲内に収まる件数の場合には、属性名のTOにあたる部分が<code>*</code>となっていると、それ以上属性値がないことを示しています。つまりこのグループには4000件のメンバが登録されていたことになります。</p>
-
+</div><p><code>range=3000-*</code>という属性名で1000件分が返却されました。指定した範囲内に収まる件数の場合には、属性名のTOにあたる部分が<code>*</code>となっていると、それ以上属性値がないことを示しています。つまりこのグループには4000件のメンバが登録されていたことになります。</p>
 <p>じゃあキッチリ3001件目から4000件目までを指定して取得したらどうなるでしょう？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -216,17 +203,13 @@ member;range=3000-*: cn=user003000,ou=users,dc=example,dc=com
 member;range=3000-*: cn=user003001,ou=users,dc=example,dc=com
 member;range=3000-*: cn=user003002,ou=users,dc=example,dc=com
 .................
-member;range=3000-*: cn=user003999,ou=users,dc=example,dc=com</code></pre></td></tr></table>
+member;range=3000-*: cn=user003999,ou=users,dc=example,dc=com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>やっぱり<code>member;range=1500-*:</code>として返却されます。それ以上値が残っていないためです。</p>
-
-<h2 id="windows-2000-serverの場合は1000件まで">Windows 2000 Serverの場合は1000件まで</h2>
-
+</div><p>やっぱり<code>member;range=1500-*:</code>として返却されます。それ以上値が残っていないためです。</p>
+<h2 id="windows-2000-server1000">Windows 2000 Serverの場合は1000件まで</h2>
 <p>上記は<strong>Windows Server 2003</strong>の場合の話です。（もうそんなサーバは残っていないと思いますが）<strong>Windows 2000 Server</strong>の場合は一度に取得できる属性値の件数が<code>1,500</code>件ではなく<code>1,000</code>件となります。取得方法は同じです。</p>
-
-<h2 id="windows-server-2008以降">Windows Server 2008以降</h2>
-
+<h2 id="windows-server-2008">Windows Server 2008以降</h2>
 <p>Windows Server 2008以降は、上記のような上限がなくなったように見受けられます。少なくとも<code>6,000</code>件を超える属性値を一度に取得できました。残念ながら文献を見つけることはできませんでした。ご存知の方がいらっしゃいましたら教えていただけますと幸いです。</p>
     </article>
 

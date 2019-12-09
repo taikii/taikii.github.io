@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/10/doctype/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,30 +64,21 @@
       </ul>
       
       <p>正しいHTML5を書こうとしていろんなサイトのソースを見ていたところ、Googleの多くは小文字の<code>&lt;!doctype html&gt;</code>だったので違いを調べてみました。</p>
-
-<h2 id="結論">結論</h2>
-
+<h2 id="heading">結論</h2>
 <p>HTML5として記述する場合は、大文字・小文字の区別はないため、どのように記述してもよい。</p>
-
 <ul>
 <li><code>&lt;!DOCTYPE html&gt;</code></li>
 <li><code>&lt;!doctype html&gt;</code></li>
 <li><code>&lt;!Doctype html&gt;</code></li>
 </ul>
-
 <p>XHTML5として記述する場合は、大文字・小文字が区別されるため <code>&lt;!DOCTYPE html&gt;</code> として記述する必要がある。</p>
-
-<h2 id="htmlとxhtmlの歴史">HTMLとXHTMLの歴史</h2>
-
+<h2 id="htmlxhtml">HTMLとXHTMLの歴史</h2>
 <p>そもそも、<code>HTML4.01</code>までの<code>HTML</code>は<code>SGML</code>の拡張であり、DTDによって規定されていた。その後、より拡張性があるものが求められたため、<code>HTML4.01</code>をXMLで定義し直した<code>XHTML1.0</code>が作成され、この<code>XHTML1.0</code>はW3Cによって協力に推し進められた。</p>
-
 <p><code>HTML5</code>は従来のHTMLとは異なり<code>SGML</code>の拡張ではなく、<code>DOM5 HTML</code>（現：<code>DOM HTML</code>、または<code>the DOM</code>、<code>DOM HTML</code>）として規定されている。<code>DOM5 HTML</code>はその名の通り、メモリ上のDOMオブジェクトとして抽象化された規定である。<code>HTML5</code>および<code>XHTML5</code>は<code>DOM5 HTML</code>のシリアライズ仕様である。</p>
-
-<h2 id="参考文献">参考文献</h2>
-
+<h2 id="heading1">参考文献</h2>
 <ul>
 <li><a href="https://wiki.suikawiki.org/n/DOM5%20HTML">DOM5 HTML</a></li>
-<li><a href="http://www.atmarkit.co.jp/ait/articles/1011/12/news121.html">HTML5“とか”アプリ開発入門（3）：HTML5の登場で、XHTMLは結局どうなったの？ (<sup>1</sup>&frasl;<sub>2</sub>) - ＠IT</a></li>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1011/12/news121.html">HTML5“とか”アプリ開発入門（3）：HTML5の登場で、XHTMLは結局どうなったの？ (1/2) - ＠IT</a></li>
 <li><a href="https://teratail.com/questions/16300">HTML - XHTMLとHTML5の違いについて(16300)｜teratail</a></li>
 </ul>
     </article>

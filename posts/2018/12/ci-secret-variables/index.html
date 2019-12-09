@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/12/ci-secret-variables/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,54 +64,29 @@
       </ul>
       
       <p>CIで自動テストをする際にDBなどの接続情報をどうやって渡してますか？</p>
-
 <p>GitLab-CIはDockerコンテナ上で実行されますよね。ビルドツールにGradleを使っているので<a href="https://hub.docker.com/_/gradle/">Docker LibraryのGradleイメージ</a>を使ってCIを実行しています。もちろんローカルでもテストを実行しますので、ローカルでもGitLab-CI上でも同じようにテストをするために、以下のような環境にしています。</p>
-
-<p><img src="https://gyazo.com/45a6d567f0c3e7e436a2f5c4c8cccfb8/thumb/1000" alt="" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-mermaid" data-lang="mermaid"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-mermaid" data-lang="mermaid">graph LR
+<p><img src="https://gyazo.com/45a6d567f0c3e7e436a2f5c4c8cccfb8/thumb/1000" alt=""></p>
+<pre><code class="language-mermaid" data-lang="mermaid">graph LR
   subgraph GitLab
-    a[&#34;GitLab-CIのシークレット変数&#34;]
-    b[&#34;CIコンテナ上の~/.gradle/gradle.properties&#34;]
+    a[&quot;GitLab-CIのシークレット変数&quot;]
+    b[&quot;CIコンテナ上の~/.gradle/gradle.properties&quot;]
   end
   subgraph PC
-    c[&#34;~/.gradle/gradle.properties&#34;]
+    c[&quot;~/.gradle/gradle.properties&quot;]
   end
   subgraph Gradleの世界
-    d(&#34;build.gradle&#34;)
-    e[&#34;datasource.yml&#34;]
+    d(&quot;build.gradle&quot;)
+    e[&quot;datasource.yml&quot;]
   end
   a -- .gitlab-ci.yml --&gt; b
   b --&gt; d
   c --&gt; d
-  d --&gt; e</code></pre></td></tr></table>
-</div>
-</div>
-<p>シークレット変数はコンテナの環境変数として展開されるので、それを<code>gradle.properties</code>に吐いて、PC上と同じ環境を装う感じです。</p>
-
+  d --&gt; e
+</code></pre><p>シークレット変数はコンテナの環境変数として展開されるので、それを<code>gradle.properties</code>に吐いて、PC上と同じ環境を装う感じです。</p>
 <p><code>.gitlab-ci.yml</code>は以下のようになっています。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -124,10 +99,10 @@
 </span><span class="w">  </span>-<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>${GRADLE_USER_HOME}<span class="w">
 </span><span class="w">  </span><span class="c"># gradle.propertiesが残ってたらクリア</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>echo<span class="w"> </span>-n<span class="w"> </span>&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>printenv<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span><span class="s2">&#34;^MYSECRETS_&#34;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties</code></pre></td></tr></table>
+</span><span class="w">  </span>-<span class="w"> </span>printenv<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span><span class="s2">&#34;^MYSECRETS_&#34;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>試行錯誤の結果なんですが、みなさんどんな感じでやってるんでしょうかね？？？</p>
+</div><p>試行錯誤の結果なんですが、みなさんどんな感じでやってるんでしょうかね？？？</p>
     </article>
 
     

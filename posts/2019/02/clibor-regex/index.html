@@ -7,13 +7,10 @@
   <meta property="og:title" content="Cliborで空行を削除する - taikii blog" />
   <meta name="twitter:title" content="Cliborで空行を削除する - taikii blog" />
   <meta name="description" content="Windowsのクリップボード拡張ツールといえばCliborが有名ですよね。私も愛用しています。
-
 Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。">
   <meta property="og:description" content="Windowsのクリップボード拡張ツールといえばCliborが有名ですよね。私も愛用しています。
-
 Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。">
   <meta name="twitter:description" content="Windowsのクリップボード拡張ツールといえばCliborが有名ですよね。私も愛用しています。
-
 Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。">
   <meta name="author" content="taikii"/>
   <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
@@ -21,7 +18,7 @@ Cliborにはクリップボード上のテキストを整形する便利な機�
   <meta property="og:url" content="https://taikii.net/posts/2019/02/clibor-regex/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -64,15 +61,10 @@ Cliborにはクリップボード上のテキストを整形する便利な機�
       </ul>
       
       <p>Windowsのクリップボード拡張ツールといえば<a href="https://www.amunsnet.com/">Clibor</a>が有名ですよね。私も愛用しています。</p>
-
 <p>Cliborにはクリップボード上のテキストを整形する便利な機能があります。この整形機能を使って空行を削除したいと思ったのですが、ちょっとハマったのでメモ。</p>
-
 <p>整形の「文字列置換」で正規表現をONにして空行を削除していきます。最初にぱっと思い浮かんだのが <code>^\r\n</code> だったのですが、動作しませんでした。どうも <code>^</code> が行頭として認識していない模様。複数行マッチとかそういう感じになっているんでしょうか？</p>
-
 <p>そこで <code>\r\n(\r\n)+</code> を <code>\r\n</code> に置換するようにしました。ちなみに、これだと文字列の頭に空行がある場合、それを削除することができません。まぁだいたい目的を果たしているので良しとします。( ・∀・)</p>
-
-<p><img src="https://i.gyazo.com/7c00339e332f7a94f4bb20019916c70c.png" alt="" /></p>
-
+<p><img src="https://i.gyazo.com/7c00339e332f7a94f4bb20019916c70c.png" alt=""></p>
 <p>こんなカンジ。Clibor便利ですね～。</p>
     </article>
 
