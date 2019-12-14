@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -95,7 +95,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>同じようにして<code>UPDATE</code>や<code>DELETE</code>もできます。</p>
-<h2 id="heading1">本題</h2>
+<h2 id="heading-1">本題</h2>
 <p>で、このリモートDBのホスト名が変わる場合（例えば<code>dbserver-1.example.com</code>から<code>dbserver-2.example.com</code>）、ホスト名は<code>tnsnames.ora</code>にしか書かれていないので<code>tnsnames.ora</code>を修正するわけですが、それだけでは接続先は変更されません。</p>
 <p>どうもホスト名やサービス名などの<code>tnsnames.ora</code>に書かれている接続情報は、DBリンクを作成した時点でDBリンクオブジェクトが持ってしまうようで、いくら<code>tnsnames.ora</code>を書き換えても古いリモートDBに繋がってしまいます。（文献を見つけることができませんでした。）</p>
 <p>※試してないですが、DBインスタンスを再起動したりすれば反映されるかも？</p>

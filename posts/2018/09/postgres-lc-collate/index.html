@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -154,10 +154,10 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 </ol>
 <h2 id="heading">ポスグレロケール変更大作戦</h2>
 <p>ではやっていきましょう。ちなみに、Redmineのバージョンは<code>3.4</code>、PostgreSQLは<code>9.6</code>を使っています。いずれもDocker LibraryのDockerイメージです。</p>
-<h3 id="heading1">兎にも角にもデータボリュームをバックアップ</h3>
+<h3 id="heading-1">兎にも角にもデータボリュームをバックアップ</h3>
 <p>です。後にyaml_dbでダンプを取得しますが、これはバックアップではありません。やっとかないと絶対後悔します。</p>
 <p>また、ハマりどころを後述しますが、ここで<a href="#%E3%82%B4%E3%83%9F%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF%E4%BA%88%E3%82%81%E5%89%8A%E9%99%A4%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8F">ゴミテーブルがある場合は予め削除しておく</a>ことをおすすめします。</p>
-<h3 id="redmineyamldb">Redmineにyaml_dbを入れる</h3>
+<h3 id="redmineyaml-db">Redmineにyaml_dbを入れる</h3>
 <p>Redmine上のGemfileの適当なところに書きます。</p>
 <p>Redmineコンテナへの入り方はこうですね。</p>
 <div class="highlight"><div class="chroma">
@@ -199,7 +199,7 @@ $ docker cp ./Gemfile redmine:/usr/src/redmine/
 <pre class="chroma"><code class="language-text" data-lang="text">$ bundle install --without development test
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="yamldb">yaml_dbでダンプを取得</h3>
+</div><h3 id="yaml-db">yaml_dbでダンプを取得</h3>
 <p>yaml_dbがインストールできたのでダンプを取ります。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -218,7 +218,7 @@ $ docker cp ./Gemfile redmine:/usr/src/redmine/
 <pre class="chroma"><code class="language-text" data-lang="text">$ cp -pi db/data.yml files/
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading2">ポスグレコンテナを初期化</h3>
+</div><h3 id="heading-2">ポスグレコンテナを初期化</h3>
 <p>ホストOSに戻って、コンテナを停止・削除します。これもハマりどころとして後述しますが、<a href="#postgresql%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%A0%E3%81%91%E3%82%92%E5%89%8A%E9%99%A4%E3%81%97%E3%81%AA%E3%81%84">無理にポスグレコンテナだけ作り直そうとせずRedmineコンテナも含めて削除</a>します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -246,7 +246,7 @@ $ docker-compose rm -f
 </span></code></pre></td></tr></table>
 </div>
 </div><p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
-<h3 id="lccollatecredmine">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
+<h3 id="lc-collatecredmine">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
 <p>改めてコンテナを作成します。ポスグレはデータボリュームが無くなっているので<code>initdb</code>が実行され、空のクラスタが<code>lc_collate=C</code>で作られる…はず。そしてRedmineはDBが空になっているのでマイグレーションしてくれる…はず。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -256,7 +256,7 @@ $ docker-compose rm -f
 <pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose up -d
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="yamldb1">yaml_dbでリストア</h3>
+</div><h3 id="yaml-db-1">yaml_dbでリストア</h3>
 <p>Redmineコンテナが再作成されているので、もう一回Gemfileを配置～<code>bundle install</code>してyaml_dbをインストールします。（割愛）</p>
 <p>先程永続化されたディレクトリに退避した<code>data.yml</code>を<code>db/</code>ディレクトリに戻して、ロードします。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
@@ -297,9 +297,9 @@ $ RAILS_ENV=production bundle exec rake db:data:load
 </code></pre></td></tr></table>
 </div>
 </div><p>ブラウザでRedmineを見てもそれっぽくソートできるようになっているはずです。やったね！</p>
-<h2 id="heading3">ハマりどころ</h2>
+<h2 id="heading-3">ハマりどころ</h2>
 <p>いくつかハマりどころがあったので解説。</p>
-<h3 id="heading4">ゴミテーブルがある場合は予め削除しておく</h3>
+<h3 id="heading-4">ゴミテーブルがある場合は予め削除しておく</h3>
 <p>私は以前ナレッジベースプラグインを使っていたのですが、これを削除した際に<code>VERSION=0</code>でマイグレーションしていなかったようです。このため、プラグインは存在しないのにテーブルが残留している状態となっていました。</p>
 <p>この状態でyaml_dbでダンプを取ると、当然ナレッジベースプラグインのテーブルデータもエクスポートされますが、その後のマイグレーションではプラグインがないためテーブルは作成されません。そうすると、yaml_dbでデータをロードする際にテーブルが存在しないエラーが発生してしまいます。こうなると、もう一度プラグインをインストールしてテーブルを作るか、<code>data.yml</code>をシコシコ編集して該当データを削除する必要があります。</p>
 <p>ですので、マイグレーションで作成されないテーブルが存在しないか、一度チェックしておくことをおすすめします。</p>

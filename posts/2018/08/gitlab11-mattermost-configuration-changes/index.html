@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -199,20 +199,20 @@
 </span><span class="w">        </span>}<span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="heading1">廃止された設定は削除するだけでいいの？</h3>
+</div><h3 id="heading-1">廃止された設定は削除するだけでいいの？</h3>
 <p>イイんです！ <code>gitlab.rb</code> での設定方法を書きましたが、実際にはこんなことやらなくてイイんです！</p>
 <p><code>config.json</code> はコンテナ上では <code>/var/opt/gitlab/mattermost/config.json</code> に配置されています。あなたが<a href="https://docs.gitlab.com/omnibus/docker/">公式のマニュアル</a>に従っているとすれば、<code>/var/opt/gitlab</code> 配下のファイルは永続化されているはずです。<code>config.json</code> も10.xのものが残っていることになりますので、改めて環境変数で設定を渡してやる必要はありません。ですので廃止された設定は <code>gitlab.rb</code> から削除するだけでイイんです！（たぶん）</p>
-<h3 id="heading2">さいごに</h3>
+<h3 id="heading-2">さいごに</h3>
 <p>ちなみにログはこんな感じで出てました。みんなもログはちゃんと確認しようね。</p>
 <p><a href="https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f">https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f</a></p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+<p><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a><a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+<p>大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/05/redmine-related-wiki/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -65,13 +65,13 @@
 </ul>
 <p>それだけ。</p>
 <p><img src="https://github.com/taikii/redmine_related_wiki/blob/master/doc/images/screenshot.gif?raw=true" alt=""></p>
-<h2 id="heading1">開発の背景</h2>
+<h2 id="heading-1">開発の背景</h2>
 <p>これはずっと欲しいと思っていた機能でした。</p>
 <p>Redmine本体にはタグ/ラベルに該当する機能はありませんが、かの有名な <a href="https://github.com/ixti/redmine_tags">Redmine Tagsプラグイン</a> を導入することでタグ機能を使うことができるようになります。しかし長く運用しているとタグも増えてきますので、そうするとそのタグに関する説明が欲しくなってきます。このため、私はタグと同名のWikiページを作ってそこに説明を書いているのですが、説明を見るためにはわざわざタグの文字列をコピーしてWikiページを検索する必要があって非常にめんどくさい。頻繁にWikiページを閲覧するタグについては、チケットにタグを登録すると同時に説明欄にWikiページへのリンクも書いたりしているのですが、これもめんどくさい。</p>
 <p>このような理由で、チケット画面のタグから自動的に同名のWikiページへのリンクを張る機能が欲しいとずっと思っていたので、この連休でチャカチャカ作っちゃいました。</p>
-<h3 id="heading2">なんでサイドバー？</h3>
+<h3 id="heading-2">なんでサイドバー？</h3>
 <p>すでにタグ自体がリンクになっているので（同じタグが登録されているチケットの一覧へのリンク）、これはいじりたくないので、別途サイドバーに設けるようにしました。</p>
-<h3 id="heading3">なんでチケット一覧は存在するページのみなの？</h3>
+<h3 id="heading-3">なんでチケット一覧は存在するページのみなの？</h3>
 <p>チケットの一覧画面ではタグの種類が多くなってしまう可能性があるので、同名のWikiページが存在するもののみに制限するようにしています。</p>
 <p>逆に、チケット作ると同時に新しいタグを作ってその手でWikiページも作る、という一連流れができるように、詳細画面はWikiページが存在しなくてもリンクを表示するようにしています。</p>
 <h3 id="--">タグ名に <code>:</code> を含む場合の注意点</h3>
@@ -89,9 +89,9 @@
 <pre class="chroma"><code class="language-text" data-lang="text">ref_issues(-f:tags = タグ名)
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading4">技術的な話</h2>
+</div><h2 id="heading-4">技術的な話</h2>
 <p>結構めんどくさい感じになるかと思ってたんですが、案外サックリできてしまいました。あまり書くこともないのでコード見てください。。。</p>
-<h2 id="heading5">今後の展開</h2>
+<h2 id="heading-5">今後の展開</h2>
 <ul>
 <li>サイドバーは存在するWikiページと存在しないWikiページのリンクのスタイルが一緒なので見分けつかない。わかるようにしたい。（デフォルトテーマの話）</li>
 <li>タグ以外にも、説明やコメント欄に書かれたWikiページリンクや、カスタムフィールドなんかも関連Wikiとして抽出したい。</li>

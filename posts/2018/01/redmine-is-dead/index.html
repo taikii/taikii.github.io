@@ -24,7 +24,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/01/redmine-is-dead/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -100,11 +100,11 @@
 <p>そもそもRedmineでは、Issueの担当者とステータスを変えることでIssueの受け渡しを行い、プロジェクトを推進します。「コーディングが終わったのでテストお願い」「テストでエラーが出たので差し戻し」のような感じです。この考え方自体は間違いではないのですが、「これどう思う？」のような気軽に意見を聞きたいときに、わざわざ担当者を変えるのは大げさです。このようなときにメンションできるとすごくいいですよね。</p>
 <p>ちなみに、<a href="https://github.com/arkhitech/redmine_mentions">メンションを可能にするプラグインはあります</a>が、やはりフォロー、メンションなどはRedmineがネイティブにサポートするべきのように感じます。</p>
 <p>RedmineはGitHubのようなOSSホスティングサービスではなくプロジェクト管理ソフトウェアであるので、ターゲットが違うということなんでしょうが、今の時代テレワークなどもありますし、Redmineだけでコミュニケーションが完結できるのが望ましいですよね。</p>
-<h4 id="heading1">デスクトップ通知がされない</h4>
+<h4 id="heading-1">デスクトップ通知がされない</h4>
 <p>してほしいですね。</p>
 <h3 id="2-">2. 開発体制への不安</h3>
 <p>では、今後ユーザと開発者の間のギャップが解消されていくかというと、そこには開発体制への不安があります。</p>
-<h4 id="heading2">コミッターがわずか数名しかいない</h4>
+<h4 id="heading-2">コミッターがわずか数名しかいない</h4>
 <p>Redmineのアクティブなコミッターは数名しかいないそうです。昨年Redmine.JP/MyRedmineを運営しているファーエンドテクノロジーの前田さんがコミッターになられた際にも<a href="https://www.farend.co.jp/blog/2017/12/redmine-committer/">その辺を少し吐露</a>されていましたが、今後に期待したいところですね。</p>
 <h4 id="gitgithub">開発の基盤をGit/GitHubに移してくれない</h4>
 <p>前述の「Redmineのリポジトリ機能はSubversionをメインターゲットとしている」と考える理由のひとつが、Redmineの開発自体がSubversionを基盤としている点です。<a href="https://www.redmine.org/issues/14961">Git/GitHubへの移行を要望するIssue</a>も上がってはいますが、実現は難しいように思います。</p>
@@ -113,7 +113,7 @@
 <p>OSS活動って奉仕活動じゃないと思うんです。やったぞ！という手応えというか、みんなが幸せになるだけじゃなくて頑張った自分だけの特別な何かが欲しいじゃないですか。メジャーリポジトリのコミットログに自分の名前が載ることはその一つだと思うんです。映画のスタッフロールに名前が載るようなもんですよ。モチベーションに繋がりますよね。まあ、金につながるのが一番いいんですけど。</p>
 <h4 id="redmineorg">redmine.orgがイケてない</h4>
 <p><a href="redmine.org">redmine.org</a> で使用されているバージョンがなんか古いです。おそらく<code>2.x</code>と思われます。ドッグフーディングできてないですよね。未解決のIssueだけ検索したいなぁ。。。Plugin directoryももうちょっとなんとかならんもんかなぁ。</p>
-<h2 id="redmine1">Redmineからの移行する選択肢</h2>
+<h2 id="redmine-1">Redmineからの移行する選択肢</h2>
 <h3 id="githubhttpsgithubcom"><a href="https://github.com/">GitHub</a></h3>
 <p>みんな大好きGitHub。Redmineはオンプレミス環境に立てていることが多いと思うので、移行するとなるとクラウドであることがネックになるのではないでしょうか。オンプレミスのGitHub Enterpriseもありますがちょっと高価かな。</p>
 <h3 id="bitbuckethttpsbitbucketorg"><a href="https://bitbucket.org/">Bitbucket</a></h3>
@@ -140,7 +140,7 @@
 <p>ひとつのインスタンス内にプロジェクトがひとつだけでリポジトリもひとつだけ、であれば移行に問題はないのですが、プロジェクトが複数あったり、複数のリポジトリがある場合はIssueの番号が問題になります。</p>
 <p>私はすべてをあきらめ、IssueはRedmineで管理しています。</p>
 <p>また、RedmineからGitLabへのIssueの移行は、 <a href="https://qiita.com/jeffi7/items/75834ca22b9ddf473ed1">Redmine のプロジェクトを GitLab Issues へ移行する - Qiita</a> が参考になると思います。私も時間があるときに試してみたいと思います。</p>
-<h3 id="2-1">2. カスタムフィールドがない</h3>
+<h3 id="2--1">2. カスタムフィールドがない</h3>
 <p>カスタムフィールドは非常に便利な機能です。GitLabにはカスタムフィールド相当の機能がないので、どのように移行するか検討する必要があります。</p>
 <p>GitLabの記法はMarkdownですので、Front Matterを書くことができます。特別なことはできないのですが、将来的に特別なことができそうな気がするので、どうしようもないカスタムフィールドはFront Matterに書いておくのも一案かなと思います。</p>
 <pre><code>---
@@ -172,7 +172,7 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>2018/12/9にリリースされた <a href="http://blog.redmine.jp/articles/4_0/changelog/">Redmine 4.0</a> でRougeに変更されました！<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+<p>2018/12/9にリリースされた <a href="http://blog.redmine.jp/articles/4_0/changelog/">Redmine 4.0</a> でRougeに変更されました！ <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
