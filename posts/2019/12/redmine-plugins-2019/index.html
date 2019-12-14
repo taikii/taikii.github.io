@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>私の作ったRedmineプラグイン2019 - taikii blog</title>
+  <meta property="og:title" content="私の作ったRedmineプラグイン2019 - taikii blog" />
+  <meta name="twitter:title" content="私の作ったRedmineプラグイン2019 - taikii blog" />
+  <meta name="description" content="Redmine Advent Calendar 2019 15日目の記事です。今年作ったプラグインをまとめて紹介します。去年と同じ流れになってしまいました。本当はアドカレのためにもう一個作りたかったけど…勘弁して…。">
+  <meta property="og:description" content="Redmine Advent Calendar 2019 15日目の記事です。今年作ったプラグインをまとめて紹介します。去年と同じ流れになってしまいました。本当はアドカレのためにもう一個作りたかったけど…勘弁して…。">
+  <meta name="twitter:description" content="Redmine Advent Calendar 2019 15日目の記事です。今年作ったプラグインをまとめて紹介します。去年と同じ流れになってしまいました。本当はアドカレのためにもう一個作りたかったけど…勘弁して…。">
+  <meta name="author" content="taikii"/>
+  <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2019/12/redmine-plugins-2019/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">私の作ったRedmineプラグイン2019</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>December 15, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/redmine/">
+            <i class="fas fa-tag"></i>
+            Redmine
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p><a href="https://adventar.org/calendars/4221">Redmine Advent Calendar 2019</a> 15日目の記事です。今年作ったプラグインをまとめて紹介します。<a href="/posts/2018/12/my-redmine-plugins/">去年と同じ</a>流れになってしまいました。本当はアドカレのためにもう一個作りたかったけど…勘弁して…。</p>
+<h2 id="callout-macrohttpsgithubcomtaikiiredmine-callout-macro"><a href="https://github.com/taikii/redmine_callout_macro">Callout Macro</a></h2>
+<p>よくある注意書きを書くためのマクロです。TextileはCSSを書けるので目立つ文章を書くことができますが、Markdownの場合は太字にするか斜体にするくらいしかありません。そういう時にちょっと便利。Wikiフォーマットでも書けるよ。</p>
+<pre><code>{{info(INFO)
+This is information block.
+}}
+{{warning(WARNING)
+This is warning block.
+}}
+{{danger(DANGER)
+This is danger block.
+}}
+</code></pre><p><img src="https://github.com/taikii/redmine_callout_macro/raw/master/doc/images/sample.png" alt=""></p>
+<p><a href="/posts/2019/05/redmine-callout-macro/">Redmine Callout Macroプラグイン - taikii blog</a></p>
+<h2 id="related-wikihttpsgithubcomtaikiiredmine-related-wiki"><a href="https://github.com/taikii/redmine_related_wiki">Related Wiki</a></h2>
+<p><a href="https://github.com/ixti/redmine_tags">Redmine Tagsプラグイン</a>がインストールされている必要があります。チケットに登録されているタグと同じ名前のWikiページへのリンクをサイドバーに表示します。Scrapboxはタグ＝Wikiページになっていてすごくキモチイイので、同じような使い勝手にならないかなと思って作りました。個人的にはめちゃめちゃ使ってますが他のメンバが使ってるかは謎。</p>
+<p><img src="https://github.com/taikii/redmine_related_wiki/raw/master/doc/images/screenshot.gif" alt=""></p>
+<p><a href="/posts/2019/05/redmine-related-wiki/">Redmine: タグと同名のWikiページへのリンクを張るプラグインを作った話 - taikii blog</a></p>
+<h2 id="tsv-macrohttpsgithubcomtaikiiredmine-tsv-macro"><a href="https://github.com/taikii/redmine_tsv_macro">TSV Macro</a></h2>
+<p>タブ区切りのテキストをテーブルで表示するためのマクロです。TextileもMarkdownもテーブルは鬼門です。Wikiページだと頑張ってテーブル書式で書くのですが、チケットでそこまで労力を使いたくなくて作りました。DBのデータを貼り付けるのによく使ってます。他のメンバが使ってるかは（以下略</p>
+<pre><code>{{tsv
+Value1  Value2  Value3
+}}
+</code></pre><pre><code>{{tsv_h
+Head1 Head2 Head3
+Value1  Value2  Value3
+}}
+</code></pre><p><a href="/posts/2019/05/redmine-tsv-macro/">Redmine: タブ区切りのテキストをテーブルで表示するMacroを作った - taikii blog</a></p>
+<p>&hellip;</p>
+<p>それにしても皆さんちゃんとプラグインのテストしててすごいですね。Advent Calendarでもテストに関する記事ありましたし、私もテストを書いていこうと思いましたまる</p>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://taikii.net/posts/2019/12/redmine-plugins-2019/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=%e7%a7%81%e3%81%ae%e4%bd%9c%e3%81%a3%e3%81%9fRedmine%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b32019%20-%20taikii%20blog&amp;url=https://taikii.net/posts/2019/12/redmine-plugins-2019/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2019/12/vscode-thymeleaf-format/" data-toggle="tooltip" data-placement="top" title="VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114764514-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
