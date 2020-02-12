@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/12/ci-secret-variables/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -94,12 +94,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml">before_script<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>export<span class="w"> </span>GRADLE_USER_HOME=`pwd`/.gradle<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>${GRADLE_USER_HOME}<span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">before_script</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span>- export<span class="w"> </span>GRADLE_USER_HOME=`pwd`/.gradle<span class="w">
+</span><span class="w">  </span>- mkdir<span class="w"> </span>-p<span class="w"> </span>${GRADLE_USER_HOME}<span class="w">
 </span><span class="w">  </span><span class="c"># gradle.propertiesが残ってたらクリア</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>echo<span class="w"> </span>-n<span class="w"> </span>&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>printenv<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span><span class="s2">&#34;^MYSECRETS_&#34;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
+</span><span class="w">  </span>- echo<span class="w"> </span>-n<span class="w"> </span>&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
+</span><span class="w">  </span>- printenv<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span><span class="s2">&#34;^MYSECRETS_&#34;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>${GRADLE_USER_HOME}/gradle.properties<span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>試行錯誤の結果なんですが、みなさんどんな感じでやってるんでしょうかね？？？</p>

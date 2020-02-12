@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 01:30:17 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>コミュニケーションミスを減らしてシステムトラブルを乗り越える</title>
+      <link>https://taikii.net/posts/2020/02/over_the_trouble/</link>
+      <pubDate>Thu, 13 Feb 2020 01:30:17 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2020/02/over_the_trouble/</guid>
+      <description>&lt;p&gt;お金がない！&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;ITに携わっているとシステムトラブルを避けて通ることはできません。システムトラブルと一言で言ってもハードウェア障害からオペミス、自分が作り出したバグまでその種類は多岐にわたります。障害が発生すると関係者はダウンタイムを極力抑えるために躍起になって対応するわけですが、トラブル対応で最も怖いのはその混乱の中で生み出される二次災害です。二次災害は三次災害を呼び、なんでもなかった小さな障害がユーザサービスに影響する大きな障害に発展してしまうこともあります。&lt;/p&gt;
+&lt;p&gt;二次災害を生み出してしまう原因も色々ありますが、個人的な経験上コミュニケーションミスは上位にランクインし、かつ防ぎようのあるものと感じています。しかし、コミュニケーションというものは複雑で、いざトラブルが発生してから「コミュニケーションミスを起こさないぞ！」と思ったとしてもそれはなかなか難しい。災害対策と同じで日頃からトラブルを想定して訓練し、また情報を収集・整理しておく必要があります。&lt;/p&gt;
+&lt;p&gt;コミュニケーションミスを減らしてシステムトラブルを乗り越えるためには、どんなヒューマンスキルを鍛える必要があり、どのように使っていけばいいか、個人的な経験から考えてみたいと思います。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>私の作ったRedmineプラグイン2019</title>

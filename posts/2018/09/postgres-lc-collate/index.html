@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -130,13 +130,13 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>db<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>postgres<span class="p">:</span><span class="m">9.6</span><span class="w">
-</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>POSTGRES_INITDB_ARGS<span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span><span class="k">db</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>postgres<span class="p">:</span><span class="m">9.6</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span><span class="k">POSTGRES_INITDB_ARGS</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>新しくRedmineを立てるのならこれで終わりです。しかし、私は既に運用を開始してしまっていますので、ここからは既存のポスグレのロケールを変更するのに四苦八苦していきます。</p>
@@ -152,12 +152,12 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 <li>lc_collate=Cクラスタの作成とRedmineのマイグレーション</li>
 <li>yaml_dbでリストア</li>
 </ol>
-<h2 id="heading">ポスグレロケール変更大作戦</h2>
+<h2 id="ポスグレロケール変更大作戦">ポスグレロケール変更大作戦</h2>
 <p>ではやっていきましょう。ちなみに、Redmineのバージョンは<code>3.4</code>、PostgreSQLは<code>9.6</code>を使っています。いずれもDocker LibraryのDockerイメージです。</p>
-<h3 id="heading-1">兎にも角にもデータボリュームをバックアップ</h3>
+<h3 id="兎にも角にもデータボリュームをバックアップ">兎にも角にもデータボリュームをバックアップ</h3>
 <p>です。後にyaml_dbでダンプを取得しますが、これはバックアップではありません。やっとかないと絶対後悔します。</p>
 <p>また、ハマりどころを後述しますが、ここで<a href="#%E3%82%B4%E3%83%9F%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF%E4%BA%88%E3%82%81%E5%89%8A%E9%99%A4%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8F">ゴミテーブルがある場合は予め削除しておく</a>ことをおすすめします。</p>
-<h3 id="redmineyaml-db">Redmineにyaml_dbを入れる</h3>
+<h3 id="redmineにyaml_dbを入れる">Redmineにyaml_dbを入れる</h3>
 <p>Redmine上のGemfileの適当なところに書きます。</p>
 <p>Redmineコンテナへの入り方はこうですね。</p>
 <div class="highlight"><div class="chroma">
@@ -199,7 +199,7 @@ $ docker cp ./Gemfile redmine:/usr/src/redmine/
 <pre class="chroma"><code class="language-text" data-lang="text">$ bundle install --without development test
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="yaml-db">yaml_dbでダンプを取得</h3>
+</div><h3 id="yaml_dbでダンプを取得">yaml_dbでダンプを取得</h3>
 <p>yaml_dbがインストールできたのでダンプを取ります。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -218,7 +218,7 @@ $ docker cp ./Gemfile redmine:/usr/src/redmine/
 <pre class="chroma"><code class="language-text" data-lang="text">$ cp -pi db/data.yml files/
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading-2">ポスグレコンテナを初期化</h3>
+</div><h3 id="ポスグレコンテナを初期化">ポスグレコンテナを初期化</h3>
 <p>ホストOSに戻って、コンテナを停止・削除します。これもハマりどころとして後述しますが、<a href="#postgresql%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%A0%E3%81%91%E3%82%92%E5%89%8A%E9%99%A4%E3%81%97%E3%81%AA%E3%81%84">無理にポスグレコンテナだけ作り直そうとせずRedmineコンテナも含めて削除</a>します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -246,7 +246,7 @@ $ docker-compose rm -f
 </span></code></pre></td></tr></table>
 </div>
 </div><p>それでは、<code>initdb</code>が実行されるように、<strong>永続化されているポスグレのデータボリュームを削除</strong>（またはmove）して空の状態にします。怖えぇぇー！！！</p>
-<h3 id="lc-collatecredmine">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
+<h3 id="lc_collatecクラスタの作成とredmineのマイグレーション">lc_collate=Cクラスタの作成とRedmineのマイグレーション</h3>
 <p>改めてコンテナを作成します。ポスグレはデータボリュームが無くなっているので<code>initdb</code>が実行され、空のクラスタが<code>lc_collate=C</code>で作られる…はず。そしてRedmineはDBが空になっているのでマイグレーションしてくれる…はず。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -256,7 +256,7 @@ $ docker-compose rm -f
 <pre class="chroma"><code class="language-text" data-lang="text">$ docker-compose up -d
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="yaml-db-1">yaml_dbでリストア</h3>
+</div><h3 id="yaml_dbでリストア">yaml_dbでリストア</h3>
 <p>Redmineコンテナが再作成されているので、もう一回Gemfileを配置～<code>bundle install</code>してyaml_dbをインストールします。（割愛）</p>
 <p>先程永続化されたディレクトリに退避した<code>data.yml</code>を<code>db/</code>ディレクトリに戻して、ロードします。（Redmineコンテナで実行）</p>
 <div class="highlight"><div class="chroma">
@@ -297,14 +297,14 @@ $ RAILS_ENV=production bundle exec rake db:data:load
 </code></pre></td></tr></table>
 </div>
 </div><p>ブラウザでRedmineを見てもそれっぽくソートできるようになっているはずです。やったね！</p>
-<h2 id="heading-3">ハマりどころ</h2>
+<h2 id="ハマりどころ">ハマりどころ</h2>
 <p>いくつかハマりどころがあったので解説。</p>
-<h3 id="heading-4">ゴミテーブルがある場合は予め削除しておく</h3>
+<h3 id="ゴミテーブルがある場合は予め削除しておく">ゴミテーブルがある場合は予め削除しておく</h3>
 <p>私は以前ナレッジベースプラグインを使っていたのですが、これを削除した際に<code>VERSION=0</code>でマイグレーションしていなかったようです。このため、プラグインは存在しないのにテーブルが残留している状態となっていました。</p>
 <p>この状態でyaml_dbでダンプを取ると、当然ナレッジベースプラグインのテーブルデータもエクスポートされますが、その後のマイグレーションではプラグインがないためテーブルは作成されません。そうすると、yaml_dbでデータをロードする際にテーブルが存在しないエラーが発生してしまいます。こうなると、もう一度プラグインをインストールしてテーブルを作るか、<code>data.yml</code>をシコシコ編集して該当データを削除する必要があります。</p>
 <p>ですので、マイグレーションで作成されないテーブルが存在しないか、一度チェックしておくことをおすすめします。</p>
 <p>チェック方法ですか？同じプラグイン配置された状態で空のRedmineインスタンスを立ててみて、DB上に作成されたテーブルを比較してみるとかですかね…。面倒ですがやったほうがいいと思います…。</p>
-<h3 id="postgresql">PostgreSQLコンテナだけを削除しない</h3>
+<h3 id="postgresqlコンテナだけを削除しない">PostgreSQLコンテナだけを削除しない</h3>
 <p>ポスグレのデータを削除してコンテナを再作成する際、Redmineコンテナも作り直す必要なくね？と思ったのですが、以下のようにコンテナ間のリンクがおかしくなってしまう様です。Docker Networkを修正することで対処できるかもしれませんが、面倒ですしRedmineコンテナも作り直すが無難かなと思います。</p>
 <pre><code>$ docker exec -it redmine_web_1 /bin/bash
 Error response from daemon: Cannot link to a non running container: /redmine_db_1 AS /redmine_web_1/db

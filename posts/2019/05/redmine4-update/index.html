@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/05/redmine4-update/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -62,7 +62,7 @@
 <script type="application/javascript" src="https://gist.github.com/taikii/6523171ae846ebb2bc8d56d8d0477a94.js"></script>
 
 <p>Redmine自体のバージョンアップは、コンテナイメージのタグを <code>4.0.3</code> に変更して <code>docker-compose up -d</code> するだけです。ラクチン。BundlerやRailsの恩恵があるとはいえ、これだけでちゃんとメジャーバージョンアップされるのはすごい。改めてRedmineはキチンと作られてると感じます。</p>
-<h2 id="heading">プラグイン</h2>
+<h2 id="プラグイン">プラグイン</h2>
 <p>問題はプラグインですね。これを機に使用をやめたりしたものもあります。</p>
 <ul>
 <li><a href="https://github.com/iquiw/redmine_persist_wfmt">Persist wfmt</a>: メンテされていないのと、古いチケット以外ほぼMarkdown化できたので、バージョンアップを機にアンイストール。マイグレーションが必要なのでバージョンアップ前にアンインストールしました。</li>
@@ -85,14 +85,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="agile">Agileプラグインについて</h3>
+<h3 id="agileプラグインについて">Agileプラグインについて</h3>
 <p>現時点の最新版 <code>1.4.10</code> を落としてきたのですが、チェックリストを表示するとエラーになってしまいました。</p>
 <p>また、 <code>/users/new</code> <code>/users/:id/edit</code> <code>/projects/new</code> <code>/projects/:id/edit</code> が404になってしまいます。ルーティングがおかしくなっちゃうんですかね？Agileプラグインをアンインストールして問題は解消しています。</p>
-<h3 id="mentions">Mentionsプラグインについて</h3>
+<h3 id="mentionsプラグインについて">Mentionsプラグインについて</h3>
 <p>コメント欄で<code>@ユーザ名</code>するとエラーになりました。メール送信周りに修正が必要っぽいですね。</p>
 <p>オリジナルのリポジトリのものは元々JavaScriptに問題があったのでForkされたものを使わせてもらってたんですが、久しぶりに確認したらFork先のリポジトリがなくなってました。／(^o^)＼</p>
 <p>Forkがたくさんあるので、メンテされてそうなやつを見繕って改めて導入しようと思います。</p>
-<h2 id="heading-1">その他</h2>
+<h2 id="その他">その他</h2>
 <p>チケットコメントのアバターアイコンが左側欄外に飛び出してます。Local Avatarsだからでしょうか？</p>
 <p>予想はしていましたが、メンテされてないプラグインがちらほらありますね。思うところはありますが…余計なことをいいそうなのでやめます。</p>
 <p>とりあえずこれで <code>##チケット番号</code> とか <code>[[#セクションリンク]]</code> とかができるようになったわけですね！関わった方々お疲れ様でした＆ありがとうございます。ひとまず4.0ライフを楽しみたいと思いまーす。</p>

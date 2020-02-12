@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2017/10/build-site-by-hugo/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -66,21 +66,21 @@
 <aside class="toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#github-pages">GitHub Pagesについて</a>
+    <li><a href="#github-pagesについて">GitHub Pagesについて</a>
       <ul>
-        <li><a href="#heading">ユーザページサイトを作成する場合</a></li>
-        <li><a href="#heading-1">プロジェクトページサイトを作成する場合</a></li>
+        <li><a href="#ユーザページサイトを作成する場合">ユーザページサイトを作成する場合</a></li>
+        <li><a href="#プロジェクトページサイトを作成する場合">プロジェクトページサイトを作成する場合</a></li>
       </ul>
     </li>
-    <li><a href="#hugo">Hugoでサイトを作って公開する</a></li>
-    <li><a href="#heading-2">その他解説</a>
+    <li><a href="#hugoでサイトを作って公開する">Hugoでサイトを作って公開する</a></li>
+    <li><a href="#その他解説">その他解説</a>
       <ul>
-        <li><a href="#heading-3">テーマごとのコンフィグ</a></li>
-        <li><a href="#heading-4">コンフィグへのテンプレートの指定</a></li>
-        <li><a href="#heading-5">タグ、カテゴリ</a></li>
+        <li><a href="#テーマごとのコンフィグ">テーマごとのコンフィグ</a></li>
+        <li><a href="#コンフィグへのテンプレートの指定">コンフィグへのテンプレートの指定</a></li>
+        <li><a href="#タグカテゴリ">タグ、カテゴリ</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">最後に</a></li>
+    <li><a href="#最後に">最後に</a></li>
   </ul>
 </nav>
 </aside>
@@ -93,19 +93,19 @@
 <li>エディタ:  Atom</li>
 </ul>
 <p>HugoとGitHub Pagesでブログサイトを作成するためには、まずGitHub Pagesの概要について知っておく必要があります。</p>
-<h2 id="github-pages">GitHub Pagesについて</h2>
+<h2 id="github-pagesについて">GitHub Pagesについて</h2>
 <p>GitHub Pagesで個人として作ることのできるサイトは <strong>ユーザページサイト</strong>（User Pages site） と <strong>プロジェクトページサイト</strong>（Project Pages site owned by a user account） の2種類があります。</p>
 <p>ユーザページサイトのURLは<code>https://ユーザ名.github.io</code>となり、プロジェクトページサイトのURLは<code>https://ユーザ名.github.io/リポジトリ名（プロジェクト名）</code>となります。</p>
 <p>うだうだ書きますが、<strong>公式ページを見れば一発です</strong>。</p>
 <ul>
 <li><a href="https://help.github.com/articles/user-organization-and-project-pages/">User, Organization, and Project Pages - User Documentation</a></li>
 </ul>
-<h3 id="heading">ユーザページサイトを作成する場合</h3>
+<h3 id="ユーザページサイトを作成する場合">ユーザページサイトを作成する場合</h3>
 <p>ユーザページサイトを作成する際は、 <strong><code>ユーザ名.github.io</code></strong> という名前のリポジトリを作ります。それだけでサイトのデプロイは完了です。試しにリポジトリのルートディレクトリに<code>index.html</code>を作成して、<code>https://ユーザ名.github.io</code>にアクセスすると<code>index.html</code>の画面が表示されます。</p>
 <p>ユーザページサイトは、 <strong><code>ユーザ名.github.io</code>という名前のリポジトリ</strong> の <strong><code>master</code>ブランチ</strong> が公開ディレクトリとなります。現時点でこれを変更することはできません。</p>
 <p>また、<code>ユーザ名.github.io</code>という名前のプロジェクトを作成すると、自動的にGitHub Pagesとして公開されます。現時点でプロジェクトを削除する以外に公開を停止する方法はありません。</p>
 <p>このサイトはユーザページサイトとして作成しています。GitHub上のプロジェクトは <a href="https://github.com/taikii/taikii.github.io">https://github.com/taikii/taikii.github.io</a> です。</p>
-<h3 id="heading-1">プロジェクトページサイトを作成する場合</h3>
+<h3 id="プロジェクトページサイトを作成する場合">プロジェクトページサイトを作成する場合</h3>
 <p>プロジェクトページサイトは任意の名前のリポジトリから作成できます。プロジェクトページのSetting -&gt; GitHub Pages の<code>Source</code>を<code>None</code>からそれ以外に変更することでプロジェクトページサイトが作成されます。</p>
 <p>プロジェクトページサイトの公開ディレクトリは3種類+1から選択できます。</p>
 <ol>
@@ -134,7 +134,7 @@
 <p>既存のリポジトリで、<code>/docs</code>にマニュアルなどのHTMLドキュメント類を含んでいてそれを公開したい場合はこれになると思います。また、Hugoのような静的サイトジェネレータで生成したHTMLファイルを<code>/docs</code>に出力している場合はこれでしょう。</p>
 <p>Hugoの公式マニュアルでは、この<code>/docs</code>を使ってプロジェクトページサイトを公開するのが<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">最も簡単な方法</a>と述べられています。</p>
 <p>今回はこの3の<code>mastar branch /docs folder</code>を例にして説明します。</p>
-<h2 id="hugo">Hugoでサイトを作って公開する</h2>
+<h2 id="hugoでサイトを作って公開する">Hugoでサイトを作って公開する</h2>
 <p>Hugoについても、<strong>公式ページを見れば一発です</strong>。</p>
 <ul>
 <li><a href="https://gohugo.io/getting-started/">Hugo | Get Started</a></li>
@@ -285,13 +285,13 @@ $ git commit -m &quot;Initial commit&quot;
 $ git push --set-upstream origin master
 </code></pre><p>GitHubのリポジトリ上に<code>/docs</code>フォルダーが作成されたため、設定画面を確認すると<code>mastar branch /docs folder</code>が選択できるようになっているはずです。これを選択して少し待ちます。</p>
 <p>指定のURLをブラウザで開いてみると、見事にサイトが表示されているはずです。</p>
-<h2 id="heading-2">その他解説</h2>
-<h3 id="heading-3">テーマごとのコンフィグ</h3>
+<h2 id="その他解説">その他解説</h2>
+<h3 id="テーマごとのコンフィグ">テーマごとのコンフィグ</h3>
 <p>上記で<code>config.toml</code>で指定した設定はHugoの基本的なものですが、テーマごとに<code>config.toml</code>に追加の設定項目が存在します。これについてはそれぞれのテーマの公式サイトを確認して下さい。</p>
-<h3 id="heading-4">コンフィグへのテンプレートの指定</h3>
+<h3 id="コンフィグへのテンプレートの指定">コンフィグへのテンプレートの指定</h3>
 <p><code>config.toml</code>に以下の行を追加することで、<code>hugo server</code>コマンドや<code>hugo</code>コマンドを実行する際に<code>-t</code>オプションでテンプレートを指定する必要がなくなります。</p>
 <pre><code>theme = &quot;liquorice&quot;
-</code></pre><h3 id="heading-5">タグ、カテゴリ</h3>
+</code></pre><h3 id="タグカテゴリ">タグ、カテゴリ</h3>
 <p>記事のヘッダに<code>categories</code>、<code>tags</code>を書くことで、カテゴリやタグを使用できます。タグもカテゴリも複数指定できるため、あまり違いは無いように思います。また、それぞれが使用できるかどうかはテンプレートによって決まります。</p>
 <pre><code>---
 title: &quot;Hello Hugo World&quot;
@@ -299,7 +299,7 @@ date: 2017-10-13T20:33:56+09:00
 categories = [ &quot;hoge&quot; ]
 tags = [ &quot;fuga&quot;, &quot;foobar&quot; ]
 ---
-</code></pre><h2 id="heading-6">最後に</h2>
+</code></pre><h2 id="最後に">最後に</h2>
 <p>自分がつまづいた所をなるべく書いたつもりです。これからHugoを始めようと思っている方の足しになればと思います。</p>
     </article>
     <section class="article-series">

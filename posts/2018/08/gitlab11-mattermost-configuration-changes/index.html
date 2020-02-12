@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -60,13 +60,13 @@
       </ul>
       
       <p>先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、<code>gitlab-ctl reconfigure</code> でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分</p>
-<h3 id="heading">原因</h3>
+<h3 id="原因">原因</h3>
 <p><code>gitlab-ctl reconfigure</code> がコケた原因は、11.0 で廃止されたMattermost系の設定が残っていた為でした。そうです、私はOmnibusにバンドルされているMattermostを使っているのです。これらの設定は <code>docker-compose.yml</code> 内でGitLabに環境変数として渡していたのですが、これらを削除することで無事バージョンアップできましたとさ。</p>
 <figure>
     <img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png"/> 
 </figure>
 
-<h3 id="mattermost">Mattermostの設定の廃止について</h3>
+<h3 id="mattermostの設定の廃止について">Mattermostの設定の廃止について</h3>
 <p>廃止の理由等々については公式サイト上で説明されていますので読むといいと思います。</p>
 <p><a href="https://docs.gitlab.com/omnibus/gitlab-mattermost/#upgrading-gitlab-mattermost-from-versions-prior-to-11-0">Upgrading GitLab Mattermost from versions prior to 11.0 | GitLab Mattermost | GitLab</a></p>
 <p>・・・これだけだと乱暴なので軽く解説したいと思います。</p>
@@ -150,13 +150,13 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w"> 
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>gitlab<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>GITLAB_OMNIBUS_CONFIG<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span><span class="k">gitlab</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span><span class="k">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="sd">|
 </span><span class="sd">       </span><span class="sd"> </span><span class="sd">mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_server&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_port&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="m">25</span><span class="w">
@@ -183,13 +183,13 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w"> 
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>gitlab<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>GITLAB_OMNIBUS_CONFIG<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span><span class="k">gitlab</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span><span class="k">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="sd">|
 </span><span class="sd">       </span><span class="sd"> </span><span class="sd">mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
 </span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;env&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span>{<span class="w">
 </span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_SMTPSERVER&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="p">,</span><span class="w">
@@ -199,10 +199,10 @@
 </span><span class="w">        </span>}<span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="heading-1">廃止された設定は削除するだけでいいの？</h3>
+</div><h3 id="廃止された設定は削除するだけでいいの">廃止された設定は削除するだけでいいの？</h3>
 <p>イイんです！ <code>gitlab.rb</code> での設定方法を書きましたが、実際にはこんなことやらなくてイイんです！</p>
 <p><code>config.json</code> はコンテナ上では <code>/var/opt/gitlab/mattermost/config.json</code> に配置されています。あなたが<a href="https://docs.gitlab.com/omnibus/docker/">公式のマニュアル</a>に従っているとすれば、<code>/var/opt/gitlab</code> 配下のファイルは永続化されているはずです。<code>config.json</code> も10.xのものが残っていることになりますので、改めて環境変数で設定を渡してやる必要はありません。ですので廃止された設定は <code>gitlab.rb</code> から削除するだけでイイんです！（たぶん）</p>
-<h3 id="heading-2">さいごに</h3>
+<h3 id="さいごに">さいごに</h3>
 <p>ちなみにログはこんな感じで出てました。みんなもログはちゃんと確認しようね。</p>
 <p><a href="https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f">https://gist.github.com/taikii/37d8955a55f7124717e7a38d0673cb6f</a></p>
 <section class="footnotes" role="doc-endnotes">

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/12/redmine-plugins-2019/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -58,7 +58,7 @@
       </ul>
       
       <p><a href="https://adventar.org/calendars/4221">Redmine Advent Calendar 2019</a> 15日目の記事です。今年作ったプラグインをまとめて紹介します。<a href="/posts/2018/12/my-redmine-plugins/">去年と同じ</a>流れになってしまいました。本当はアドカレのためにもう一個作りたかったけど…勘弁して…。</p>
-<h2 id="callout-macrohttpsgithubcomtaikiiredmine-callout-macro"><a href="https://github.com/taikii/redmine_callout_macro">Callout Macro</a></h2>
+<h2 id="callout-macrohttpsgithubcomtaikiiredmine_callout_macro"><a href="https://github.com/taikii/redmine_callout_macro">Callout Macro</a></h2>
 <p>よくある注意書きを書くためのマクロです。TextileはCSSを書けるので目立つ文章を書くことができますが、Markdownの場合は太字にするか斜体にするくらいしかありません。そういう時にちょっと便利。Wikiフォーマットでも書けるよ。</p>
 <pre><code>{{info(INFO)
 This is information block.
@@ -71,11 +71,11 @@ This is danger block.
 }}
 </code></pre><p><img src="https://github.com/taikii/redmine_callout_macro/raw/master/doc/images/sample.png" alt=""></p>
 <p><a href="/posts/2019/05/redmine-callout-macro/">Redmine Callout Macroプラグイン - taikii blog</a></p>
-<h2 id="related-wikihttpsgithubcomtaikiiredmine-related-wiki"><a href="https://github.com/taikii/redmine_related_wiki">Related Wiki</a></h2>
+<h2 id="related-wikihttpsgithubcomtaikiiredmine_related_wiki"><a href="https://github.com/taikii/redmine_related_wiki">Related Wiki</a></h2>
 <p><a href="https://github.com/ixti/redmine_tags">Redmine Tagsプラグイン</a>がインストールされている必要があります。チケットに登録されているタグと同じ名前のWikiページへのリンクをサイドバーに表示します。Scrapboxはタグ＝Wikiページになっていてすごくキモチイイので、同じような使い勝手にならないかなと思って作りました。個人的にはめちゃめちゃ使ってますが他のメンバが使ってるかは謎。</p>
 <p><img src="https://github.com/taikii/redmine_related_wiki/raw/master/doc/images/screenshot.gif" alt=""></p>
 <p><a href="/posts/2019/05/redmine-related-wiki/">Redmine: タグと同名のWikiページへのリンクを張るプラグインを作った話 - taikii blog</a></p>
-<h2 id="tsv-macrohttpsgithubcomtaikiiredmine-tsv-macro"><a href="https://github.com/taikii/redmine_tsv_macro">TSV Macro</a></h2>
+<h2 id="tsv-macrohttpsgithubcomtaikiiredmine_tsv_macro"><a href="https://github.com/taikii/redmine_tsv_macro">TSV Macro</a></h2>
 <p>タブ区切りのテキストをテーブルで表示するためのマクロです。TextileもMarkdownもテーブルは鬼門です。Wikiページだと頑張ってテーブル書式で書くのですが、チケットでそこまで労力を使いたくなくて作りました。DBのデータを貼り付けるのによく使ってます。他のメンバが使ってるかは（以下略</p>
 <pre><code>{{tsv
 Value1  Value2  Value3
@@ -109,7 +109,9 @@ Value1  Value2  Value3
 
 
     <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-newer">
+          <a href="/posts/2020/02/over_the_trouble/" data-toggle="tooltip" data-placement="top" title="コミュニケーションミスを減らしてシステムトラブルを乗り越える">&lt; Newer</a>
+      </li>
       <li class="pager-older">
         <a href="/posts/2019/12/vscode-thymeleaf-format/" data-toggle="tooltip" data-placement="top" title="VS CodeのFormatterでThymeleafの式ユーティリティーオブジェクトがあると整形できない">Older &gt;</a>
       </li>
