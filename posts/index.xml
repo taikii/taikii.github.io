@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 16 Feb 2020 23:08:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 00:06:38 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thymeleafの sec:authorize 内で変数にアクセスする</title>
+      <link>https://taikii.net/posts/2020/02/thymeleaf-sec-authorize-access-object/</link>
+      <pubDate>Mon, 17 Feb 2020 00:06:38 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2020/02/thymeleaf-sec-authorize-access-object/</guid>
+      <description>&lt;p&gt;ThymeleafでSpring Securityの機能を使用できる thymeleaf-extras-springsecurity を使っていて、&lt;code&gt;sec:authorize&lt;/code&gt; 内で変数の参照に手間取ったのでメモ。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Spring Bootのかっこいいページネーションを考える</title>
