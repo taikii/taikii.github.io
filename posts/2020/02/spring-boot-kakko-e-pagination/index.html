@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Spring Bootのかっこいいページネーションを考える - taikii blog</title>
+  <meta property="og:title" content="Spring Bootのかっこいいページネーションを考える - taikii blog" />
+  <meta name="twitter:title" content="Spring Bootのかっこいいページネーションを考える - taikii blog" />
+  <meta name="description" content="Spring Bootのページネーションを考えてみます。
+コントローラ側の処理は省略しますが、簡単に言うとメソッドの仮引数 Pageable を定義するだけです。デフォルト値はこの仮引数にアノテーション @PageableDefault で指定します。">
+  <meta property="og:description" content="Spring Bootのページネーションを考えてみます。
+コントローラ側の処理は省略しますが、簡単に言うとメソッドの仮引数 Pageable を定義するだけです。デフォルト値はこの仮引数にアノテーション @PageableDefault で指定します。">
+  <meta name="twitter:description" content="Spring Bootのページネーションを考えてみます。
+コントローラ側の処理は省略しますが、簡単に言うとメソッドの仮引数 Pageable を定義するだけです。デフォルト値はこの仮引数にアノテーション @PageableDefault で指定します。">
+  <meta name="author" content="taikii"/>
+  <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.64.1" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Spring Bootのかっこいいページネーションを考える</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>February 16, 2020</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/spring-boot/">
+            <i class="fas fa-tag"></i>
+            Spring Boot
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/thymeleaf/">
+            <i class="fas fa-tag"></i>
+            Thymeleaf
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>Spring Bootのページネーションを考えてみます。</p>
+<p>コントローラ側の処理は省略しますが、簡単に言うとメソッドの仮引数 <code>Pageable</code> を定義するだけです。デフォルト値はこの仮引数にアノテーション <code>@PageableDefault</code> で指定します。</p>
+<h2 id="簡単に">簡単に</h2>
+<p>ネットを見ると、大体 <code>${#numbers.sequence(0, page.totalPages - 1)}</code> で作るように書いてあります。こんな感じ。ちなみにスタイルはBootstrapを使ってます。（ここで書かれている <code>page</code> 変数は、JPAで取得できる <code>org.springframework.data.domain.Page</code> インタフェースです。）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&#34;Page navigation&#34;</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;pagination&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">th:block</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;i : ${ #numbers.sequence(0, page.totalPages - 1) }&#34;</span><span class="p"></span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${i ge 0}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page-item&#34;</span> <span class="na">th:classappend</span><span class="o">=</span><span class="s">&#34;${i eq page.number} ? &#39;active&#39;&#34;</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{&#39;&#39;(page=${i})}&#34;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${i + 1}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page-link&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="p">/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="p">/</span><span class="nt">th:block</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>しかしこのままだと、ページが増えるとダサいことになります。</p>
+<p><img src="https://i.gyazo.com/fbaf56953cfd8e70c53b131026118b6e.png" alt=""></p>
+<h2 id="かっこよくする">かっこよくする</h2>
+<p>よくある感じで、現在のページに近いページだけ表示したいわけですが、ネットの先輩方を尋ねるとPageインターフェースのラッパークラスを作ればいいと仰っている方もおり、「まじかよ…」という気持ちです。</p>
+<p>身近なページネーションがあるシステムがRedmineだったんで確認してみると、「Prev」「1ページ目」「最後のページ番号」「Next」が固定で表示され、その間に現在のページと±2ページが表示されるようです。このUIはわかりやすくて好きです。</p>
+<p><img src="https://i.gyazo.com/263a8199ce6b2908c3b2f4c923770a31.png" alt=""></p>
+<p>同じことをThymeleafだけで実装してみたいと思います。</p>
+<p>。。。</p>
+<p>はい。</p>
+<script type="application/javascript" src="https://gist.github.com/taikii/bc485eba97fd31f1728a010117e3a6b2.js"></script>
+
+<p>少し解説します。</p>
+<ul>
+<li><code>page.number</code> に現在のページ番号（0スタート）が入るので、 <code>#numbers.sequence(page.number - 2, page.number + 2)</code> で現在のページ±2ページ分をループする。</li>
+<li>そのままだと、マイナスになる可能性があるので（また、最大ページを超える可能性があるので）、<code>th:if=&quot;${i ge 0 and i lt page.totalPages}&quot;</code> を条件に出力する。</li>
+<li>4ページ目以降（<code>page.number gt 2</code>）は固定で1ページ目のリンクを表示。</li>
+<li>5ページ目以降（<code>page.number gt 3</code>）は固定で1ページ目の後ろに「…」を表示。</li>
+<li>同じことを最後のページにも。</li>
+</ul>
+<p>Viewに条件分岐を持ち込むべきじゃないとかあると思いますが、私はこの程度はViewの範疇かなと思います。これは見せ方の問題でもありますし。</p>
+<h2 id="その他">その他</h2>
+<h3 id="1ページあたりの件数を制御する">1ページあたりの件数を制御する</h3>
+<p>1ページあたりの件数は <code>size</code> パラメータを渡せば制御できます。リクエストの度にデフォルト値になってしまうため、ページ遷移のパラメータに追加してあげる必要があります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{&#39;&#39;(page=${i}, size=${page.size})}&#34;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${i + 1}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page-link&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="検索条件を維持する">検索条件を維持する</h3>
+<p>検索画面でのページネーションの場合は、検索条件もページ遷移のパラメータとして渡してやる必要があります。下記の例では <code>q</code> が検索条件です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{&#39;&#39;(page=${i}, size=${page.size}, q=${q})}&#34;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${i + 1}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page-link&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ソートを維持する">ソートを維持する</h3>
+<p>ソータブルな場合も、同じようにソートを <code>sort</code> パラメータに追加する必要がありますが、指定方法に少し癖があります。</p>
+<blockquote>
+<p>Properties that should be sorted by in the format <code>property,property(,ASC|DESC)</code>. Default sort direction is ascending. Use multiple <code>sort</code> parameters if you want to switch directions — for example, <code>?sort=firstname&amp;sort=lastname,asc</code>.</p>
+</blockquote>
+<p><a href="https://docs.spring.io/spring-data/jdbc/docs/1.1.4.RELEASE/reference/html/#core.web.basic.paging-and-sorting">Spring Data JDBC - Reference Documentation</a></p>
+<p><code>size</code> と同様に <code>${page.sort}</code> をそのまま渡したいところですが、この <code>org.springframework.data.domain.Sort</code> （と <code>Sort.Order</code>）は <code>toString</code> をオーバーライドしており <code>フィールド名: ダイレクション</code> という形式で出力されてしまいます。これは <code>Pageable</code> が期待するフォーマットではありません。このため <code>Pageable</code> が期待するフォーマットにシコシコ変換してやる必要があります（私が知る限り）。</p>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/Sort.java#L263">Sort#toString</a></li>
+<li><a href="https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/Sort.java#L641">Sort.Order#toString</a></li>
+</ul>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Spring%20Boot%e3%81%ae%e3%81%8b%e3%81%a3%e3%81%93%e3%81%84%e3%81%84%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%8d%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%80%83%e3%81%88%e3%82%8b%20-%20taikii%20blog&amp;url=https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2020/02/over_the_trouble/" data-toggle="tooltip" data-placement="top" title="コミュニケーションミスを減らしてシステムトラブルを乗り越える">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114764514-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>

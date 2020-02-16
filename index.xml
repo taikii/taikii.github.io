@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 01:30:17 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2020 23:08:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Bootのかっこいいページネーションを考える</title>
+      <link>https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/</link>
+      <pubDate>Sun, 16 Feb 2020 23:08:00 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/</guid>
+      <description>&lt;p&gt;Spring Bootのページネーションを考えてみます。&lt;/p&gt;
+&lt;p&gt;コントローラ側の処理は省略しますが、簡単に言うとメソッドの仮引数 &lt;code&gt;Pageable&lt;/code&gt; を定義するだけです。デフォルト値はこの仮引数にアノテーション &lt;code&gt;@PageableDefault&lt;/code&gt; で指定します。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>コミュニケーションミスを減らしてシステムトラブルを乗り越える</title>
