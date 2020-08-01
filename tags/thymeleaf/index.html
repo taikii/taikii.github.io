@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://taikii.net/tags/thymeleaf/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.74.3" />
   <link href="/tags/thymeleaf/index.xml" rel="alternate" type="application/rss+xml" title="taikii blog" />
   <link href="/tags/thymeleaf/index.xml" rel="feed" type="application/rss+xml" title="taikii blog" />
 
@@ -39,11 +39,41 @@
 </header>
 <hr class="site-header-bottom">
 
-  <div class="breadcrumb">
-    <a href="/tags/">Tags</a> / Thymeleaf
-  </div>
   <div class="main" role="main">
-    <section class="list taxonomy-list">
+    <section class="list term-list">
+      <article class="article">
+        <a href="/posts/2020/08/thymeleaf-sec-authorize-url/" class="article-titles">
+          <h2 class="article-title">thymeleaf-extras-springsecurityでURLへのアクセス権の有無によってリンクとラベルを切り替える</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>August 2, 2020</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/spring-boot/">
+              <i class="fas fa-tag"></i>
+              Spring Boot
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/spring-security/">
+              <i class="fas fa-tag"></i>
+              Spring Security
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/thymeleaf/">
+              <i class="fas fa-tag"></i>
+              Thymeleaf
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          <p><a href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity">thymeleaf-extras-springsecurity</a> を使うと Thymeleaf で Spring Security のオブジェクトにアクセスできるようになります。</p>
+<p>thymeleaf-extras-springsecurity には、指定のURLにアクセス可能である場合に要素を出力する <code>sec:authorize-url=&quot;url&quot;</code> という属性があり、結構便利に使えます。この属性はアクセス権がない場合の処理には使えないので「アクセス権の有無によってリンクとラベルを切り替えたい」みたいなニーズは、この属性だけでは実現できません（と思います）。それをスマートに書けないか考えてみました。</p>
+        </div>
+        <div class="article-readmore"><a href="/posts/2020/08/thymeleaf-sec-authorize-url/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/posts/2020/02/thymeleaf-sec-authorize-access-object/" class="article-titles">
           <h2 class="article-title">Thymeleafの sec:authorize 内で変数にアクセスする</h2>

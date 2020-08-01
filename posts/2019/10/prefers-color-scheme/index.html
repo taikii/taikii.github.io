@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2019/10/prefers-color-scheme/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.74.3" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -100,15 +100,15 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">structure</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">structure</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 
 <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">light</span><span class="o">)</span> <span class="p">{</span>
-  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
   <span class="c">/* color-light.cssは上でインポート済みなので、インポートされない？＝ダークモードで色系Styleが適用されない */</span>
-  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="o">.</span><span class="o">/</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+  <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">color-light</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>

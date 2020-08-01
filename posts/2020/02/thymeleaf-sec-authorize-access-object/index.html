@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2020/02/thymeleaf-sec-authorize-access-object/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.74.3" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -80,9 +80,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&#34;${hasRole(#vars.expectedRole)}&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&#34;${hasRole(#vars.expectedRole)}&#34;</span><span class="p">&gt;</span>
   This will only be displayed if authenticated user has a role computed by the controller.
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div></blockquote>
@@ -110,7 +110,9 @@
 
 
     <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-newer">
+          <a href="/posts/2020/08/thymeleaf-sec-authorize-url/" data-toggle="tooltip" data-placement="top" title="thymeleaf-extras-springsecurityでURLへのアクセス権の有無によってリンクとラベルを切り替える">&lt; Newer</a>
+      </li>
       <li class="pager-older">
         <a href="/posts/2020/02/spring-boot-kakko-e-pagination/" data-toggle="tooltip" data-placement="top" title="Spring Bootのかっこいいページネーションを考える">Older &gt;</a>
       </li>
