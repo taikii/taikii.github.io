@@ -167,6 +167,18 @@
 </div><p>また余談ですが、ドットを使った記法だと、<code>${item?.nameJa}</code>のようにオブジェクトの後ろに<code>?</code>を付けることで、対象オブジェクトがNullでない場合のみGetterを呼び出す…というかメソッドチェーンを実行することが可能ですが（Null安全？）、角括弧を使った記法だとこれはできません。オブジェクトがNullになる可能性がある場合は愚直にNullチェックする必要があります。</p>
 <p>&hellip;</p>
 <p>これがスマートかって言われるとそうではない気がしますし、みんなどうやってるのか知りませんが、多少は格好がついたのではないかと思います。カッコなだけに。</p>
+<h2 id="プリプロセッシングを使う20200830追記">プリプロセッシングを使う（2020/08/30追記）</h2>
+<p>そもそもこの問題の解決策がチュートリアルに提示されていました。Thymeleafには通常の式より先に評価される「プリプロセッシング」という機能があります。プリプロセッシング式は2重のアンダースコアで囲みます。</p>
+<p>プリプロセッシングでメッセージプロパティに定義したフィールド名を取得することで動的に参照フィールドを切り替えることができます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${item.__#{i18nfields.name}__}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E3%83%97%E3%83%AA%E3%83%97%E3%83%AD%E3%82%BB%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0">4.15 プリプロセッシング - Tutorial: Using Thymeleaf (ja)</a></p>
     </article>
 
     

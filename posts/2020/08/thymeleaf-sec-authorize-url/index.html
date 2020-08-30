@@ -111,6 +111,19 @@ thymeleaf-extras-springsecurity には、指定のURLにアクセス可能であ
 </code></pre></td></tr></table>
 </div>
 </div><p>もっとスマートな書き方があれば教えていただけると嬉しいです。</p>
+<h2 id="thremove-を使うべき20200830追記">th:remove を使うべき（2020/08/30追記）</h2>
+<p><code>th:remove</code> に <code>tag</code> を設定することで子の要素を残したまま自身のタグを削除することができます。これを使うのがスマートですね。（<code>th:remove=&quot;tag&quot;</code> しても <code>th:text=&quot;xxx&quot;</code> で出力されるボディは残ります。）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{/admin}&#34;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;|Admin|&#34;</span>
+    <span class="na">th:remove</span><span class="o">=</span><span class="s">&#34;${not #authorization.url(&#39;/admin&#39;)}? tag&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%83%95%E3%83%A9%E3%82%B0%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AE%E5%89%8A%E9%99%A4">8.4 テンプレートフラグメントの削除 - Tutorial: Using Thymeleaf (ja)</a></p>
     </article>
 
     
@@ -133,7 +146,9 @@ thymeleaf-extras-springsecurity には、指定のURLにアクセス可能であ
 
 
     <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-newer">
+          <a href="/posts/2020/08/thymeleaf-posts-update/" data-toggle="tooltip" data-placement="top" title="Thymeleafに関する記事を2件修正しました">&lt; Newer</a>
+      </li>
       <li class="pager-older">
         <a href="/posts/2020/02/thymeleaf-sec-authorize-access-object/" data-toggle="tooltip" data-placement="top" title="Thymeleafの sec:authorize 内で変数にアクセスする">Older &gt;</a>
       </li>

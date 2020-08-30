@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 02 Aug 2020 00:17:49 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2020 16:18:56 +0900</lastBuildDate>
     
 	<atom:link href="https://taikii.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thymeleafに関する記事を2件修正しました</title>
+      <link>https://taikii.net/posts/2020/08/thymeleaf-posts-update/</link>
+      <pubDate>Sun, 30 Aug 2020 16:18:56 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2020/08/thymeleaf-posts-update/</guid>
+      <description>Thymeleafに関する記事を2件修正しました。
+ Thymeleafで言語別フィールドをカッコよく表示する thymeleaf-extras-springsecurityでURLへのアクセス権の有無によってリンクとラベルを切り替える  </description>
+    </item>
     
     <item>
       <title>thymeleaf-extras-springsecurityでURLへのアクセス権の有無によってリンクとラベルを切り替える</title>
