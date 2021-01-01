@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 30 Aug 2020 16:18:56 +0900</lastBuildDate>
-    
-	<atom:link href="https://taikii.net/tags/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 30 Aug 2020 16:18:56 +0900</lastBuildDate><atom:link href="https://taikii.net/tags/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thymeleafに関する記事を2件修正しました</title>
       <link>https://taikii.net/posts/2020/08/thymeleaf-posts-update/</link>

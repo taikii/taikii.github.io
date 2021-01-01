@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Sun, 10 Feb 2019 23:03:24 +0900</lastBuildDate>
-    
-	<atom:link href="https://taikii.net/tags/jacoco/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 10 Feb 2019 23:03:24 +0900</lastBuildDate><atom:link href="https://taikii.net/tags/jacoco/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitLabにカバレッジバッジを貼る（GitLab CI&#43;Gradle&#43;JaCoCo）</title>
       <link>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</link>

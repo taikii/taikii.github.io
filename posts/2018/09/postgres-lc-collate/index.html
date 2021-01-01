@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/09/postgres-lc-collate/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -130,13 +130,13 @@ postgres=# select name, setting, context from pg_settings where name like &#39;l
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-docker-compose.yml" data-lang="docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">db</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>postgres<span class="p">:</span><span class="m">9.6</span><span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">POSTGRES_INITDB_ARGS</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres:9.6</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">POSTGRES_INITDB_ARGS</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;--encoding=UTF-8 --locale=C&#34;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>新しくRedmineを立てるのならこれで終わりです。しかし、私は既に運用を開始してしまっていますので、ここからは既存のポスグレのロケールを変更するのに四苦八苦していきます。</p>

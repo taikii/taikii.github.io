@@ -6,10 +6,6 @@
     <description>Recent content in About on taikii blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    
-	<atom:link href="https://taikii.net/about/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright><atom:link href="https://taikii.net/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

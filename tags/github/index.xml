@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; Copyright 2017 taikii</copyright>
-    <lastBuildDate>Mon, 30 Jul 2018 18:00:19 +0900</lastBuildDate>
-    
-	<atom:link href="https://taikii.net/tags/github/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 30 Jul 2018 18:00:19 +0900</lastBuildDate><atom:link href="https://taikii.net/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitHub Pagesを独自ドメインで運用する</title>
       <link>https://taikii.net/posts/2018/07/github-pages-with-custom-domain/</link>

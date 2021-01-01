@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -150,18 +150,18 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w"> 
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">gitlab</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_server&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_smtp_port&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="m">25</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_feedback_name&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;GitLab Mattermost&#39;</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;email_feedback_email&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span><span class="s1">&#39;mattermost@example.com&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">gitlab</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">gitlab/gitlab-ce:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;
+</span><span class="sd">        mattermost[&#39;email_smtp_server&#39;] = &#39;mailhost.example.com&#39;
+</span><span class="sd">        mattermost[&#39;email_smtp_port&#39;] = 25
+</span><span class="sd">        mattermost[&#39;email_feedback_name&#39;] = &#39;GitLab Mattermost&#39;
+</span><span class="sd">        mattermost[&#39;email_feedback_email&#39;] = &#39;mattermost@example.com&#39;</span><span class="w">        
 </span></code></pre></td></tr></table>
 </div>
 </div><p><strong>GitLab 11.x</strong></p>
@@ -183,20 +183,20 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w"> 
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">gitlab</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>gitlab/gitlab-ce<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;</span><span class="w">
-</span><span class="w">        </span>mattermost<span class="p">[</span><span class="s1">&#39;env&#39;</span><span class="p">]</span><span class="w"> </span>=<span class="w"> </span>{<span class="w">
-</span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_SMTPSERVER&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;mailhost.example.com&#39;</span><span class="p">,</span><span class="w">
-</span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_SMTPPORT&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;25&#39;</span><span class="p">,</span><span class="w">
-</span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_FEEDBACKNAME&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;GitLab Mattermost&#39;</span><span class="p">,</span><span class="w">
-</span><span class="w">          </span><span class="s1">&#39;MM_EMAILSETTINGS_FEEDBACKEMAIL&#39;</span><span class="w"> </span>=&gt;<span class="w"> </span><span class="s1">&#39;mattermost@example.com&#39;</span><span class="w">
-</span><span class="w">        </span>}<span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">gitlab</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">gitlab/gitlab-ce:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        mattermost_external_url &#39;https://mattermost.example.com&#39;
+</span><span class="sd">        mattermost[&#39;env&#39;] = {
+</span><span class="sd">          &#39;MM_EMAILSETTINGS_SMTPSERVER&#39; =&gt; &#39;mailhost.example.com&#39;,
+</span><span class="sd">          &#39;MM_EMAILSETTINGS_SMTPPORT&#39; =&gt; &#39;25&#39;,
+</span><span class="sd">          &#39;MM_EMAILSETTINGS_FEEDBACKNAME&#39; =&gt; &#39;GitLab Mattermost&#39;,
+</span><span class="sd">          &#39;MM_EMAILSETTINGS_FEEDBACKEMAIL&#39; =&gt; &#39;mattermost@example.com&#39;
+</span><span class="sd">        }</span><span class="w">        
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="廃止された設定は削除するだけでいいの">廃止された設定は削除するだけでいいの？</h3>
