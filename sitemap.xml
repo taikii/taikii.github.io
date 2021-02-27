@@ -1,464 +1,283 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://taikii.net/posts/2021/01/review2020/</loc>
-    <lastmod>2021-01-01T09:20:00+09:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://taikii.net/tags/column/</loc>
-    <lastmod>2021-01-01T09:20:00+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-02-27T15:10:03+09:00</lastmod>
+  </url><url>
     <loc>https://taikii.net/posts/</loc>
-    <lastmod>2021-01-01T09:20:00+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-02-27T15:10:03+09:00</lastmod>
+  </url><url>
     <loc>https://taikii.net/tags/</loc>
-    <lastmod>2021-01-01T09:20:00+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-02-27T15:10:03+09:00</lastmod>
+  </url><url>
     <loc>https://taikii.net/</loc>
+    <lastmod>2021-02-27T15:10:03+09:00</lastmod>
+  </url><url>
+    <loc>https://taikii.net/posts/2021/02/basedow/</loc>
+    <lastmod>2021-02-27T15:10:03+09:00</lastmod>
+  </url><url>
+    <loc>https://taikii.net/posts/2021/01/review2020/</loc>
     <lastmod>2021-01-01T09:20:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/thymeleaf/</loc>
     <lastmod>2020-08-30T16:18:56+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2020/08/thymeleaf-posts-update/</loc>
     <lastmod>2020-08-30T16:18:56+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/spring-boot/</loc>
     <lastmod>2020-08-02T00:17:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/spring-security/</loc>
     <lastmod>2020-08-02T00:17:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2020/08/thymeleaf-sec-authorize-url/</loc>
     <lastmod>2020-08-02T00:17:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2020/02/thymeleaf-sec-authorize-access-object/</loc>
     <lastmod>2020-02-17T00:06:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2020/02/spring-boot-kakko-e-pagination/</loc>
     <lastmod>2020-02-16T23:08:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2020/02/over_the_trouble/</loc>
     <lastmod>2020-02-13T01:30:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/redmine/</loc>
     <lastmod>2019-12-15T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/12/redmine-plugins-2019/</loc>
     <lastmod>2019-12-15T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/12/vscode-thymeleaf-format/</loc>
     <lastmod>2019-12-10T01:11:08+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/vscode/</loc>
     <lastmod>2019-12-10T01:11:08+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/css/</loc>
     <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/hugo/</loc>
     <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/10/prefers-color-scheme/</loc>
     <lastmod>2019-10-29T23:27:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/10/i18n-fields-on-thymeleaf/</loc>
     <lastmod>2019-10-17T23:15:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/til/</loc>
     <lastmod>2019-10-17T23:15:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/%E3%82%B3%E3%83%A9%E3%83%A0/</loc>
     <lastmod>2019-10-04T06:25:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/10/jouhouniumore-tai/</loc>
     <lastmod>2019-10-04T06:25:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/java/</loc>
     <lastmod>2019-09-18T23:40:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/jpa/</loc>
     <lastmod>2019-09-18T23:40:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/09/jpa-sequence-generator/</loc>
     <lastmod>2019-09-18T23:40:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/oracle/</loc>
     <lastmod>2019-09-18T23:40:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/09/oracle-sequence-noorder/</loc>
     <lastmod>2019-09-13T06:17:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/git/</loc>
     <lastmod>2019-09-09T00:47:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/09/git-email/</loc>
     <lastmod>2019-09-09T00:47:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/09/til-20190904/</loc>
     <lastmod>2019-09-05T00:57:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/08/modernization/</loc>
     <lastmod>2019-08-02T00:16:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/06/emoi-redmine/</loc>
     <lastmod>2019-06-03T00:15:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/05/redmine-tsv-macro/</loc>
     <lastmod>2019-05-31T01:21:52+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/05/redmine4-update/</loc>
     <lastmod>2019-05-22T06:45:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/05/redmine-related-wiki/</loc>
     <lastmod>2019-05-04T00:37:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/05/redmine-callout-macro/</loc>
     <lastmod>2019-05-01T09:07:06+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/04/whiteplain-gets-darkpower/</loc>
     <lastmod>2019-04-26T00:15:02+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/03/redmine-wiki-pages-api/</loc>
     <lastmod>2019-03-20T00:09:36+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/clibor/</loc>
     <lastmod>2019-02-18T23:08:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/02/clibor-regex/</loc>
     <lastmod>2019-02-18T23:08:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/02/dream-learning-app/</loc>
     <lastmod>2019-02-15T00:30:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/gitlab/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2019/02/gitlab-coverage-badge/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/gradle/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/jacoco/</loc>
     <lastmod>2019-02-10T23:03:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/12/live-share2/</loc>
     <lastmod>2018-12-25T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/12/my-redmine-plugins/</loc>
     <lastmod>2018-12-19T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/ci/</loc>
     <lastmod>2018-12-13T21:57:31+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/12/ci-secret-variables/</loc>
     <lastmod>2018-12-13T21:57:31+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/12/utsunomiya-engineer/</loc>
     <lastmod>2018-12-08T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/%E8%AA%AD%E6%9B%B8%E6%84%9F%E6%83%B3%E6%96%87/</loc>
     <lastmod>2018-11-13T23:20:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/11/kaizen-journey/</loc>
     <lastmod>2018-11-13T23:20:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/11/redmine-tokyo-15/</loc>
     <lastmod>2018-11-11T09:07:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/11/gitlab-disable-requests-to-the-local-network-from-hooks/</loc>
     <lastmod>2018-11-10T00:09:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/11/oracle-dblink-need-recreate/</loc>
     <lastmod>2018-11-09T00:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/10/vscode-live-share-over-proxy/</loc>
     <lastmod>2018-10-11T23:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/docker/</loc>
     <lastmod>2018-09-21T23:48:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/09/postgres-lc-collate/</loc>
     <lastmod>2018-09-21T23:48:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/postgres/</loc>
     <lastmod>2018-09-21T23:48:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/bash/</loc>
     <lastmod>2018-08-28T22:32:09+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/08/bash-exclusive-control/</loc>
     <lastmod>2018-08-28T22:32:09+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/08/dig-out-old-wiki-pages/</loc>
     <lastmod>2018-08-11T13:46:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/08/gitlab11-mattermost-configuration-changes/</loc>
     <lastmod>2018-08-06T06:30:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/github/</loc>
     <lastmod>2018-07-30T18:00:19+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/07/github-pages-with-custom-domain/</loc>
     <lastmod>2018-07-30T18:00:19+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/plantuml/</loc>
     <lastmod>2018-07-05T21:43:58+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/07/redmine-has-two-plantuml-plugins/</loc>
     <lastmod>2018-07-05T21:43:58+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/active-directory/</loc>
     <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/05/ad-1500-over-members/</loc>
     <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/ldap/</loc>
     <lastmod>2018-05-19T10:40:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/markdown/</loc>
     <lastmod>2018-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/02/markdown-link-reference-definition/</loc>
     <lastmod>2018-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2018/01/redmine-is-dead/</loc>
     <lastmod>2018-01-15T00:04:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/12/gitlab-10.3/</loc>
     <lastmod>2017-12-28T23:44:02+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/12/hugo-theme-whiteplain/</loc>
     <lastmod>2017-12-25T23:39:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/11/refresh-wsl-on-1709/</loc>
     <lastmod>2018-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/11/auto-deploy-hugo-by-circleci/</loc>
     <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/circle-ci/</loc>
     <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/series/hugo-%E6%A7%8B%E7%AF%89/</loc>
     <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/series/</loc>
     <lastmod>2017-11-01T22:23:47+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/10/build-site-by-hugo/</loc>
     <lastmod>2017-10-17T00:25:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/10/redmine-mermaid-macro-plugin/</loc>
     <lastmod>2017-10-15T22:56:54+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/jekyll/</loc>
     <lastmod>2017-10-13T00:30:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/10/jekyll-vs-hugo/</loc>
     <lastmod>2017-10-13T00:30:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/tags/html5/</loc>
     <lastmod>2017-10-02T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/10/doctype/</loc>
     <lastmod>2017-10-02T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/10/semantics/</loc>
     <lastmod>2017-10-01T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/posts/2017/09/posts-delete-merge-commit/</loc>
     <lastmod>2017-09-29T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/archives/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://taikii.net/about/</loc>
   </url>
-  
 </urlset>
