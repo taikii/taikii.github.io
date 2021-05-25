@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://taikii.net/posts/2018/07/github-pages-with-custom-domain/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.81.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -68,20 +68,17 @@
 <li>コンビニ払いができる（ただし、<a href="https://muumuu-domain.com/?mode=guide&amp;state=pay_howto">事務手数料が162円かかります</a>）</li>
 </ul>
 <p>基本的には流れのままに設定すればよいのですが、WHOIS設定は必ず「弊社情報代理公開」を選択します。じゃないと自分の個人情報がWHOISに載ってしまいます。また、ネームサーバは「ムームーＤＮＳ」を選択します。</p>
-<figure>
-    <img src="https://gyazo.com/18572fb205282d620ab5109d8d49bcbf/thumb/1000"/> 
+<figure><img src="https://gyazo.com/18572fb205282d620ab5109d8d49bcbf/thumb/1000"/>
 </figure>
 
 <p>その後、<a href="https://muumuu-domain.com/?mode=guide&amp;state=custom_setup">カスタム設定のセットアップ方法 | ムームードメイン</a>を参考にしてカスタム設定を行います。今回は、<a href="https://taikii.net/">https://taikii.net</a> にアクセスされると <a href="https://taikii.github.io/">https://taikii.github.io</a> に飛ばしたいため、以下のようにALIASレコードを設定します。</p>
-<figure>
-    <img src="https://gyazo.com/86bf24488c6dd41d8e228641626999a0/thumb/1000"/> 
+<figure><img src="https://gyazo.com/86bf24488c6dd41d8e228641626999a0/thumb/1000"/>
 </figure>
 
 <p>これでムームードメイン側の設定は完了です。</p>
 <h2 id="github側の設定">GitHub側の設定</h2>
 <p>GitHub PagesプロジェクトのSettingページにアクセスして、Custom domain項目に取得したドメインを入力します。ついでに<code>Enforce HTTPS</code>にチェックを入れてHTTPSを強制します。設定の反映まで少し時間がかかりますので、コーヒーでも淹れつつ待ちます。カスタムドメインのSSL証明書は<a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">Let&rsquo;s Encryptの証明書が自動的に発行・適用されます</a>。<a href="https://japan.cnet.com/article/35122977/">Chrome68で非暗号化サイトには警告が表示されるようになった</a>ので簡単にサイトをHTTPS化できるのはありがたい！</p>
-<figure>
-    <img src="https://gyazo.com/634355b2dde94ab6859e7ff8f772aaba/thumb/1000"/> 
+<figure><img src="https://gyazo.com/634355b2dde94ab6859e7ff8f772aaba/thumb/1000"/>
 </figure>
 
 <p>ブラウザで取得したドメインを開いて確認します。<code>Enforce HTTPS</code>を設定したので、<code>http://</code>にすると<code>https://</code>に飛ばされるはずです。</p>
@@ -127,19 +124,6 @@
     Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
   </div>
 </div>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-114764514-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 
 
 </body>

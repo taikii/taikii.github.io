@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:image" content="https://i.gyazo.com/7cea83183c243e5029c58e696f7bbf0d.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.81.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -62,8 +62,7 @@
       <p>先日、GitLab Omnibus packageを 10.7 から 11.1 にバージョンアップを行ったところ、<code>gitlab-ctl reconfigure</code> でコケてしまいました。その時は訳がわからず、とりあえず 10.7 に戻して事なきを得たんですが、後日よくよくログを確認するとしっかり理由が書いてありました。。。ログはちゃんと読もうね＞自分</p>
 <h3 id="原因">原因</h3>
 <p><code>gitlab-ctl reconfigure</code> がコケた原因は、11.0 で廃止されたMattermost系の設定が残っていた為でした。そうです、私はOmnibusにバンドルされているMattermostを使っているのです。これらの設定は <code>docker-compose.yml</code> 内でGitLabに環境変数として渡していたのですが、これらを削除することで無事バージョンアップできましたとさ。</p>
-<figure>
-    <img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png"/> 
+<figure><img src="https://i.gyazo.com/efb7dcdfbeb20efc24d58a13974a7752.png"/>
 </figure>
 
 <h3 id="mattermostの設定の廃止について">Mattermostの設定の廃止について</h3>
@@ -209,10 +208,10 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><code>gitlab.rb</code>  から <code>config.json</code> が生成されるタイミングは <code>gitlab-ctl reconfigure</code> するときです。<code>gitlab-ctl reconfigure</code> は、バージョンアップやコンテナの再作成、<code>gitlab.rb</code>を変更して適用する際に実行します（されます）。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>大文字で <code>MM_&lt;CATEGORY&gt;SETTINGS_&lt;ATTRIBUTE&gt;</code> といった感じ。 &ndash;  <a href="https://docs.mattermost.com/administration/config-settings.html">Configuration Settings — Mattermost 5.1 documentation</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -257,19 +256,6 @@
     Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
   </div>
 </div>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-114764514-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 
 
 </body>
