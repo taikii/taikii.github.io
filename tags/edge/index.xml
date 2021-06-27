@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Edge on taikii blog</title>
+    <link>https://taikii.net/tags/edge/</link>
+    <description>Recent content in Edge on taikii blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 taikii</copyright>
+    <lastBuildDate>Sun, 27 Jun 2021 17:36:04 +0900</lastBuildDate><atom:link href="https://taikii.net/tags/edge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft EdgeのIEモードについて調べてみた</title>
+      <link>https://taikii.net/posts/2021/06/edge-ie-mode/</link>
+      <pubDate>Sun, 27 Jun 2021 17:36:04 +0900</pubDate>
+      
+      <guid>https://taikii.net/posts/2021/06/edge-ie-mode/</guid>
+      <description>&lt;p&gt;Microsoft Edge (Chromium) の Internet Explorerモード（IEモード）について調べたことをまとめます。（&lt;a href=&#34;https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode&#34;&gt;Internet Explorer モードとは | Microsoft Docs&lt;/a&gt;）&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

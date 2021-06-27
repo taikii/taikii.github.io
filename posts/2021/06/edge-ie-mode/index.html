@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Microsoft EdgeのIEモードについて調べてみた - taikii blog</title>
+  <meta property="og:title" content="Microsoft EdgeのIEモードについて調べてみた - taikii blog" />
+  <meta name="twitter:title" content="Microsoft EdgeのIEモードについて調べてみた - taikii blog" />
+  <meta name="description" content="Microsoft Edge (Chromium) の Internet Explorerモード（IEモード）について調べたことをまとめます。（Internet Explorer モードとは | Microsoft Docs）">
+  <meta property="og:description" content="Microsoft Edge (Chromium) の Internet Explorerモード（IEモード）について調べたことをまとめます。（Internet Explorer モードとは | Microsoft Docs）">
+  <meta name="twitter:description" content="Microsoft Edge (Chromium) の Internet Explorerモード（IEモード）について調べたことをまとめます。（Internet Explorer モードとは | Microsoft Docs）">
+  <meta name="author" content="taikii"/>
+  <link rel='icon' type='image/x-icon' href="https://taikii.net/images/favicon.ico" />
+  <meta property="og:site_name" content="taikii blog" />
+  <meta property="og:url" content="https://taikii.net/posts/2021/06/edge-ie-mode/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">taikii blog</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Microsoft EdgeのIEモードについて調べてみた</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>June 27, 2021</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/edge/">
+            <i class="fas fa-tag"></i>
+            Edge
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>Microsoft Edge (Chromium) の Internet Explorerモード（IEモード）について調べたことをまとめます。（<a href="https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode">Internet Explorer モードとは | Microsoft Docs</a>）</p>
+<p>まず、</p>
+<ul>
+<li>IEモードはエンタープライズ向けの機能なので、Windows 10 Homeでは基本的に使えない。（レジストリいじれば使える？）</li>
+<li>IEモードを有効にするには、<a href="https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode-policies#enable-internet-explorer-integration-using-group-policy">まずグループポリシーを追加する必要がある</a>。</li>
+</ul>
+<p>です。</p>
+<p>IEモードに関して検索すると、よく「『その他のツール』から『Internet Explorerモードで再度読み込む』を選択」という記述を見ます。GPOを設定するとこのメニューが出てくるんじゃないかと思います。</p>
+<p>この『Internet Explorerモードで再度読み込む』をすると、そのタブはIEコンポーネントで動きます。この場合、どこをどう画面遷移しようとIEモードのままです。</p>
+<p>で、巷で言われている「IEを前提としたレガシーシステムが存在する場合はIEモードを使え」というのは、利用者自身が操作するこの『Internet Explorerモードで再度読み込む』機能のことではないです。</p>
+<p>Edgeはアクセスするサイトによって、「Edgeモード？（Chomium）」と「IEモード」を自動的に切り替えることができます。企業ではこの自動切り替えの機能を使って、社員に意識させずにIEモードを導入していくことになります。</p>
+<p>この自動切り替えのやりかたは大きく2つあります。ひとつは「エンタープライズモードサイトリストを作成してルールとして使う」、もうひとつは「ローカルイントラネットゾーンのサイトすべてをIEモードで開く」です。MSさんでは前者を推奨しています。そりゃそうですね、後者を選択してしまうとIEモードで開いてUIがぶっ壊れるシステムもでてくるでしょう（IEサポートしていないWebデザイン系のフレームワークも珍しくなくなったし）。
+（<a href="https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode-policies#redirect-sites-from-microsoft-edge-to-ie-mode">サイトを Microsoft Edge から IE モードにリダイレクトする</a>）</p>
+<p>前者の「エンタープライズモードサイトリスト」とは、エンタープライズモード…つまり「互換表示」で表示するサイトを指定するためのXMLファイルです。フォーマットが同じというだけで、エンタープライズモードを指定するファイルと別でもいいみたいです。すでにエンタープライズモードサイトリストを導入している場合は、流用できるメリットがありそうです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;site-list</span> <span class="na">version=</span><span class="s">&#34;1&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;site</span> <span class="na">url=</span><span class="s">&#34;example.com&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;open-in&gt;</span>IE11<span class="nt">&lt;/open-in&gt;</span>
+  <span class="nt">&lt;/site&gt;</span>
+<span class="nt">&lt;/site-list&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>このスキーマ定義は <a href="https://docs.microsoft.com/ja-jp/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance">エンタープライズ モード スキーマ v.2 ガイダンス</a> に解説があります。また、GUIで編集する <a href="https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode-site-list-manager">Enterprise Site List Manager</a> というツールもあります。注意点として、ガイダンスにもある通り以下がハマりどころです。</p>
+<blockquote>
+<ul>
+<li>プロトコルは使用しないでください。 たとえば、http://、https://、またはカスタム プロトコルです。 これらによって解析が中断されます。</li>
+<li>ワイルドカードは使用しないでください。</li>
+<li>クエリ文字列は使用しないでください。アンパサンドによって解析が中断されます。</li>
+</ul>
+</blockquote>
+<p>エンタープライズモードサイトリストに含まれるサイトと、含まれないサイトを行き来すると、IEモードとEdgeモードがパチパチ切り替わります。リストに含まれるサイトからリストに含まれないサイトに移動した際に自動的にEdgeモードに戻らないように設定することもできますが、これは推奨されていません。（<a href="https://docs.microsoft.com/ja-jp/deployedge/edge-learnmore-inpage-nav">Internet Explorer モードでページ内ナビゲーションを保持する</a>）</p>
+<p>IEモードとEdgeモードは内部的には別のブラウザなのですが、サイトリストに設定をすることによってCookieの共有をすることもできます。<a href="https://docs.microsoft.com/ja-jp/deployedge/edge-ie-mode-add-guidance-cookieshare">Microsoft Edge から Internet Explorer への Cookie の共有 | Microsoft Docs</a> にある通り、Edge→IEモードへの向きの共有のみであり、逆向きに共有はできません。また、共有できるCookieはオンセッションのCookieのみです。</p>
+<p>しかし、Edgeから渡されるCookieは「インターネットゾーン」として判断される（か、「保護モード」の対象になる）ようで、Cookieを渡したいIEモード側のサイトが「信頼済みサイトゾーン」である場合（たぶん「ローカルイントラネットゾーン」も）、Cookieを共有することができません。Edgeにはゾーンの概念がないのでしょうがないです。</p>
+<p>SSOの認証サーバから発行される認証Cookieを例にとると、以下のような感じになります。SSOの製品によって多少違ったりすると思います。</p>
+<ol>
+<li>IEモード対象の WebアプリケーションA （信頼済みサイト）にアクセスする</li>
+<li>認証されていないので、認証サーバの認証画面が表示や認証画面へのリダイレクトがされる</li>
+<li>認証画面はIEモード対象外なのでEdgeモードで認証画面が表示される</li>
+<li>ログインする（EdgeにCookieが保存される）</li>
+<li>最初の WebアプリケーションA を表示しようとするが、認証Cookieが共有されていないので、認証画面が表示や認証画面へのリダイレクトしようとする</li>
+<li>Edgeモードで認証画面が表示しようとするが、認証済みなので5にもどる</li>
+</ol>
+<p>WebアプリケーションA にフォーカスすると、認証画面もIEモードの対象にしてやれば解決します。しかし、同じSSOを使用し、Edgeモードで動作する別の WebアプリケーションB がある場合、認証画面をIEモードに入れてしまうとIEモード→EdgeモードのCookieの共有はされないので、今度は WebアプリケーションB で上の事象が発生することになります。</p>
+<p>この問題を解決するために、直前のブラウザモードに従う「ニュートラル」という設定を使用します。認証画面を「ニュートラル」に登録しておけば、IEモードでもEdgeモードそれぞれで認証画面を表示することができます。ニュートラルは <code>&lt;open-in&gt;None&lt;/open-in&gt;</code> のように指定します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;site-list</span> <span class="na">version=</span><span class="s">&#34;1&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;site</span> <span class="na">url=</span><span class="s">&#34;example.com&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;open-in&gt;</span>IE11<span class="nt">&lt;/open-in&gt;</span>
+  <span class="nt">&lt;/site&gt;</span>
+  <span class="nt">&lt;site</span> <span class="na">url=</span><span class="s">&#34;login.example.com&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;open-in&gt;</span>None<span class="nt">&lt;/open-in&gt;</span>
+  <span class="nt">&lt;/site&gt;</span>
+<span class="nt">&lt;/site-list&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ここまで書いといてあれですが、ほぼ <a href="https://jpdsi.github.io/blog/internet-explorer-microsoft-edge/ie-mode-faq/#%E8%AA%8D%E8%A8%BC%E3%81%8C%E3%81%86%E3%81%BE%E3%81%8F%E3%81%84%E3%81%8B%E3%81%AA%E3%81%84%E3%82%B1%E3%83%BC%E3%82%B9">認証がうまくいかないケース - IE モードのよくあるご質問 | Japan Developer Support Internet Team Blog</a> の丸写しです。当たり前ですがMSさんの記事のほうがより詳しく書かれています。</p>
+<p>このIEモード、よくできてますが、利用者の意識しないところでパチパチ切り替わるので、そのへんがトラブルにつながる気はします。
+MSさんの戦略もわかるけど、デスクトップアプリとして分離していたほうが利用者のサポートはしやすかっただろうと思います。</p>
+<p>とはいえ、IEモードは本当に延命措置と考えて、IEでしか動かないレガシーアプリを抱えている場合はすぐにでもリプレースに走り出すべきだと私は思います。MSさんはIEモードを2029年までサポートすると言っていますが、それまでフル機能がサポートされるとは限りません。もしかして、Windows 11 のEdgeはIEモードなかったりして？
+また、非推奨の設定を使うことも極力避けたほうがいいと思います。私は「作成者が意図したように使う、アクロバティックな使い方をしない」が信条です。非推奨の設定を使うと後々つらい思いをすることになる気がします。</p>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://taikii.net/posts/2021/06/edge-ie-mode/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Microsoft%20Edge%e3%81%aeIE%e3%83%a2%e3%83%bc%e3%83%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e8%aa%bf%e3%81%b9%e3%81%a6%e3%81%bf%e3%81%9f%20-%20taikii%20blog&amp;url=https://taikii.net/posts/2021/06/edge-ie-mode/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/2021/06/delete-google-analytics/" data-toggle="tooltip" data-placement="top" title="Google Analyticsを削除しました">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 taikii</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+
+</body>
+</html>
